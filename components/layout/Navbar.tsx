@@ -145,27 +145,6 @@ export const Navbar: React.FC = () => {
     return () => observer.disconnect();
   }, [pathname]);
 
-  // Scroll to section smoothly on Homepage instead of page redirect
-  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
-    if (pathname === "/") {
-      const targetId = 
-        label.toLowerCase() === "home" ? "hero" :
-        label.toLowerCase() === "about" ? "about" :
-        label.toLowerCase() === "services" ? "services" :
-        label.toLowerCase() === "products" ? "products" :
-        label.toLowerCase() === "industries" ? "industries" : null;
-      
-      if (targetId) {
-        const element = document.getElementById(targetId);
-        if (element) {
-          e.preventDefault();
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-          setActiveDropdown(null);
-          setMobileOpen(false);
-        }
-      }
-    }
-  };
 
   return (
     <>
@@ -224,7 +203,6 @@ export const Navbar: React.FC = () => {
                   >
                         <Link
                           href={item.href}
-                          onClick={(e) => handleNavLinkClick(e, item.href, item.label)}
                           className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] font-800 tracking-wider uppercase transition-all duration-300 ${
                             isActive
                               ? "bg-white/10 text-white"
@@ -412,10 +390,7 @@ export const Navbar: React.FC = () => {
                         className={`flex items-center py-3 px-4 rounded-xl text-slate-200 font-800 text-lg hover:bg-white/5 transition-colors ${
                           isCurrentActive ? "text-blue-400 bg-blue-500/10" : ""
                         }`}
-                        onClick={(e) => {
-                          handleNavLinkClick(e, item.href, item.label);
-                          setMobileOpen(false);
-                        }}
+                        onClick={() => setMobileOpen(false)}
                       >
                         {item.label}
                       </Link>
