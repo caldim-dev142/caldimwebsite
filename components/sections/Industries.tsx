@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   Factory, Car, TrendingUp, ShoppingBag, Package, 
-  ArrowRight, Terminal, Cpu, ShieldAlert, CheckCircle2, 
-  Activity, RefreshCw 
+  ArrowRight, Terminal, Activity 
 } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
 
@@ -14,12 +13,12 @@ interface IndustryData {
   id: string;
   icon: React.ElementType;
   title: string;
-  headline: string;
   description: string;
   href: string;
   accent: string;
-  metrics: { label: string; value: string; detail: string; alert?: boolean }[];
-  command: string;
+  metricLabel: string;
+  metricValue: string;
+  metricDetail: string;
   svgVisual: (color: string) => React.ReactNode;
 }
 
@@ -28,27 +27,23 @@ const industriesList: IndustryData[] = [
     id: "manufacturing",
     icon: Factory,
     title: "Manufacturing",
-    headline: "Factory Floor Digitalization & OEE Monitoring",
-    description: "Real-time Overall Equipment Effectiveness (OEE) dashboards, automated machine telemetry collection, and predictive maintenance anomaly alerts.",
+    description: "Real-time Overall Equipment Effectiveness (OEE) tracking dashboards, automated machine metrics collection, and predictive maintenance alerts.",
     href: "/industries#manufacturing",
     accent: "#3b82f6", // Blue
-    command: "caldim_sys --mode=factory --monitor=oee",
-    metrics: [
-      { label: "Plant OEE Status", value: "89.4%", detail: "+1.2% this shift" },
-      { label: "Assembly Line Speed", value: "42.5 m/m", detail: "Optimal pace" },
-      { label: "Predictive Anomaly", value: "NOMINAL", detail: "0 active alerts" }
-    ],
+    metricLabel: "Plant OEE Status",
+    metricValue: "89.4%",
+    metricDetail: "Optimal rate",
     svgVisual: (color) => (
-      <svg viewBox="0 0 200 80" className="w-full h-16">
+      <svg viewBox="0 0 200 60" className="w-full h-10">
         <path
-          d="M0,50 L30,50 L40,20 L50,60 L60,35 L70,50 L110,50 L120,10 L130,70 L140,40 L150,50 L200,50"
+          d="M0,40 L30,40 L40,15 L50,45 L60,25 L70,40 L110,40 L120,5 L130,55 L140,30 L150,40 L200,40"
           fill="none"
           stroke={color}
-          strokeWidth="2"
+          strokeWidth="1.5"
           strokeLinecap="round"
         />
-        <circle cx="120" cy="10" r="3" fill="#ef4444" className="animate-ping" />
-        <circle cx="120" cy="10" r="3" fill="#ef4444" />
+        <circle cx="120" cy="5" r="2.5" fill="#ef4444" className="animate-ping" />
+        <circle cx="120" cy="5" r="2.5" fill="#ef4444" />
       </svg>
     )
   },
@@ -56,25 +51,20 @@ const industriesList: IndustryData[] = [
     id: "automotive",
     icon: Car,
     title: "Automotive",
-    headline: "OEM Supply Chain & Dealer Fulfillment",
-    description: "Multi-tier spare parts inventory catalogs, automatic dealer order fulfillment synchronizations, and vehicle build phase tracking pipelines.",
+    description: "Multi-tier spare parts inventory catalogs, automatic dealer order fulfillment updates, and vehicle build phase tracking pipelines.",
     href: "/industries#automotive",
     accent: "#8b5cf6", // Purple
-    command: "caldim_sys --mode=oem --track=vin-pipeline",
-    metrics: [
-      { label: "VIN Build Rate", value: "128/day", detail: "Shift quota met" },
-      { label: "Fulfillment SLA", value: "98.9%", detail: "2-hour dispatch limit" },
-      { label: "Active Suppliers", value: "48 Nodes", detail: "Database synced" }
-    ],
+    metricLabel: "VIN Build Rate",
+    metricValue: "128/day",
+    metricDetail: "Shift quota met",
     svgVisual: (color) => (
-      <svg viewBox="0 0 200 80" className="w-full h-16">
-        <rect x="10" y="25" width="25" height="30" rx="3" fill="none" stroke={color} strokeWidth="1.5" />
-        <rect x="50" y="25" width="25" height="30" rx="3" fill="none" stroke={color} strokeWidth="1.5" />
-        <rect x="90" y="25" width="25" height="30" rx="3" fill="none" stroke={color} strokeWidth="1.5" />
-        <rect x="130" y="25" width="25" height="30" rx="3" fill="none" stroke={color} strokeWidth="1.5" />
-        <path d="M35,40 L50,40 M75,40 L90,40 M115,40 L130,40" stroke={color} strokeWidth="2" strokeDasharray="4 2" />
-        <circle cx="50" cy="40" r="2" fill={color} className="animate-pulse" />
-        <circle cx="90" cy="40" r="2" fill={color} className="animate-pulse" />
+      <svg viewBox="0 0 200 60" className="w-full h-10">
+        <rect x="25" y="15" width="20" height="25" rx="2" fill="none" stroke={color} strokeWidth="1.5" />
+        <rect x="75" y="15" width="20" height="25" rx="2" fill="none" stroke={color} strokeWidth="1.5" />
+        <rect x="125" y="15" width="20" height="25" rx="2" fill="none" stroke={color} strokeWidth="1.5" />
+        <path d="M45,28 L75,28 M95,28 L125,28" stroke={color} strokeWidth="1.5" strokeDasharray="3 2" />
+        <circle cx="45" cy="28" r="1.5" fill={color} className="animate-pulse" />
+        <circle cx="95" cy="28" r="1.5" fill={color} className="animate-pulse" />
       </svg>
     )
   },
@@ -82,26 +72,22 @@ const industriesList: IndustryData[] = [
     id: "finance",
     icon: TrendingUp,
     title: "Finance",
-    headline: "Fintech API Bridges & Audit trail Ledgers",
     description: "Sub-second banking API integrations, automated transaction reconciliation ledgers, and secure, tamper-proof audit trails for reporting.",
     href: "/industries#finance",
     accent: "#06b6d4", // Cyan
-    command: "caldim_sys --mode=fintech --ledger=sync-validate",
-    metrics: [
-      { label: "Validate Rate", value: "1,450 tx/s", detail: "Peak load latency: 12ms" },
-      { label: "Audit Match", value: "100%", detail: "Perfect ledger sync" },
-      { label: "TLS Integrity", value: "SECURE", detail: "AES-256 standard active" }
-    ],
+    metricLabel: "Reconciled Rate",
+    metricValue: "1,450 tx/s",
+    metricDetail: "Latency: 12ms",
     svgVisual: (color) => (
-      <svg viewBox="0 0 200 80" className="w-full h-16">
+      <svg viewBox="0 0 200 60" className="w-full h-10">
         <path
-          d="M0,70 L20,65 L40,55 L60,58 L80,40 L100,45 L120,25 L140,30 L160,10 L180,15 L200,5"
+          d="M0,50 L20,45 L40,35 L60,38 L80,20 L100,25 L120,10 L140,15 L160,3 L180,5 L200,1"
           fill="none"
           stroke={color}
-          strokeWidth="2"
+          strokeWidth="1.5"
           strokeLinecap="round"
         />
-        <circle cx="160" cy="10" r="3.5" fill={color} />
+        <circle cx="160" cy="3" r="2.5" fill={color} />
       </svg>
     )
   },
@@ -109,22 +95,18 @@ const industriesList: IndustryData[] = [
     id: "retail",
     icon: ShoppingBag,
     title: "Retail",
-    headline: "Omnichannel Stocks & POS Sync Engine",
-    description: "Unified inventory databases syncing store stock points and e-commerce carts dynamically, with automated low-stock dispatch prompts.",
+    description: "Unified inventory databases syncing store stock points and e-commerce carts dynamically, with automated low-stock prompts.",
     href: "/industries#retail",
     accent: "#ec4899", // Pink
-    command: "caldim_sys --mode=retail --sync=pos-stocks",
-    metrics: [
-      { label: "Synced Registers", value: "85 POS", detail: "Real-time processing active" },
-      { label: "Stock Accuracy", value: "99.98%", detail: "Automated audit logs match" },
-      { label: "Alert Limit", value: "8 SKU Alert", detail: "Low stock flag raised" }
-    ],
+    metricLabel: "Stock Syncs",
+    metricValue: "99.98%",
+    metricDetail: "85 registers live",
     svgVisual: (color) => (
-      <svg viewBox="0 0 200 80" className="w-full h-16">
-        <circle cx="30" cy="40" r="15" fill="none" stroke={color} strokeWidth="1.5" />
-        <circle cx="80" cy="40" r="15" fill="none" stroke={color} strokeWidth="1.5" />
-        <circle cx="130" cy="40" r="15" fill="none" stroke={color} strokeWidth="1.5" />
-        <path d="M45,40 L65,40 M95,40 L115,40" stroke={color} strokeWidth="1.5" />
+      <svg viewBox="0 0 200 60" className="w-full h-10">
+        <circle cx="35" cy="30" r="12" fill="none" stroke={color} strokeWidth="1.2" />
+        <circle cx="85" cy="30" r="12" fill="none" stroke={color} strokeWidth="1.2" />
+        <circle cx="135" cy="30" r="12" fill="none" stroke={color} strokeWidth="1.2" />
+        <path d="M47,30 L73,30 M97,30 L123,30" stroke={color} strokeWidth="1.2" />
       </svg>
     )
   },
@@ -132,49 +114,37 @@ const industriesList: IndustryData[] = [
     id: "logistics",
     icon: Package,
     title: "Logistics",
-    headline: "Smart Dispatch & Geofenced Fleet Tracking",
-    description: "Real-time truck telemetry maps, optimized automated vehicle route generation, and instant geofenced warehouse intake warnings.",
+    description: "Real-time truck telemetry maps, optimized automated vehicle route generation, and instant geofenced warehouse warnings.",
     href: "/industries#logistics",
     accent: "#10b981", // Emerald
-    command: "caldim_sys --mode=logistics --track=fleet-gps",
-    metrics: [
-      { label: "Active Trucks", value: "142 Vehicles", detail: "Geofence links alive" },
-      { label: "Routing Efficiency", value: "+14.2%", detail: "Fuel & drive-time saved" },
-      { label: "ETA Window SLA", value: "96.4%", detail: "Optimal arrival compliance" }
-    ],
+    metricLabel: "Active Trucks",
+    metricValue: "142 Nodes",
+    metricDetail: "ETA window 96%",
     svgVisual: (color) => (
-      <svg viewBox="0 0 200 80" className="w-full h-16">
+      <svg viewBox="0 0 200 60" className="w-full h-10">
         <path
-          d="M10,10 L40,10 L70,40 L120,40 L150,10 L190,10"
+          d="M15,10 L45,10 L75,40 L125,40 L155,10 L185,10"
           fill="none"
           stroke={color}
-          strokeWidth="1.5"
-          strokeDasharray="4 3"
+          strokeWidth="1.2"
+          strokeDasharray="3 2"
         />
-        <circle cx="70" cy="40" r="4" fill={color} />
-        <circle cx="120" cy="40" r="4" fill={color} />
+        <circle cx="75" cy="40" r="3" fill={color} />
+        <circle cx="125" cy="40" r="3" fill={color} />
       </svg>
     )
   }
 ];
 
 export const IndustriesSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("manufacturing");
-  const activeIndustry = industriesList.find((ind) => ind.id === activeTab) || industriesList[0];
-  const ActiveIcon = activeIndustry.icon;
-
   return (
     <section 
       id="industries" 
       className="py-24 bg-slate-950 text-white relative overflow-hidden border-b border-slate-900"
       aria-labelledby="industries-heading"
     >
-      {/* Dynamic Ambient Background Glow */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[130px] opacity-10 pointer-events-none transition-all duration-700 ease-in-out"
-        style={{ backgroundColor: activeIndustry.accent }}
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      {/* Faint Technical Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none opacity-40" />
 
       <div className="container-wide relative z-10">
         
@@ -187,161 +157,94 @@ export const IndustriesSection: React.FC = () => {
             Built for Industrial Complexity
           </h2>
           <p className="text-slate-400 font-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Every module is tailored to sync your physical operations with secure, enterprise-grade cloud systems. Select an industry to inspect its live status model.
+            Every module is tailored to sync your physical operations with secure, enterprise-grade cloud systems.
           </p>
         </FadeUp>
 
-        {/* 12-Column Console Layout */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column (5 Cols): Vertical Selection Tabs */}
-          <div className="lg:col-span-5 flex flex-col gap-2 relative">
-            <div className="absolute left-[22px] top-4 bottom-4 w-px bg-slate-800" />
-
-            {industriesList.map((ind) => {
-              const Icon = ind.icon;
-              const isActive = ind.id === activeTab;
-              return (
-                <div
-                  key={ind.id}
-                  onMouseEnter={() => setActiveTab(ind.id)}
-                  onClick={() => setActiveTab(ind.id)}
-                  className="relative cursor-pointer group py-4.5 pl-16 pr-6 rounded-2xl transition-all duration-300 select-none"
+        {/* 5-Column Grid of High-Tech Terminal Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {industriesList.map((ind, i) => {
+            const Icon = ind.icon;
+            return (
+              <motion.div
+                key={ind.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="h-full"
+              >
+                <Link
+                  href={ind.href}
+                  className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.07] bg-[#070e1e]/60 hover:bg-[#070e1e]/90 hover:border-blue-500/80 transition-all duration-500 overflow-hidden min-h-[440px] p-6 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer h-full"
+                  style={{
+                    // Standard tailwind hover border handled dynamically
+                  }}
+                  id={`industry-card-${ind.id}`}
                 >
-                  {/* Glowing active node dot */}
+                  {/* Soft Background Neon Light Spot on Hover */}
                   <div 
-                    className="absolute left-[17px] top-[24px] w-2.5 h-2.5 rounded-full transition-all duration-500 z-10" 
-                    style={{ 
-                      backgroundColor: isActive ? ind.accent : '#334155',
-                      boxShadow: isActive ? `0 0 14px ${ind.accent}` : 'none',
-                      transform: isActive ? 'scale(1.2)' : 'scale(1)'
-                    }} 
+                    className="absolute -top-24 -left-24 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                    style={{ backgroundColor: ind.accent }}
                   />
 
-                  {/* Glass Card Background */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeIndustryCard"
-                      className="absolute inset-0 bg-white/[0.03] border border-white/[0.07] rounded-2xl shadow-xl"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-
-                  <div className="relative z-10 flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-slate-900/80 border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
-                      <Icon size={18} style={{ color: isActive ? ind.accent : undefined }} />
+                  {/* Card Terminal Header */}
+                  <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/5">
+                    <div className="flex items-center gap-1.5 text-[9px] font-mono text-slate-500 tracking-wider">
+                      <Terminal size={10} />
+                      <span>{ind.id}.sys</span>
                     </div>
-                    <div>
-                      <h3 className={`text-lg font-900 transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
-                        {ind.title}
-                      </h3>
-                      <p className="text-slate-500 font-600 text-xs mt-0.5 group-hover:text-slate-450 transition-colors">
-                        Operational Dashboard Mode
-                      </p>
+                    <div className="flex items-center gap-1 text-[9px] font-mono font-700" style={{ color: ind.accent }}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                      <span>LIVE</span>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
 
-          {/* Right Column (7 Cols): Dynamic Console Terminal Display */}
-          <div className="lg:col-span-7 sticky top-28">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndustry.id}
-                initial={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 1.02, filter: "blur(8px)" }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="rounded-3xl border border-white/[0.08] bg-[#070e1e] overflow-hidden shadow-2xl min-h-[460px] flex flex-col relative"
-              >
-                {/* Simulated browser header */}
-                <div className="h-10 bg-[#040812] border-b border-white/5 flex items-center px-4 justify-between">
-                  <div className="flex gap-1.5 shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-700/50" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-700/50" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-700/50" />
-                  </div>
-                  <div className="mx-auto text-[10px] font-mono text-slate-500 tracking-widest uppercase flex items-center gap-2">
-                    <Terminal size={12} className="text-slate-400" />
-                    <span>{activeIndustry.command}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-emerald-500 text-[10px] font-mono font-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>LIVE</span>
-                  </div>
-                </div>
-
-                {/* Cyber Grid Pattern Background */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
-
-                {/* Dashboard content */}
-                <div className="p-8 md:p-10 flex-1 flex flex-col justify-between relative z-10">
-                  
-                  {/* Top: Description & Head */}
-                  <div>
-                    <div className="flex items-center gap-3.5 mb-5">
-                      <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center border"
-                        style={{ 
-                          backgroundColor: `${activeIndustry.accent}15`, 
-                          borderColor: `${activeIndustry.accent}30`,
-                          boxShadow: `0 0 20px ${activeIndustry.accent}15`
-                        }}
-                      >
-                        <ActiveIcon size={22} style={{ color: activeIndustry.accent }} />
-                      </div>
-                      <h4 className="text-xl md:text-2xl font-900 text-white tracking-tight">
-                        {activeIndustry.headline}
-                      </h4>
+                  {/* Icon, Title, and Description */}
+                  <div className="mb-4 flex-1">
+                    <div 
+                      className="w-10 h-10 rounded-xl flex items-center justify-center border mb-4 group-hover:scale-105 transition-transform duration-300"
+                      style={{ 
+                        backgroundColor: `${ind.accent}12`, 
+                        borderColor: `${ind.accent}20` 
+                      }}
+                    >
+                      <Icon size={18} style={{ color: ind.accent }} />
                     </div>
-
-                    <p className="text-slate-400 font-500 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
-                      {activeIndustry.description}
+                    <h3 className="text-lg font-900 text-white mb-2 group-hover:text-blue-300 transition-colors">
+                      {ind.title}
+                    </h3>
+                    <p className="text-slate-400 font-600 text-xs leading-relaxed min-h-[90px]">
+                      {ind.description}
                     </p>
                   </div>
 
-                  {/* Middle: Live SVG Graph visualization */}
-                  <div className="mb-8 p-4 rounded-2xl bg-slate-900/60 border border-white/5 flex flex-col justify-center min-h-[90px] relative overflow-hidden">
-                    <div className="absolute top-2 left-3 flex items-center gap-1.5 text-[9px] font-mono text-slate-500 uppercase tracking-widest">
-                      <Activity size={10} /> Active Pipeline Telemetry
+                  {/* Dynamic Sparkline Visual */}
+                  <div className="my-4 p-3 rounded-xl bg-slate-950 border border-white/5 flex flex-col justify-center min-h-[60px] relative overflow-hidden">
+                    <div className="absolute top-1.5 left-2 flex items-center gap-1 text-[8px] font-mono text-slate-600 uppercase tracking-widest">
+                      <Activity size={8} /> Signal Profile
                     </div>
-                    {activeIndustry.svgVisual(activeIndustry.accent)}
+                    <div className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 scale-95 mt-2">
+                      {ind.svgVisual(ind.accent)}
+                    </div>
                   </div>
 
-                  {/* Bottom: Metrics Grid & CTA */}
-                  <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                    <div className="grid grid-cols-3 gap-3 flex-1">
-                      {activeIndustry.metrics.map((met) => (
-                        <div key={met.label} className="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-left">
-                          <div className="text-[9px] font-mono text-slate-500 uppercase tracking-wider mb-1">{met.label}</div>
-                          <div className="text-sm font-950 text-white leading-none mb-1 flex items-center gap-1.5">
-                            {met.alert && <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />}
-                            <span>{met.value}</span>
-                          </div>
-                          <div className="text-[10px] text-slate-400 font-500 leading-tight">{met.detail}</div>
-                        </div>
-                      ))}
+                  {/* Metrics Row */}
+                  <div className="mt-2 pt-4 border-t border-white/5 flex items-center justify-between">
+                    <div className="text-left">
+                      <div className="text-[8px] font-mono text-slate-500 uppercase tracking-wider">{ind.metricLabel}</div>
+                      <div className="text-sm font-950 text-white">{ind.metricValue}</div>
+                      <div className="text-[9px] text-slate-500 font-500 mt-0.5">{ind.metricDetail}</div>
                     </div>
-
-                    <Link 
-                      href={activeIndustry.href}
-                      className="px-5 py-3 rounded-xl text-white font-800 text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shrink-0 group/btn"
-                      style={{ backgroundColor: activeIndustry.accent }}
-                    >
-                      <span>Explore Case Studies</span>
-                      <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
+                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                    </div>
                   </div>
 
-                </div>
-
+                </Link>
               </motion.div>
-            </AnimatePresence>
-          </div>
-
+            );
+          })}
         </div>
 
       </div>

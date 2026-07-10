@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 177,
-    "/about": 83,
-    "/services": 69,
-    "/products": 65,
+    "/": 179,
+    "/about": 84,
+    "/services": 70,
+    "/products": 66,
     "/products/caltims": 33,
     "/contact": 56,
-    "/industries": 58,
+    "/industries": 59,
     "/privacy": 2,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -20,36 +20,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-09T09:20:49.675Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-09T09:20:51.691Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-09T09:31:55.415Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-09T09:32:02.159Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-09T09:46:42.904Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-09T09:47:41.584Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
     {
       "timestamp": "2026-07-09T09:48:28.394Z",
       "action": "Page View",
@@ -517,6 +487,36 @@
     },
     {
       "timestamp": "2026-07-10T03:53:03.693Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:07.613Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:15.970Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:23.648Z",
+      "action": "Page View",
+      "details": "/services"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:30.516Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:38.928Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-10T04:01:48.160Z",
       "action": "Page View",
       "details": "/"
     }
