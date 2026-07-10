@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
     setActiveDropdown(null);
   }, [pathname]);
 
-  // Scroll Spy Observer logic
+  // Scroll Spy logic based on exact window scroll position
   useEffect(() => {
     if (pathname !== "/") {
       setActiveSection(null);
@@ -115,34 +115,38 @@ export const Navbar: React.FC = () => {
     }
 
     const sections = ["about", "services", "products", "industries"];
-    const observerOptions = {
-      root: null,
-      rootMargin: "-25% 0px -55% 0px", // triggers in the viewport middle
-      threshold: 0.1,
-    };
+    
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // Trigger when section reaches top 1/3 of viewport
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          if (id) {
-            setActiveSection(id);
+      let currentSection = "";
+      
+      const heroElement = document.getElementById("hero");
+      if (heroElement && scrollPosition >= heroElement.offsetTop) {
+        currentSection = "hero";
+      }
+
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentSection = id;
           }
         }
       });
+
+      setActiveSection(currentSection);
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    // Run an initial check on mount
+    handleScrollSpy();
 
-    const heroElement = document.getElementById("hero");
-    if (heroElement) observer.observe(heroElement);
-
-    sections.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", handleScrollSpy);
+    };
   }, [pathname]);
 
 
