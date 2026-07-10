@@ -49,19 +49,19 @@ const products: ProductItem[] = [
   {
     id: "calrims",
     name: "CALRIMS",
-    category: "Resource & Inventory",
-    description: "Track inventory materials, production batch inputs, and equipment parameters. Features secure database schemas and visual status widgets tailored for high-speed plant floor operators and warehouse managers.",
+    category: "Recruitment Intelligence",
+    description: "An end-to-end hiring platform that automates the full candidate journey — from application ingestion and candidate screening to interviews, offer management, and onboarding.",
     icon: Package,
     status: "coming-soon",
     color: "#8B5CF6",
-    videoTagline: "Watch Real-Time Plant Floor Tracking & Batch Feed",
-    mediaTitle: "Inventory & Batch Telemetry Grid",
-    architectureHighlight: "Industrial RFID & barcode telemetry synchronization over WebSocket pipelines.",
+    videoTagline: "Watch Candidate Resume Parsing & Automated Voice Interview Demo",
+    mediaTitle: "Recruitment Pipeline & Auto-Screening Dashboard",
+    architectureHighlight: "Encrypted resume parsing with adaptive AI candidate evaluation nodes.",
     metrics: [
-      "Full Production Batch & Material Traceability",
-      "Live Floor Stock Threshold Alarms & Reorders",
-      "Zero Material Waste & Scrap Logging Matrix",
-      "Plant Floor Visual Status Dashboards"
+      "Automated Candidate Ingestion & Resume Parsing",
+      "Interactive Voice & Text Interview Screenings",
+      "Visual Kanban Pipeline & Stage Enforcement Policies",
+      "Self-Service Digital Onboarding & Document Signatures"
     ]
   },
   {

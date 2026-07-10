@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-2.5">
               <a href="mailto:support@caldimengg.in" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
                 <Mail size={14} className="text-[var(--accent-light)] shrink-0" />
-                support@caldimengg.in
+                salesandsupport@caldimengg.in
               </a>
               <a href="tel:+91" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
                 <Phone size={14} className="text-[var(--accent-light)] shrink-0" />
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Link columns */}
+          {/* Link columns */} 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="lg:col-span-1">
               <h3 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">{category}</h3>

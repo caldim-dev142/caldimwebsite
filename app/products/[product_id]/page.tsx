@@ -18,23 +18,71 @@ interface ProductInfo {
   icon: any;
   color: string;
   capabilities: string[];
+  features?: { title: string; desc: string }[];
+  whyChoose?: { title: string; desc: string }[];
 }
 
 const productsData: Record<string, ProductInfo> = {
   calrims: {
     id: "calrims",
     name: "CALRIMS",
-    category: "Resource & Inventory",
-    tagline: "Precision Resource & Inventory Management System",
-    description: "CALRIMS is engineered to track factory materials, production batch inputs, and equipment configurations in real time. We are currently implementing custom schema designs and responsive dashboards tailored for plant floor operators.",
+    category: "Recruitment",
+    tagline: "Smarter Recruitment. Better Decisions. Stronger Teams.",
+    description: "CAL-RIMS replaces fragmented hiring pipelines with a unified platform that manages every step of the hiring journey in one place. By automating administrative tasks and offering structured evaluation pathways, CAL-RIMS helps talent acquisition teams spend less time on paperwork and more time engaging the right candidates.",
     icon: Package,
     color: "#8B5CF6",
     capabilities: [
-      "Real-time Raw Material logging",
-      "Production Batch input trackers",
-      "Equipment Parameter threshold logs",
-      "Low stock alert triggers",
-      "Visual status reporting widgets"
+      "Automated Candidate Sourcing",
+      "Intelligent Resume Screening",
+      "Interactive Virtual Interviews",
+      "Visual Candidate Pipeline",
+      "Visual Offer Management",
+      "Digital Onboarding Workflow",
+      "Recruitment Analytics & Insights"
+    ],
+    features: [
+      {
+        title: "Automated Candidate Sourcing",
+        desc: "Syncs with dedicated hiring mailboxes to automatically ingest incoming applications. Resumes land in a single visual pipeline, ready to be reviewed instantly."
+      },
+      {
+        title: "Intelligent Resume Screening",
+        desc: "Scans and parses resumes automatically to extract candidate skills, work history, and education, assigning an automated fit-score relative to the job requirements."
+      },
+      {
+        title: "Interactive Virtual Interviews",
+        desc: "Conducts adaptive voice and text interviews that prompt candidates with relevant questions and evaluate responses in real-time, providing immediate feedback on communication and core competency."
+      },
+      {
+        title: "Visual Candidate Pipeline",
+        desc: "Displays hiring progress in a clean Kanban board. Every stage transition is guided to keep evaluations consistent and aligned with organizational policies."
+      },
+      {
+        title: "Visual Offer Management",
+        desc: "Enables HR teams to design offer letters using an interactive editor, generate official documents, and host a secure portal where candidates can review and accept their offers digitally."
+      },
+      {
+        title: "Digital Onboarding Workflow",
+        desc: "Guides new hires from the moment they accept their offer. Supports self-service photo capture, automated corporate ID card creation, and electronic signing of joining confirmations."
+      }
+    ],
+    whyChoose: [
+      {
+        title: "Faster Hiring Cycles",
+        desc: "Streamlines applicant screening and interview scheduling to close roles quickly."
+      },
+      {
+        title: "Reduced HR Workload",
+        desc: "Eliminates repetitive data entry, scheduling coordination, and manual email follow-ups."
+      },
+      {
+        title: "Consistent Evaluations",
+        desc: "Ensures every applicant experiences the same structured interview and screening standards."
+      },
+      {
+        title: "Enhanced Candidate Experience",
+        desc: "Keeps candidates engaged with clear tracking, quick responses, and an intuitive onboarding portal."
+      }
     ]
   },
   calbuy: {
@@ -42,15 +90,52 @@ const productsData: Record<string, ProductInfo> = {
     name: "CALBUY",
     category: "Procurement",
     tagline: "Simplified Corporate Procurement & Vendor Management",
-    description: "CALBUY automates purchase orders, tracks vendor lead times, and manages stock requests. Integrated multi-stage approval paths remove communication delays between teams.",
+    description: "CalBuy is an AI-powered procurement portal that turns technical drawings into purchase orders in minutes. It automates Bill of Materials (BOM) extraction, should-cost estimation, inventory checks, and vendor RFQs in a single, seamless workflow.",
     icon: ShoppingCart,
     color: "#10B981",
     capabilities: [
-      "Automated PO Generation",
-      "Multi-Gate Manager Approval paths",
-      "Vendor Catalog & lead-time trackers",
-      "Requisition audit log registry",
-      "Historical purchase pricing trends"
+      "90% Reduction in Drafting Times",
+      "Dual-Workflow Flexibility",
+      "AI-Powered Should costing",
+      "Vendor Quotation Analysis",
+      "Negotiation AI Agent",
+      "Smart Vendor Matching"
+    ],
+    features: [
+      {
+        title: "Instant Drawing Extraction",
+        desc: "Upload a PDF drawing and let the AI extract raw materials, steel plates, hardware, and structural parts in seconds."
+      },
+      {
+        title: "Dual Sourcing Modes",
+        desc: "Choose Automatic for instant hands-free sourcing, or Manual to review and dispatch bids at your own pace."
+      },
+      {
+        title: "AI Should-Costing",
+        desc: "Calculate side-by-side estimates using AI Prepare (market-indexed) and Costsheet Master (ERP catalog) pricing models."
+      },
+      {
+        title: "Smart MRP & RFQ Routing",
+        desc: "Auto-check warehouse inventory and dispatch categorized RFQ emails directly to qualified vendors."
+      },
+      {
+        title: "Live Comparison Matrix",
+        desc: "Automatically validate incoming vendor quotes and rank bids on a live dashboard."
+      }
+    ],
+    whyChoose: [
+      {
+        title: "Saves Time",
+        desc: "Cuts blueprint-to-sourcing cycle times by up to 90%."
+      },
+      {
+        title: "Eliminates Errors",
+        desc: "Finds missing grades or size issues before hitting the warehouse."
+      },
+      {
+        title: "Full Visibility",
+        desc: "Complete audit trails showing who verified, approved, and dispatched quotes."
+      }
     ]
   },
   caltrack: {
@@ -225,7 +310,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     {product.description}
                   </p>
 
-                  <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 mb-8">
+                  {/* <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 mb-8">
                     <h3 className="text-xs font-700 uppercase tracking-widest text-[var(--text-muted)] mb-3 flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-slate-300 animate-pulse" />
                       Status: Phase 1 Specifications Complete
@@ -233,7 +318,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                       Our engineering division has finalized the data models, system interfaces, and database schemas. The frontend user portal is scheduled to rollout shortly. Let us know if you require preview access.
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className="flex gap-4">
                     <Link href="/contact" className="btn text-white btn-sm" style={{ background: product.color }}>
@@ -272,6 +357,62 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
         </section>
+
+        {/* Features Section */}
+        {product.features && product.features.length > 0 && (
+          <section className="py-20 bg-slate-50 border-t border-slate-200">
+            <div className="container-wide">
+              <FadeUp className="mb-12">
+                <h2 className="text-3xl font-900 text-[var(--navy)] mb-2">Key System Features</h2>
+                <p className="text-sm text-[var(--text-secondary)] font-550 max-w-xl">
+                  Deep-dive into the automated mechanics and capabilities built directly into the core engine.
+                </p>
+              </FadeUp>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {product.features.map((feat, idx) => (
+                  <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 text-emerald-600 mb-4 font-bold text-sm">
+                      {idx + 1}
+                    </div>
+                    <h3 className="text-lg font-800 text-[var(--navy)] mb-2">{feat.title}</h3>
+                    <p className="text-xs text-[var(--text-muted)] leading-relaxed">{feat.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Why Choose Section */}
+        {product.whyChoose && product.whyChoose.length > 0 && (
+          <section className="py-20 bg-white border-t border-slate-200">
+            <div className="container-wide">
+              <div className="grid lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-4">
+                  <FadeUp>
+                    <div className="badge mb-4 border-blue-900/10 bg-blue-900/5 text-blue-600 font-bold uppercase tracking-wider text-[10px]">
+                      Business Impact
+                    </div>
+                    <h2 className="text-3xl font-900 text-[var(--navy)] mb-4">Why {product.name}?</h2>
+                    <p className="text-sm text-[var(--text-secondary)] font-550 leading-relaxed">
+                      CALBUY is engineered to translate engineering complexity into streamlined, secure supply chain value.
+                    </p>
+                  </FadeUp>
+                </div>
+                <div className="lg:col-span-8 grid md:grid-cols-3 gap-6">
+                  {product.whyChoose.map((why, idx) => (
+                    <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-base font-800 text-[var(--navy)] mb-2">{why.title}</h3>
+                        <p className="text-xs text-[var(--text-muted)] leading-relaxed">{why.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Reusable Coming Soon Info Section */}
         <section className="section-padding bg-[var(--surface-2)] border-t border-[var(--border)]">

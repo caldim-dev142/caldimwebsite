@@ -11,6 +11,7 @@ interface Product {
   name: string;
   category: string;
   description: string;
+  contents: string;
   icon: React.ElementType;
   href: string;
   status: "live" | "coming-soon";
@@ -23,6 +24,7 @@ const products: Product[] = [
     name: "CALTIMS",
     category: "HR & Payroll",
     description: "Timesheet tracking, leave management, and automated payroll processing for modern teams.",
+    contents: "CALTIMS is an AI-powered HR & Payroll solution designed for modern teams. It streamlines timesheet tracking, leave management, and automated payroll processing into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless HR management.",
     icon: Clock,
     href: "/products/caltims",
     status: "live",
@@ -31,8 +33,9 @@ const products: Product[] = [
   {
     id: "calrims",
     name: "CALRIMS",
-    category: "Resource Management",
-    description: "Resource and inventory management system for manufacturing and operational teams.",
+    category: "Recruitment",
+    description: "An end-to-end hiring platform that automates the full candidate journey from sourcing to onboarding.",
+    contents: "CAL-RIMS is a unified recruitment intelligence platform that automates applicant sourcing, intelligent resume screening, virtual interviews, and digital onboarding workflows.",
     icon: Package,
     href: "/products/calrims",
     status: "coming-soon",
@@ -42,7 +45,8 @@ const products: Product[] = [
     id: "calbuy",
     name: "CALBUY",
     category: "Procurement",
-    description: "End-to-end procurement platform with vendor management and purchase order workflows.",
+    description: "Intelligent Drawing-to-RFQ Procurement.",
+    contents: "CALBUY is an AI-powered Procurement portal that turns engineering drawings into validated, cost-estimated Bill of Material(BOM) and vendor RFQs in minutes.",
     icon: ShoppingCart,
     href: "/products/calbuy",
     status: "coming-soon",
@@ -53,6 +57,7 @@ const products: Product[] = [
     name: "CALTRACK",
     category: "Asset Tracking",
     description: "Real-time asset and fleet tracking with GPS integration and maintenance scheduling.",
+    contents: "CALTRACK is an AI-powered Asset Tracking solution designed for modern teams. It streamlines asset and fleet tracking into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless resource management.",
     icon: MapPin,
     href: "/products/caltrack",
     status: "coming-soon",
@@ -63,6 +68,7 @@ const products: Product[] = [
     name: "AI BEAUTY",
     category: "AI Solutions",
     description: "AI-powered beauty and retail analytics with intelligent recommendation engines.",
+    contents: "AI BEAUTY is an AI-powered Beauty & Retail Analytics solution designed for modern teams. It streamlines beauty and retail analytics into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless resource management.",
     icon: Sparkles,
     href: "/products/ai-beauty",
     status: "coming-soon",
@@ -73,6 +79,7 @@ const products: Product[] = [
     name: "Project Management",
     category: "Productivity",
     description: "Structured project planning, task management, and team collaboration for delivery teams.",
+    contents: "PROJECT MANAGEMENT is an AI-powered Project Management solution designed for modern teams. It streamlines project planning, task management, and team collaboration into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless project management.",
     icon: FolderKanban,
     href: "/products/project-management",
     status: "coming-soon",
@@ -102,7 +109,7 @@ export const ProductsSection: React.FC = () => {
         </FadeUp>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start min-h-[600px]">
-          
+
           {/* Left Column: Interactive List */}
           <div className="lg:col-span-5 flex flex-col gap-2 relative">
             {/* Vertical timeline line */}
@@ -119,12 +126,12 @@ export const ProductsSection: React.FC = () => {
                   onClick={() => setActiveIndex(i)}
                 >
                   {/* Active Indicator Dot */}
-                  <div className="absolute left-[17px] top-[26px] w-3 h-3 rounded-full transition-all duration-500 z-10" 
-                       style={{ 
-                         background: isActive ? product.accentColor : '#1e293b',
-                         boxShadow: isActive ? `0 0 15px ${product.accentColor}` : 'none',
-                         transform: isActive ? 'scale(1)' : 'scale(0.7)'
-                       }} 
+                  <div className="absolute left-[17px] top-[26px] w-3 h-3 rounded-full transition-all duration-500 z-10"
+                    style={{
+                      background: isActive ? product.accentColor : '#1e293b',
+                      boxShadow: isActive ? `0 0 15px ${product.accentColor}` : 'none',
+                      transform: isActive ? 'scale(1)' : 'scale(0.7)'
+                    }}
                   />
 
                   {/* Active Background Highlighting */}
@@ -168,11 +175,11 @@ export const ProductsSection: React.FC = () => {
               >
                 {/* Tech grid overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_20%,#000_20%,transparent_100%)] pointer-events-none" />
-                
+
                 {/* Glowing top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, transparent, ${activeProduct.accentColor}, transparent)` }} />
 
-                <div className="flex-1 p-10 md:p-14 flex flex-col relative z-10 justify-between">
+                <div className="flex-1 p-10 md:p-10 flex flex-col relative z-10 justify-between">
                   <div>
                     {/* Big Icon */}
                     <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 relative" style={{ background: `${activeProduct.accentColor}15`, border: `1px solid ${activeProduct.accentColor}30` }}>
@@ -186,11 +193,15 @@ export const ProductsSection: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Abstract data lines animation to simulate UI */}
-                  <div className="mt-8 flex flex-col gap-3">
-                    <div className="h-3 rounded-full w-3/4 opacity-20" style={{ background: activeProduct.accentColor }} />
-                    <div className="h-3 rounded-full w-1/2 opacity-10" style={{ background: activeProduct.accentColor }} />
-                    <div className="h-3 rounded-full w-5/6 opacity-10" style={{ background: activeProduct.accentColor }} />
+                  {/* Product Overview Text Block */}
+                  <div className="mt-6 flex flex-col gap-3 text-slate-300">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeProduct.accentColor }} />
+                      <span className="text-[9px] font-mono tracking-widest uppercase text-slate-500">Overview</span>
+                    </div>
+                    <p className="text-sm font-550 leading-relaxed text-slate-300">
+                      {activeProduct.contents}
+                    </p>
                   </div>
 
                   <div className="mt-12 flex items-center gap-4">
