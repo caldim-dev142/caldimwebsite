@@ -85,7 +85,7 @@ export const ProductsSection: React.FC = () => {
   const activeProduct = products[activeIndex];
 
   return (
-    <section className="section-padding bg-slate-950 relative overflow-hidden border-b border-slate-900" id="products">
+    <section className="section-padding bg-[#020c1b] relative overflow-hidden border-b border-slate-900" id="products">
       {/* Background glow effects */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none" />

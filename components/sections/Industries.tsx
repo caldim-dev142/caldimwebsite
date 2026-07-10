@@ -140,7 +140,7 @@ export const IndustriesSection: React.FC = () => {
   return (
     <section 
       id="industries" 
-      className="py-24 bg-slate-950 text-white relative overflow-hidden border-b border-slate-900"
+      className="py-24 bg-[#020c1b] text-white relative overflow-hidden border-b border-slate-900"
       aria-labelledby="industries-heading"
     >
       {/* Faint Technical Grid Background */}
@@ -176,7 +176,7 @@ export const IndustriesSection: React.FC = () => {
               >
                 <Link
                   href={ind.href}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.07] bg-[#070e1e]/60 hover:bg-[#070e1e]/90 hover:border-blue-500/80 transition-all duration-500 overflow-hidden min-h-[440px] p-6 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer h-full"
+                  className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.06] bg-[#0a192f]/60 hover:bg-[#0a192f]/90 hover:border-blue-500/85 transition-all duration-500 overflow-hidden min-h-[440px] p-6 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer h-full"
                   style={{
                     // Standard tailwind hover border handled dynamically
                   }}
@@ -220,8 +220,8 @@ export const IndustriesSection: React.FC = () => {
                   </div>
 
                   {/* Dynamic Sparkline Visual */}
-                  <div className="my-4 p-3 rounded-xl bg-slate-950 border border-white/5 flex flex-col justify-center min-h-[60px] relative overflow-hidden">
-                    <div className="absolute top-1.5 left-2 flex items-center gap-1 text-[8px] font-mono text-slate-600 uppercase tracking-widest">
+                  <div className="my-4 p-3 rounded-xl bg-[#020c1b]/80 border border-white/5 flex flex-col justify-center min-h-[60px] relative overflow-hidden">
+                    <div className="absolute top-1.5 left-2 flex items-center gap-1 text-[8px] font-mono text-slate-500 uppercase tracking-widest">
                       <Activity size={8} /> Signal Profile
                     </div>
                     <div className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 scale-95 mt-2">
