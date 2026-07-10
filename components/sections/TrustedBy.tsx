@@ -7,7 +7,6 @@ const partners = [
   { name: "Steel Fab Enterprises", logo: "/clients/steel fab img.png" },
   { name: "Servotech", logo: "/clients/servotech img.png" },
   { name: "Shangrila Engineers", logo: "/clients/shangrillaimg.png" },
-  { name: "TVS", logo: "/clients/tvs.jpg" },
   { name: "Voomet", logo: "/clients/voomet.png" }
 ];
 

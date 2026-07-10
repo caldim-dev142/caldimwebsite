@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, Volume2, ArrowRight } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
+import { RecruitmentSimulator } from "./RecruitmentSimulator";
+import { ProcurementSimulator } from "./ProcurementSimulator";
 
 const agents = [
   {
@@ -21,6 +23,22 @@ const agents = [
       "CALBUY Agent: Scanning pre-approved vendor catalogs...",
       "CALBUY Agent: Found matching item at Vendor B for ₹1,200 per unit. Multi-gate approval path assigned to Manager A.",
       "CALBUY Agent: Draft PO generated. Do you want to submit it?"
+    ]
+  },
+  {
+    id: "calrims",
+    title: "CALRIMS Recruitment",
+    subtitle: "RECRUITMENT AGENT",
+    action: "Start Screening",
+    color: "#6366F1", // Indigo
+    borderClass: "border-indigo-500/80 hover:border-indigo-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(99,102,241,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(99,102,241,0.9)]",
+    bgGlow: "bg-indigo-500/30",
+    dialogue: [
+      "User: Sync the hiring mailbox and screen new applications.",
+      "CALRIMS Agent: Scanning careers@caldimengg.in. Ingested 12 new resumes.",
+      "CALRIMS Agent: Extracted work histories. Found 3 candidates matching requirements with score > 85%.",
+      "CALRIMS Agent: Automated voice interview invitations dispatched. Recruiter dashboard updated."
     ]
   },
   {
@@ -95,7 +113,7 @@ export const AiAgentsSection: React.FC = () => {
           </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
           {agents.map((agent, index) => (
             <motion.div
               key={agent.id}
@@ -152,19 +170,56 @@ export const AiAgentsSection: React.FC = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md"
           >
-            <motion.div
-              initial={{ scale: 0.95, y: 16 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 16 }}
-              className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col"
-            >
-              {/* Close Button */}
-              <button 
-                onClick={() => setActiveId(null)}
-                className="absolute top-4 right-4 text-slate-400 hover:text-[var(--navy)] transition-colors p-1"
+            {activeId === "calrims" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
               >
-                <X size={20} />
-              </button>
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <RecruitmentSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "calbuy" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <ProcurementSimulator />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-4 right-4 text-slate-400 hover:text-[var(--navy)] transition-colors p-1"
+                >
+                  <X size={20} />
+                </button>
 
               {/* Agent info */}
               <div className="flex items-center gap-3 border-b border-slate-200 pb-4 mb-6">
@@ -212,6 +267,7 @@ export const AiAgentsSection: React.FC = () => {
               </div>
 
             </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

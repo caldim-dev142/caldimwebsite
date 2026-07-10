@@ -55,13 +55,25 @@ const productsList = [
     href: "/products/caltims",
     icon: Clock,
     iconColor: "text-blue-400",
+    previewColor: "from-blue-900/40 to-[#0a192f]",
+    glowColor: "bg-blue-600/20",
+    accentColor: "text-blue-400",
+    borderGlow: "group-hover:border-blue-500/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]",
+    tagline: "Automated HR intelligence",
+    features: ["Biometric Attendance Sync", "Multi-Gate Payroll Engine", "Leave & Shift Automation"]
   },
   {
     name: "CALRIMS",
-    desc: "Resource & Inventory",
+    desc: "Recruitment Intelligence",
     href: "/products#calrims",
     icon: Package,
     iconColor: "text-emerald-400",
+    previewColor: "from-emerald-900/40 to-[#0a192f]",
+    glowColor: "bg-emerald-600/20",
+    accentColor: "text-emerald-400",
+    borderGlow: "group-hover:border-emerald-500/30 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)]",
+    tagline: "AI-powered hiring pipeline",
+    features: ["AI Resume Screening", "Voice Interview Bot", "Onboarding & ID Issuance"]
   },
   {
     name: "CALBUY",
@@ -69,6 +81,12 @@ const productsList = [
     href: "/products#calbuy",
     icon: ShoppingCart,
     iconColor: "text-amber-400",
+    previewColor: "from-amber-900/40 to-[#0a192f]",
+    glowColor: "bg-amber-600/20",
+    accentColor: "text-amber-400",
+    borderGlow: "group-hover:border-amber-500/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]",
+    tagline: "Drawing-to-PO in minutes",
+    features: ["BOM Auto-Extraction", "AI Should-Cost Pricing", "Vendor RFQ & Bid Matrix"]
   },
   {
     name: "CALTRACK",
@@ -76,6 +94,12 @@ const productsList = [
     href: "/products#caltrack",
     icon: MapPin,
     iconColor: "text-rose-400",
+    previewColor: "from-rose-900/40 to-[#0a192f]",
+    glowColor: "bg-rose-600/20",
+    accentColor: "text-rose-400",
+    borderGlow: "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]",
+    tagline: "Real-time asset intelligence",
+    features: ["GPS & RFID Integration", "Maintenance Scheduling", "Live Asset Dashboard"]
   },
   {
     name: "CAL EMS",
@@ -83,6 +107,12 @@ const productsList = [
     href: "/products#cal-ems",
     icon: Zap,
     iconColor: "text-cyan-400",
+    previewColor: "from-cyan-900/40 to-[#0a192f]",
+    glowColor: "bg-cyan-600/20",
+    accentColor: "text-cyan-400",
+    borderGlow: "group-hover:border-cyan-500/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.2)]",
+    tagline: "Smart energy optimization",
+    features: ["Real-time kWh Monitoring", "Carbon Footprint Reports", "Automated Cost Alerts"]
   },
 ];
 
@@ -91,6 +121,7 @@ export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [hoveredProduct, setHoveredProduct] = useState(productsList[0]);
   const pathname = usePathname();
 
   const handleScroll = useCallback(() => {
@@ -264,60 +295,98 @@ export const Navbar: React.FC = () => {
                           {/* Inner glowing edge */}
                           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
 
-                          {/* Products List (Left Side) */}
-                          <div className="flex-1 p-6 flex flex-col">
+                            {/* Products List (Left Side) */}
+                          <div className="flex-1 p-6 flex flex-col justify-center">
                             <span className="text-[10px] font-800 tracking-widest text-slate-500 uppercase mb-4 flex items-center gap-2">
                               <Terminal size={12} /> Enterprise Suite
                             </span>
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="flex flex-col gap-1">
                               {productsList.map((prod) => {
                                 const Icon = prod.icon;
+                                const isHovered = hoveredProduct.name === prod.name;
                                 return (
                                   <Link
                                     key={prod.name}
                                     href={prod.href}
-                                    className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-all group"
+                                    onMouseEnter={() => setHoveredProduct(prod)}
+                                    className={`flex items-center gap-3.5 px-3 py-2.5 rounded-xl transition-all duration-200 ${
+                                      isHovered ? "bg-white/8" : "hover:bg-white/5"
+                                    }`}
                                   >
-                                    <div className={`w-10 h-10 rounded-xl bg-[#020c1b] border border-white/5 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-blue-500/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] ${prod.iconColor}`}>
-                                      <Icon size={18} />
+                                    <div className={`w-9 h-9 rounded-xl bg-[#020c1b] border flex items-center justify-center shrink-0 transition-all duration-300 ${prod.iconColor} ${
+                                      isHovered
+                                        ? prod.borderGlow.replace("group-hover:", "")
+                                        : "border-white/5"
+                                    }`}>
+                                      <Icon size={16} />
                                     </div>
                                     <div className="flex flex-col gap-0.5">
-                                      <span className="text-sm font-800 text-slate-200 group-hover:text-white transition-colors">
+                                      <span className={`text-xs font-800 transition-colors leading-tight ${
+                                        isHovered ? "text-white" : "text-slate-200"
+                                      }`}>
                                         {prod.name}
                                       </span>
-                                      <span className="text-[11px] text-slate-500 font-500 leading-tight">
+                                      <span className="text-[10px] text-slate-500 font-500 leading-tight">
                                         {prod.desc}
                                       </span>
                                     </div>
+                                    {isHovered && (
+                                      <ArrowRight size={12} className={`ml-auto shrink-0 ${prod.accentColor}`} />
+                                    )}
                                   </Link>
                                 );
                               })}
                             </div>
                           </div>
 
-                          {/* Promotional Feature Card (Right Side) */}
-                          <div className="w-[280px] bg-[#020c1b]/50 p-6 flex flex-col justify-center border-l border-[#112240] relative overflow-hidden group">
-                            {/* Ambient Glow */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-[40px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors duration-500" />
-                            
-                            <div className="relative w-full h-[120px] rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-[#0a192f] border border-white/10 shadow-inner flex items-center justify-center p-4 mb-6">
-                              <Cpu size={40} className="text-slate-700/50 absolute" />
-                              <span className="text-white font-900 text-xl tracking-tight select-none relative z-10 drop-shadow-md">
-                                Dashboard
-                              </span>
-                            </div>
-                            
-                            <div className="flex flex-col gap-2">
-                              <span className="text-[10px] font-800 tracking-widest text-blue-400 uppercase">
-                                Unified Workspace
-                              </span>
-                              <span className="text-base font-800 text-white">
-                                CALDIM Dashboard
-                              </span>
-                              <p className="text-[11px] text-slate-400 font-500 leading-relaxed">
-                                Access all your digital automation services, time sheets, and intelligence tools inside a single, secure enterprise portal.
-                              </p>
-                            </div>
+                          {/* Dynamic Product Preview Panel (Right Side) */}
+                          <div className="w-[280px] border-l border-[#112240] relative overflow-hidden">
+                            <AnimatePresence mode="wait">
+                              <motion.div
+                                key={hoveredProduct.name}
+                                initial={{ opacity: 0, x: 12 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -12 }}
+                                transition={{ duration: 0.18, ease: "easeOut" }}
+                                className="absolute inset-0 p-6 flex flex-col justify-center"
+                              >
+                                {/* Ambient Glow */}
+                                <div className={`absolute top-0 right-0 w-32 h-32 ${hoveredProduct.glowColor} blur-[40px] rounded-full pointer-events-none`} />
+
+                                {/* Product Icon Preview */}
+                                <div className={`relative w-full h-[90px] rounded-xl overflow-hidden bg-gradient-to-br ${hoveredProduct.previewColor} border border-white/10 shadow-inner flex items-center justify-center mb-4`}>
+                                  {React.createElement(hoveredProduct.icon, { size: 40, className: `${hoveredProduct.iconColor} opacity-15 absolute` })}
+                                  <div className="relative z-10 flex flex-col items-center gap-1">
+                                    {React.createElement(hoveredProduct.icon, { size: 24, className: hoveredProduct.iconColor })}
+                                    <span className="text-white/60 text-[9px] font-mono font-700 uppercase tracking-widest mt-0.5">{hoveredProduct.name}</span>
+                                  </div>
+                                </div>
+
+                                {/* Product Info */}
+                                <div className="flex flex-col gap-2.5">
+                                  <span className={`text-[10px] font-800 tracking-widest uppercase ${hoveredProduct.accentColor}`}>
+                                    {hoveredProduct.tagline}
+                                  </span>
+                                  <span className="text-base font-800 text-white leading-tight">
+                                    {hoveredProduct.name}
+                                  </span>
+                                  <div className="flex flex-col gap-1.5 mt-1">
+                                    {hoveredProduct.features.map((f) => (
+                                      <div key={f} className="flex items-center gap-2">
+                                        <div className={`w-1.5 h-1.5 rounded-full ${hoveredProduct.accentColor.replace("text-", "bg-")} shrink-0`} />
+                                        <span className="text-[11px] text-slate-400 font-500">{f}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <Link
+                                    href={hoveredProduct.href}
+                                    className={`mt-2 text-[11px] font-700 ${hoveredProduct.accentColor} flex items-center gap-1 hover:gap-2 transition-all duration-200`}
+                                  >
+                                    Explore {hoveredProduct.name} <ArrowRight size={11} />
+                                  </Link>
+                                </div>
+                              </motion.div>
+                            </AnimatePresence>
                           </div>
                         </motion.div>
                       )}
