@@ -465,3 +465,17 @@ body {
   background: var(--accent-muted);
   color: var(--accent-dark);
 }
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee.pause {
+  animation-play-state: paused;
+}

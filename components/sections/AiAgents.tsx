@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, Volume2, ArrowRight } from "lucide-react";
+import { Play, X, Volume2, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
 import { RecruitmentSimulator } from "./RecruitmentSimulator";
 import { ProcurementSimulator } from "./ProcurementSimulator";
-
+import { CalemsSimulator } from "./CalemsSimulator";
+import { MiscSimulator } from "./MiscSimulator";
+import { ProjectManagementSimulator } from "./ProjectManagementSimulator";
+import { AssetManagementSimulator } from "./AssetManagementSimulator";
+import { WarehouseManagementSimulator } from "./WarehouseManagementSimulator";
+import { CaltrackSimulator } from "./CaltrackSimulator";
+import { AiBeautySimulator } from "./AiBeautySimulator";
 const agents = [
   {
     id: "calbuy",
@@ -73,11 +78,148 @@ const agents = [
       "CALTRACK Agent: Automated gate opening signal queued."
     ]
   },
+  {
+    id: "calems",
+    title: "CALEMS Employee",
+    subtitle: "EMPLOYEE AGENT",
+    action: "Start Management",
+    color: "#3B82F6", // Blue
+    borderClass: "border-blue-500/80 hover:border-blue-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.9)]",
+    bgGlow: "bg-blue-500/30",
+    dialogue: [
+      "User: How many employees have pending onboarding tasks?",
+      "CALEMS Agent: Checking employee portals...",
+      "CALEMS Agent: 4 new hires need to upload tax documents. Sending automated email reminders.",
+      "CALEMS Agent: Reminders sent. Onboarding dashboard updated."
+    ]
+  },
+  {
+    id: "project-management",
+    title: "Project Management",
+    subtitle: "ENGINEERING AGENT",
+    action: "Start Planning",
+    color: "#0EA5E9", // Sky Blue
+    borderClass: "border-sky-500/80 hover:border-sky-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(14,165,233,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(14,165,233,0.9)]",
+    bgGlow: "bg-sky-500/30",
+    dialogue: [
+      "User: Convert the approved Bid Enquiry #402 into a live project.",
+      "PMS Agent: Project activated. PO Phases defined and team resources assigned.",
+      "PMS Agent: Phase 1 execution complete (140 hours logged). Vendor COR reconciled.",
+      "PMS Agent: Milestone invoice generated. Awaiting client approval for payment settlement."
+    ]
+  },
+  {
+    id: "calmisc",
+    title: "CAL MISC Estimation",
+    subtitle: "ESTIMATION AGENT",
+    action: "Start Estimating",
+    color: "#F43F5E", // Rose
+    borderClass: "border-rose-500/80 hover:border-rose-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(244,63,94,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(244,63,94,0.9)]",
+    bgGlow: "bg-rose-500/30",
+    dialogue: [
+      "System: PDF structural drawing 'Apex_Stair_Details_A4.pdf' uploaded.",
+      "MISC AI: Parsing layout lines. 3 flights of monumental stairs identified.",
+      "Cost Engine: Bill of Materials generated. Steel: A36 channel (18.5 tons).",
+      "Labor Engine: Calculating fabrication hours. Standard rate set at $85/hr.",
+      "Margin Engine: Finish (Hot-Dip Galvanized) and scrap rate (4.5%) applied.",
+      "Estimator: Standard margin set at 22%. Freight adjustments applied.",
+      "System: Final PDF bid proposal generated with complete material schedules."
+    ]
+  },
+  {
+    id: "ai-beauty",
+    title: "AI Beauty Consultant",
+    subtitle: "SALON AGENT",
+    action: "Start Analysis",
+    color: "#EC4899", // Pink
+    borderClass: "border-pink-500/80 hover:border-pink-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(236,72,153,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(236,72,153,0.9)]",
+    bgGlow: "bg-pink-500/30",
+    dialogue: [
+      "User: Analyze the latest client biometric scan.",
+      "AI Beauty Agent: Processing facial structure and skin tone...",
+      "AI Beauty Agent: Match found. Recommending deep-cleansing facial and color treatment.",
+      "AI Beauty Agent: Service added to client profile. Next available slot is 3:00 PM today."
+    ]
+  },
+  {
+    id: "warehouse",
+    title: "Warehouse Management",
+    subtitle: "LOGISTICS AGENT",
+    action: "Start Inventory",
+    color: "#EAB308", // Yellow
+    borderClass: "border-yellow-500/80 hover:border-yellow-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(234,179,8,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(234,179,8,0.9)]",
+    bgGlow: "bg-yellow-500/30",
+    dialogue: [
+      "User: Run an inventory check on Sector 4.",
+      "Warehouse Agent: Accessing barcode scanners and RFID logs...",
+      "Warehouse Agent: Discrepancy detected: 12 units of Product X missing.",
+      "Warehouse Agent: Automated cycle count scheduled for Sector 4."
+    ]
+  },
+  {
+    id: "asset",
+    title: "Asset Management",
+    subtitle: "INFRASTRUCTURE AGENT",
+    action: "Start Auditing",
+    color: "#64748B", // Slate
+    borderClass: "border-slate-500/80 hover:border-slate-400",
+    shadowClass: "drop-shadow-[0_0_15px_rgba(100,116,139,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(100,116,139,0.9)]",
+    bgGlow: "bg-slate-500/30",
+    dialogue: [
+      "User: Which assets are due for maintenance this week?",
+      "Asset Agent: Checking depreciation logs and maintenance schedules...",
+      "Asset Agent: 3 HVAC units require filter replacements. Warranty expires in 30 days.",
+      "Asset Agent: Maintenance tickets created and assigned to the facilities team."
+    ]
+  }
 ];
 
 export const AiAgentsSection: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [dialogueIndex, setDialogueIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | undefined>(undefined);
+
+  const scrollLeftBtn = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -400, behavior: "smooth" });
+    }
+  };
+
+  const scrollRightBtn = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 400, behavior: "smooth" });
+    }
+  };
+
+  // Smooth infinite continuous scroll using requestAnimationFrame
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const animate = () => {
+      if (!isPaused && !activeId) {
+        scrollContainer.scrollLeft += 2; // Increased speed (was 1)
+        // Since we render agents twice, jump back to start when we reach halfway
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [isPaused, activeId]);
 
   const activeCard = agents.find((c) => c.id === activeId);
 
@@ -113,51 +255,82 @@ export const AiAgentsSection: React.FC = () => {
           </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
-          {agents.map((agent, index) => (
-            <motion.div
-              key={agent.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
-            >
-              <div onClick={() => handleStartAgent(agent.id)} className="flex flex-col items-center group cursor-pointer w-full">
-              {/* Agent Core Hologram */}
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 mb-8 flex items-center justify-center">
-                {/* Center Glow (Radial burst on white) */}
-                <div className={`absolute inset-4 rounded-full ${agent.bgGlow} blur-2xl transition-all duration-500 group-hover:scale-125 opacity-70 group-hover:opacity-100`} />
+        {/* Hybrid Marquee Carousel (Auto + Manual) */}
+        <div 
+          className="relative w-full max-w-7xl mx-auto px-4 md:px-12 group"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          
+          {/* Navigation Controls */}
+          <button 
+            onClick={scrollLeftBtn}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-[var(--navy)] hover:bg-slate-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-                {/* Rotating Tech Rings (Crisp and colorful against white) */}
-                <div className={`absolute inset-0 rounded-full border-2 border-dashed ${agent.borderClass} ${agent.shadowClass} animate-[spin_20s_linear_infinite] transition-all duration-500`} />
-                <div className={`absolute inset-6 rounded-full border-2 border-dotted ${agent.borderClass} ${agent.shadowClass} opacity-80 animate-[spin_15s_linear_infinite_reverse] transition-all duration-500`} />
-                <div className={`absolute inset-12 rounded-full border border-solid ${agent.borderClass} opacity-60 animate-[spin_10s_linear_infinite] transition-all duration-500`} />
-                
-                {/* The Button */}
-                <button 
-                  className="relative z-10 bg-white border-2 border-slate-200 rounded-full py-3 px-6 flex items-center gap-2.5 text-sm font-800 tracking-wide text-[var(--navy)] group-hover:border-[var(--accent)] group-hover:bg-blue-50/50 transition-all shadow-md group-hover:shadow-xl group-hover:scale-105"
-                  style={{ boxShadow: `0 4px 20px ${agent.color}35` }}
-                >
-                  <Play size={14} style={{ color: agent.color, fill: agent.color }} />
-                  {agent.action}
-                </button>
-              </div>
+          <button 
+            onClick={scrollRightBtn}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-[var(--navy)] hover:bg-slate-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={24} />
+          </button>
 
-              {/* Text Content */}
-              <div className="text-center">
-                <div 
-                  className="text-[11px] font-800 uppercase tracking-[0.2em] mb-3 transition-colors duration-300"
-                  style={{ color: agent.color }}
-                >
-                  {agent.subtitle}
+          {/* Fading Edges */}
+          <div className="absolute top-0 bottom-0 left-12 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden md:block" />
+          <div className="absolute top-0 bottom-0 right-12 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none hidden md:block" />
+          
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto hide-scrollbar scroll-smooth py-8"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {/* Render list twice to create infinite loop effect */}
+            {[...agents, ...agents].map((agent, index) => (
+              <div
+                key={`${agent.id}-${index}`}
+                className="w-[33vw] max-w-[400px] shrink-0 px-4 flex justify-center"
+              >
+                <div onClick={() => handleStartAgent(agent.id)} className="flex flex-col items-center group cursor-pointer w-full">
+                  {/* Agent Core Hologram */}
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 mb-8 flex items-center justify-center">
+                    {/* Center Glow (Radial burst on white) */}
+                    <div className={`absolute inset-4 rounded-full ${agent.bgGlow} blur-2xl transition-all duration-500 group-hover:scale-125 opacity-70 group-hover:opacity-100`} />
+
+                    {/* Rotating Tech Rings (Crisp and colorful against white) */}
+                    <div className={`absolute inset-0 rounded-full border-2 border-dashed ${agent.borderClass} ${agent.shadowClass} animate-[spin_20s_linear_infinite] transition-all duration-500`} />
+                    <div className={`absolute inset-6 rounded-full border-2 border-dotted ${agent.borderClass} ${agent.shadowClass} opacity-80 animate-[spin_15s_linear_infinite_reverse] transition-all duration-500`} />
+                    <div className={`absolute inset-12 rounded-full border border-solid ${agent.borderClass} opacity-60 animate-[spin_10s_linear_infinite] transition-all duration-500`} />
+                    
+                    {/* The Button */}
+                    <button 
+                      className="relative z-10 bg-white border-2 border-slate-200 rounded-full py-3 px-6 flex items-center gap-2.5 text-sm font-800 tracking-wide text-[var(--navy)] group-hover:border-[var(--accent)] group-hover:bg-blue-50/50 transition-all shadow-md group-hover:shadow-xl group-hover:scale-105"
+                      style={{ boxShadow: `0 4px 20px ${agent.color}35` }}
+                    >
+                      <Play size={14} style={{ color: agent.color, fill: agent.color }} />
+                      {agent.action}
+                    </button>
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="text-center">
+                    <div 
+                      className="text-[11px] font-800 uppercase tracking-[0.2em] mb-3 transition-colors duration-300"
+                      style={{ color: agent.color }}
+                    >
+                      {agent.subtitle}
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-800 text-[var(--navy)] tracking-tight group-hover:text-[var(--accent)] transition-colors">
+                      {agent.title}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-800 text-[var(--navy)] tracking-tight group-hover:text-[var(--accent)] transition-colors">
-                  {agent.title}
-                </h3>
               </div>
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
@@ -204,6 +377,132 @@ export const AiAgentsSection: React.FC = () => {
                 </button>
                 <div className="max-h-[90vh] overflow-y-auto">
                   <ProcurementSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "calems" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <CalemsSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "calmisc" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <MiscSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "project-management" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <ProjectManagementSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "asset" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <AssetManagementSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "warehouse" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <WarehouseManagementSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "caltrack" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <CaltrackSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "ai-beauty" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <AiBeautySimulator />
                 </div>
               </motion.div>
             ) : (

@@ -15,7 +15,13 @@ import {
   Zap,
   ArrowRight,
   Terminal,
-  Cpu
+  Cpu,
+  Users,
+  FolderKanban,
+  Sparkles,
+  Warehouse,
+  Box,
+  LayoutGrid
 } from "lucide-react";
 
 interface NavItem {
@@ -90,29 +96,107 @@ const productsList = [
   },
   {
     name: "CALTRACK",
-    desc: "Asset Tracking System",
-    href: "/products#caltrack",
+    desc: "Field Service Management",
+    href: "/products/caltrack",
     icon: MapPin,
     iconColor: "text-rose-400",
     previewColor: "from-rose-900/40 to-[#0a192f]",
     glowColor: "bg-rose-600/20",
     accentColor: "text-rose-400",
     borderGlow: "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]",
-    tagline: "Real-time asset intelligence",
-    features: ["GPS & RFID Integration", "Maintenance Scheduling", "Live Asset Dashboard"]
+    tagline: "Field service & payroll compliance",
+    features: ["Smart Service Dispatch", "GPS Clock-In Verification", "Labor Compliance Engine"]
   },
   {
-    name: "CAL EMS",
-    desc: "Energy Management",
-    href: "/products#cal-ems",
-    icon: Zap,
-    iconColor: "text-cyan-400",
-    previewColor: "from-cyan-900/40 to-[#0a192f]",
-    glowColor: "bg-cyan-600/20",
-    accentColor: "text-cyan-400",
-    borderGlow: "group-hover:border-cyan-500/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.2)]",
-    tagline: "Smart energy optimization",
-    features: ["Real-time kWh Monitoring", "Carbon Footprint Reports", "Automated Cost Alerts"]
+    name: "CALEMS",
+    desc: "Employee Management",
+    href: "/products/calems",
+    icon: Users,
+    iconColor: "text-blue-300",
+    previewColor: "from-blue-900/40 to-[#0a192f]",
+    glowColor: "bg-blue-600/20",
+    accentColor: "text-blue-300",
+    borderGlow: "group-hover:border-blue-400/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]",
+    tagline: "Hire to payroll in one platform",
+    features: ["Digital Onboarding", "Automated Payroll", "Self-Service Leave"]
+  },
+  {
+    name: "AI Beauty Consultant",
+    desc: "Salon & Spa Management",
+    href: "/products/ai-beauty",
+    icon: Sparkles,
+    iconColor: "text-pink-400",
+    previewColor: "from-pink-900/40 to-[#0a192f]",
+    glowColor: "bg-pink-600/20",
+    accentColor: "text-pink-400",
+    borderGlow: "group-hover:border-pink-500/30 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.2)]",
+    tagline: "AI-powered salon growth",
+    features: ["Biometric Analysis", "No-Show Predictor", "Smart Slot Management"]
+  },
+  {
+    name: "Project Management",
+    desc: "Engineering Control",
+    href: "/products/project-management",
+    icon: FolderKanban,
+    iconColor: "text-indigo-400",
+    previewColor: "from-indigo-900/40 to-[#0a192f]",
+    glowColor: "bg-indigo-600/20",
+    accentColor: "text-indigo-400",
+    borderGlow: "group-hover:border-indigo-500/30 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]",
+    tagline: "End-to-End Project Control",
+    features: ["Bid Pipeline", "Invoice Control", "Change Order Management"]
+  },
+  {
+    name: "Warehouse Management",
+    desc: "Logistics Optimization",
+    href: "/products/warehouse-management",
+    icon: Warehouse,
+    iconColor: "text-teal-400",
+    previewColor: "from-teal-900/40 to-[#0a192f]",
+    glowColor: "bg-teal-600/20",
+    accentColor: "text-teal-400",
+    borderGlow: "group-hover:border-teal-500/30 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.2)]",
+    tagline: "Smart Warehouse Execution. Zero Packing Errors.",
+    features: ["Live Engine Tracking", "Automated ZPL Labeling", "Strict Shipment Validation"]
+  },
+  {
+    name: "Asset Management",
+    desc: "Engineering Workflow Automation",
+    href: "/products/asset-management",
+    icon: Cpu,
+    iconColor: "text-slate-400",
+    previewColor: "from-slate-900/40 to-[#0a192f]",
+    glowColor: "bg-slate-600/20",
+    accentColor: "text-slate-400",
+    borderGlow: "group-hover:border-slate-500/30 group-hover:shadow-[0_0_15px_rgba(100,116,139,0.2)]",
+    tagline: "Streamline asset requests from concept to production.",
+    features: ["7-Stage Smart Routing", "Secure File Quarantine", "Dynamic SLA Tracking"]
+  },
+  {
+    name: "CAL MISC",
+    desc: "Steel Estimation",
+    href: "/products/calmisc",
+    icon: Box,
+    iconColor: "text-rose-500",
+    previewColor: "from-rose-900/40 to-[#0a192f]",
+    glowColor: "bg-rose-600/20",
+    accentColor: "text-rose-500",
+    borderGlow: "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]",
+    tagline: "Generate steel bids in minutes",
+    features: ["Configure Stair Geometry", "Calculate Live Costs", "Verify Code Compliance"]
+  },
+  {
+    name: "CalTIMS",
+    desc: "HR & Payroll Management",
+    href: "/products/caltims",
+    icon: LayoutGrid,
+    iconColor: "text-amber-500",
+    previewColor: "from-amber-900/40 to-[#0a192f]",
+    glowColor: "bg-amber-600/20",
+    accentColor: "text-amber-500",
+    borderGlow: "group-hover:border-amber-500/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]",
+    tagline: "Sync timesheets to payroll instantly",
+    features: ["Log Weekly Timesheets", "Manage Employee Leaves", "Run Monthly Payroll"]
   },
 ];
 
@@ -290,7 +374,7 @@ export const Navbar: React.FC = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[800px] bg-[#0a192f]/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-[#112240] p-2 z-50 flex overflow-hidden"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[900px] bg-[#0a192f]/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-[#112240] p-2 z-50 flex overflow-hidden"
                         >
                           {/* Inner glowing edge */}
                           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
@@ -300,7 +384,7 @@ export const Navbar: React.FC = () => {
                             <span className="text-[10px] font-800 tracking-widest text-slate-500 uppercase mb-4 flex items-center gap-2">
                               <Terminal size={12} /> Enterprise Suite
                             </span>
-                            <div className="flex flex-col gap-1">
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                               {productsList.map((prod) => {
                                 const Icon = prod.icon;
                                 const isHovered = hoveredProduct.name === prod.name;

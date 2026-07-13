@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Clock, Package, ShoppingCart, MapPin, Sparkles, FolderKanban, Zap, Warehouse, Cpu } from "lucide-react";
+import { ArrowRight, Clock, Package, ShoppingCart, MapPin, Sparkles, FolderKanban, Zap, Warehouse, Cpu, Box } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
 
 interface Product {
@@ -55,9 +55,9 @@ const products: Product[] = [
   {
     id: "caltrack",
     name: "CALTRACK",
-    category: "Asset Tracking",
-    description: "Real-time asset and fleet tracking with GPS integration and maintenance scheduling.",
-    contents: "CALTRACK is an AI-powered Asset Tracking solution designed for modern teams. It streamlines asset and fleet tracking into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless resource management.",
+    category: "Field Service Management",
+    description: "End-to-end field service platform — from customer booking and GPS dispatch to automated payroll and labor compliance.",
+    contents: "CALTRACK bridges the gap between customer bookings and field technician dispatching. It automates timesheets, GPS clock-in verification, mileage reimbursements, and payroll compliance in one platform — reducing administrative processing time by 90% for mobile workforces.",
     icon: MapPin,
     href: "/products/caltrack",
     status: "coming-soon",
@@ -65,10 +65,10 @@ const products: Product[] = [
   },
   {
     id: "ai-beauty",
-    name: "AI BEAUTY",
-    category: "AI Solutions",
-    description: "AI-powered beauty and retail analytics with intelligent recommendation engines.",
-    contents: "AI BEAUTY is an AI-powered Beauty & Retail Analytics solution designed for modern teams. It streamlines beauty and retail analytics into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless resource management.",
+    name: "AI Beauty Consultant",
+    category: "Salon & Spa Management",
+    description: "AI-powered growth for salons with real-time biometric skin and face-shape analysis.",
+    contents: "AI Beauty Consultant automates salon operations while delivering tailored service recommendations based on live biometric scans. It processes image data in under 2 seconds to instantly boost service conversions and tracks booking analytics in real time.",
     icon: Sparkles,
     href: "/products/ai-beauty",
     status: "coming-soon",
@@ -77,13 +77,57 @@ const products: Product[] = [
   {
     id: "project-management",
     name: "Project Management",
-    category: "Productivity",
-    description: "Structured project planning, task management, and team collaboration for delivery teams.",
-    contents: "PROJECT MANAGEMENT is an AI-powered Project Management solution designed for modern teams. It streamlines project planning, task management, and team collaboration into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless project management.",
+    category: "Engineering Project Management",
+    description: "End-to-end lifecycle management for engineering projects — from bid estimation and milestone tracking to invoicing and vendor payments.",
+    contents: "CALDIM PMS replaces 5+ disconnected spreadsheets with one integrated system that manages bids, projects, change orders, invoices, and vendor payments across the full engineering project lifecycle.",
     icon: FolderKanban,
     href: "/products/project-management",
     status: "coming-soon",
     accentColor: "#6366F1", // Indigo
+  },
+  {
+    id: "calems",
+    name: "CALEMS",
+    category: "HR & Employee Management",
+    description: "Full employee lifecycle management — from paperless onboarding and attendance to automated payroll.",
+    contents: "CALEMS is a secure, multi-tenant HR platform that automates the full employee lifecycle. From paperless onboarding and real-time attendance tracking to payroll processing and policy management — it eliminates 90% of HR administrative workload through intelligent self-service workflows.",
+    icon: Package,
+    href: "/products/calems",
+    status: "coming-soon",
+    accentColor: "#3B82F6", // Blue
+  },
+  {
+    id: "warehouse-management",
+    name: "Warehouse Management",
+    category: "Warehouse Execution & Logistics",
+    description: "Smart Warehouse Execution. Zero Packing Errors.",
+    contents: "This product automates engine-to-accessory matching, packing, and dispatch workflows. Built for floor managers and dispatch operators in industrial manufacturing. Eliminates manual tracking errors and ensures strict dispatch discipline.",
+    icon: Warehouse,
+    href: "/products/warehouse-management",
+    status: "coming-soon",
+    accentColor: "#14B8A6", // Teal
+  },
+  {
+    id: "asset-management",
+    name: "Asset Management",
+    category: "Engineering Workflow Automation",
+    description: "Streamline asset requests from concept to production.",
+    contents: "This platform automates the 7-stage engineering asset lifecycle, from initial request to final production. Built for manufacturing engineering teams and designers. Eliminates approval bottlenecks and secures proprietary CAD files.",
+    icon: Cpu,
+    href: "/products/asset-management",
+    status: "coming-soon",
+    accentColor: "#64748B", // Slate
+  },
+  {
+    id: "calmisc",
+    name: "CAL MISC",
+    category: "Steel Estimation",
+    description: "Generate precise stair, railing, and guard-rail bids with real-time cost breakdowns in minutes.",
+    contents: "CAL MISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
+    icon: Box,
+    href: "/products/calmisc",
+    status: "coming-soon",
+    accentColor: "#F43F5E", // Rose
   }
 ];
 

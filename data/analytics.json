@@ -1,524 +1,529 @@
 {
   "pageViews": {
-    "/": 216,
-    "/about": 97,
-    "/services": 75,
-    "/products": 82,
-    "/products/caltims": 37,
-    "/contact": 61,
-    "/industries": 66,
+    "/": 235,
+    "/about": 101,
+    "/services": 78,
+    "/products": 115,
+    "/products/caltims": 43,
+    "/contact": 62,
+    "/industries": 67,
     "/privacy": 2,
     "/admin/login": 6,
     "/admin/analytics": 1,
     "/products/calbuy": 19,
-    "/products/caltrack": 2,
-    "/products/project-management": 1,
-    "/products/calrims": 10,
-    "/products/asset-management": 1
+    "/products/caltrack": 4,
+    "/products/project-management": 8,
+    "/products/calrims": 14,
+    "/products/asset-management": 2,
+    "/products/cal-ems": 8,
+    "/products/calems": 5,
+    "/products/calmisc": 2,
+    "/products/warehouse-management": 2,
+    "/products/ai-beauty": 4
   },
   "events": {
     "consultation_booked": 0
   },
   "logs": [
     {
-      "timestamp": "2026-07-10T05:00:06.402Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T05:00:08.657Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-10T05:00:24.114Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T05:02:02.771Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T05:02:24.294Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-10T05:02:28.772Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T05:02:45.709Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T05:02:46.555Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T08:56:43.191Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T09:14:11.633Z",
-      "action": "Page View",
-      "details": "/services"
-    },
-    {
-      "timestamp": "2026-07-10T09:14:16.109Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T09:14:18.415Z",
+      "timestamp": "2026-07-13T04:09:47.781Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T09:14:30.547Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:21:04.001Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-10T09:21:22.313Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:21:25.705Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T09:21:30.427Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-10T09:22:05.399Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T09:22:38.508Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:23:32.005Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T09:23:59.667Z",
+      "timestamp": "2026-07-13T04:09:56.374Z",
       "action": "Page View",
       "details": "/products/calrims"
     },
     {
-      "timestamp": "2026-07-10T09:24:07.282Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T09:25:25.262Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:25:38.067Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T09:25:45.323Z",
-      "action": "Page View",
-      "details": "/services"
-    },
-    {
-      "timestamp": "2026-07-10T09:25:56.347Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T09:26:15.261Z",
-      "action": "Page View",
-      "details": "/services"
-    },
-    {
-      "timestamp": "2026-07-10T09:26:21.906Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T09:26:24.693Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:28:21.074Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:41:17.998Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:41:20.053Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:42:22.596Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:43:25.879Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T09:50:09.286Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T09:57:44.357Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-10T09:57:48.289Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T09:59:54.526Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T10:01:48.795Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T10:03:49.528Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-10T10:03:54.579Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T10:04:39.837Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T10:04:40.442Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T10:04:45.878Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T10:06:17.322Z",
+      "timestamp": "2026-07-13T04:51:16.462Z",
       "action": "Page View",
       "details": "/products/calrims"
     },
     {
-      "timestamp": "2026-07-10T10:12:46.943Z",
+      "timestamp": "2026-07-13T04:51:28.991Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T10:12:51.839Z",
+      "timestamp": "2026-07-13T04:51:39.175Z",
       "action": "Page View",
-      "details": "/products/caltims"
+      "details": "/products/cal-ems"
     },
     {
-      "timestamp": "2026-07-10T10:12:58.646Z",
+      "timestamp": "2026-07-13T04:52:24.493Z",
       "action": "Page View",
       "details": "/"
     },
     {
-      "timestamp": "2026-07-10T10:14:26.190Z",
+      "timestamp": "2026-07-13T04:53:27.255Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T10:14:35.223Z",
+      "timestamp": "2026-07-13T04:53:39.786Z",
       "action": "Page View",
-      "details": "/"
+      "details": "/products/cal-ems"
     },
     {
-      "timestamp": "2026-07-10T10:14:53.742Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
-    {
-      "timestamp": "2026-07-10T10:15:31.100Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T10:39:30.121Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T10:41:53.870Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T10:42:01.661Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T10:42:29.172Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-10T10:42:39.761Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T10:43:07.009Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T10:43:55.311Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T10:44:49.468Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-10T10:49:04.697Z",
+      "timestamp": "2026-07-13T04:54:14.554Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T10:49:14.108Z",
+      "timestamp": "2026-07-13T04:54:19.356Z",
       "action": "Page View",
-      "details": "/products/calrims"
+      "details": "/products/cal-ems"
     },
     {
-      "timestamp": "2026-07-10T10:49:50.097Z",
+      "timestamp": "2026-07-13T05:03:30.038Z",
+      "action": "Page View",
+      "details": "/products/cal-ems"
+    },
+    {
+      "timestamp": "2026-07-13T05:03:38.947Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T10:49:52.797Z",
+      "timestamp": "2026-07-13T05:03:51.305Z",
       "action": "Page View",
-      "details": "/"
+      "details": "/products/calems"
     },
     {
-      "timestamp": "2026-07-10T10:51:30.792Z",
+      "timestamp": "2026-07-13T05:21:12.878Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T05:49:15.222Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T05:50:00.031Z",
       "action": "Page View",
       "details": "/products/caltrack"
     },
     {
-      "timestamp": "2026-07-10T10:51:39.084Z",
+      "timestamp": "2026-07-13T05:50:53.148Z",
       "action": "Page View",
-      "details": "/"
+      "details": "/contact"
     },
     {
-      "timestamp": "2026-07-10T10:51:47.012Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T10:53:32.082Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T10:53:48.105Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
-    {
-      "timestamp": "2026-07-10T10:53:57.918Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T11:06:24.533Z",
+      "timestamp": "2026-07-13T05:50:59.510Z",
       "action": "Page View",
       "details": "/products"
     },
     {
-      "timestamp": "2026-07-10T11:06:30.409Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
-    {
-      "timestamp": "2026-07-10T11:07:02.636Z",
+      "timestamp": "2026-07-13T05:51:08.558Z",
       "action": "Page View",
       "details": "/"
     },
     {
-      "timestamp": "2026-07-10T11:07:18.719Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
-    {
-      "timestamp": "2026-07-10T11:07:46.074Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T11:09:26.328Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T11:09:32.722Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
-    {
-      "timestamp": "2026-07-10T11:10:10.971Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T11:43:26.606Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T11:43:43.677Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T11:43:47.230Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-10T11:43:56.858Z",
-      "action": "Page View",
-      "details": "/products/calbuy"
-    },
-    {
-      "timestamp": "2026-07-10T11:44:18.247Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T11:57:06.001Z",
+      "timestamp": "2026-07-13T06:00:50.815Z",
       "action": "Page View",
       "details": "/about"
     },
     {
-      "timestamp": "2026-07-10T11:57:11.507Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T12:03:10.594Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:05:56.026Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T12:06:36.376Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-10T12:06:43.221Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T12:15:27.286Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:17:37.805Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:51:26.816Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:51:59.201Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:56:41.818Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:56:55.994Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T12:59:48.974Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T13:01:08.762Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-10T13:01:23.262Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-10T13:02:20.356Z",
+      "timestamp": "2026-07-13T06:01:15.338Z",
       "action": "Page View",
       "details": "/services"
     },
     {
-      "timestamp": "2026-07-10T13:02:50.814Z",
+      "timestamp": "2026-07-13T06:01:18.935Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T06:01:49.018Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T06:07:03.613Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T06:07:18.151Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T06:13:58.134Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T06:16:31.824Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T06:16:50.981Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T06:26:07.160Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T06:32:14.887Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T06:32:25.927Z",
+      "action": "Page View",
+      "details": "/products/calmisc"
+    },
+    {
+      "timestamp": "2026-07-13T06:45:42.574Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T06:51:43.692Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T06:52:48.711Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T06:52:56.212Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T06:56:04.819Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T08:23:42.670Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T08:25:11.361Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-13T08:25:35.680Z",
+      "action": "Page View",
+      "details": "/services"
+    },
+    {
+      "timestamp": "2026-07-13T08:25:43.357Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:26:30.518Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-13T08:26:32.856Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T08:26:43.024Z",
+      "action": "Page View",
+      "details": "/products/calmisc"
+    },
+    {
+      "timestamp": "2026-07-13T08:27:02.141Z",
+      "action": "Page View",
+      "details": "/products/warehouse-management"
+    },
+    {
+      "timestamp": "2026-07-13T08:27:06.299Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:32:50.313Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-13T08:32:55.565Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:34:50.087Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:36:34.461Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T08:41:46.971Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T08:50:33.309Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T08:51:03.010Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:51:06.922Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T08:53:34.889Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:53:37.980Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T08:53:53.592Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T08:53:56.135Z",
+      "action": "Page View",
+      "details": "/products/calems"
+    },
+    {
+      "timestamp": "2026-07-13T08:58:47.736Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T09:08:28.127Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T09:08:31.214Z",
+      "action": "Page View",
+      "details": "/products/calems"
+    },
+    {
+      "timestamp": "2026-07-13T09:12:20.966Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T09:18:04.418Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T09:28:30.235Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T09:28:52.369Z",
+      "action": "Page View",
+      "details": "/products/calrims"
+    },
+    {
+      "timestamp": "2026-07-13T10:47:16.157Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T11:06:18.392Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T11:11:13.212Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T11:11:18.221Z",
+      "action": "Page View",
+      "details": "/products/project-management"
+    },
+    {
+      "timestamp": "2026-07-13T11:17:16.330Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T11:22:39.339Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T11:22:51.414Z",
+      "action": "Page View",
+      "details": "/products/cal-ems"
+    },
+    {
+      "timestamp": "2026-07-13T11:22:56.986Z",
+      "action": "Page View",
+      "details": "/products/cal-ems"
+    },
+    {
+      "timestamp": "2026-07-13T11:29:03.944Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T11:29:10.706Z",
+      "action": "Page View",
+      "details": "/products/cal-ems"
+    },
+    {
+      "timestamp": "2026-07-13T11:39:23.981Z",
+      "action": "Page View",
+      "details": "/products/cal-ems"
+    },
+    {
+      "timestamp": "2026-07-13T11:39:59.723Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T11:43:34.056Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-13T11:43:47.970Z",
+      "action": "Page View",
+      "details": "/services"
+    },
+    {
+      "timestamp": "2026-07-13T11:44:02.713Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T11:44:13.706Z",
+      "action": "Page View",
+      "details": "/products/calems"
+    },
+    {
+      "timestamp": "2026-07-13T11:44:59.944Z",
+      "action": "Page View",
+      "details": "/products/asset-management"
+    },
+    {
+      "timestamp": "2026-07-13T11:45:22.108Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T11:55:44.869Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T12:01:52.570Z",
+      "action": "Page View",
+      "details": "/products/warehouse-management"
+    },
+    {
+      "timestamp": "2026-07-13T12:02:09.926Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-13T12:22:22.138Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:22:45.558Z",
+      "action": "Page View",
+      "details": "/products/ai-beauty"
+    },
+    {
+      "timestamp": "2026-07-13T12:23:11.130Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:23:18.257Z",
+      "action": "Page View",
+      "details": "/products/ai-beauty"
+    },
+    {
+      "timestamp": "2026-07-13T12:32:04.823Z",
+      "action": "Page View",
+      "details": "/products/ai-beauty"
+    },
+    {
+      "timestamp": "2026-07-13T12:40:58.024Z",
+      "action": "Page View",
+      "details": "/products/ai-beauty"
+    },
+    {
+      "timestamp": "2026-07-13T12:45:36.465Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:45:39.045Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-13T12:45:52.776Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:46:01.042Z",
+      "action": "Page View",
+      "details": "/products/calems"
+    },
+    {
+      "timestamp": "2026-07-13T12:47:26.349Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:47:34.760Z",
+      "action": "Page View",
+      "details": "/products/calrims"
+    },
+    {
+      "timestamp": "2026-07-13T12:52:52.228Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-13T12:53:02.837Z",
+      "action": "Page View",
+      "details": "/products/caltrack"
+    },
+    {
+      "timestamp": "2026-07-13T12:53:40.635Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }

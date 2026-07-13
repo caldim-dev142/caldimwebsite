@@ -10,7 +10,7 @@ import { CTASection } from "@/components/sections/CTA";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Clock, Package, ShoppingCart, MapPin, Sparkles, 
-  FolderKanban, Zap, Warehouse, Cpu, ArrowRight, Play, Video, CheckCircle2, Activity, Layers, Terminal, ShieldCheck, ChevronRight, Eye, Sparkle
+  FolderKanban, Zap, Warehouse, Cpu, ArrowRight, Play, Video, CheckCircle2, Activity, Layers, Terminal, ShieldCheck, ChevronRight, Eye, Sparkle, Box
 } from "lucide-react";
 
 interface ProductItem {
@@ -137,22 +137,22 @@ const products: ProductItem[] = [
     architectureHighlight: "Deterministic DAG scheduling engine with automated resource leveling."
   },
   {
-    id: "cal-ems",
-    name: "CAL EMS",
-    category: "Energy Management",
-    description: "Real-time logging of electrical consumption, plant load cycles, and carbon footprints across factories. Generates automated compliance-ready sustainability reports and peak-load shaving recommendations.",
-    icon: Zap,
+    id: "calems",
+    name: "CALEMS Employee",
+    category: "HR & Employee Management",
+    description: "Secure, multi-tenant HR platform that automates the full employee lifecycle. Manages paperless onboarding, real-time attendance, and automated payroll processing.",
+    icon: Package,
     status: "coming-soon",
-    color: "#EAB308",
-    videoTagline: "Watch Real-Time Plant Electrical Load & Carbon Audit Feed",
-    mediaTitle: "Energy Consumption & Sustainability Audit Radar",
+    color: "#3B82F6",
+    videoTagline: "Watch Real-Time Onboarding & Payroll Processing",
+    mediaTitle: "Digital HR & Employee Lifecycle Command",
     metrics: [
-      "Continuous Electrical Load & Kilowatt Hour Logging",
-      "Real-Time Scope 1 & Scope 2 Carbon Footprint Trace",
-      "Automated Peak-Load Shaving & Cost Optimization",
-      "Instant ESG & Statutory Sustainability Compliance Reports"
+      "90% Faster Digital Candidate Onboarding",
+      "Real-Time Attendance & Leave Tracking",
+      "Automated Complex Payroll Computation",
+      "Isolated Multi-Tenant Security Architecture"
     ],
-    architectureHighlight: "High-speed Modbus & BACnet sensor integration with harmonic load analysis."
+    architectureHighlight: "Encrypted multi-tenant database with automated compliance audit logging."
   },
   {
     id: "warehouse-management",
@@ -189,6 +189,24 @@ const products: ProductItem[] = [
       "Preventive Maintenance Logging & Warranty Tracking"
     ],
     architectureHighlight: "Immutable audit trail logging with barcode register synchronization."
+  },
+  {
+    id: "calmisc",
+    name: "CAL MISC",
+    category: "Steel Estimation",
+    description: "Generate precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators.",
+    icon: Box,
+    status: "coming-soon",
+    color: "#F43F5E",
+    videoTagline: "Watch Real-Time Steel Estimation & Bidding Walkthrough",
+    mediaTitle: "Structural Steel Proposal & BOM Engine",
+    metrics: [
+      "90% Faster Bid Turnaround Time",
+      "Zero Calculation Mistakes via Auto-Formulas",
+      "Built-In IBC and OSHA Code Compliance Checks",
+      "Instant Print-Ready PDF & BOM Generation"
+    ],
+    architectureHighlight: "Dynamic multi-variable pricing matrix with real-time geometric calculation engine."
   }
 ];
 
@@ -243,7 +261,7 @@ export default function ProductsPage() {
               <div className="flex items-center gap-3">
                 <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-xs font-700 font-mono flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>9 Products Loaded</span>
+                  <span>{products.length} Products Loaded</span>
                 </span>
               </div>
             </div>
