@@ -340,9 +340,9 @@ export const HeroSection: React.FC = () => {
               className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-6"
             >
               {[
-                { value: "10+", label: "Years Engineering" },
-                { value: "50+", label: "Projects Delivered" },
-                { value: "9", label: "Enterprise Products" },
+                { value: "1+", label: "Years Engineering" },
+                { value: "15+", label: "Projects Delivered" },
+                { value: "10+", label: "Enterprise Products" },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div className="text-3xl font-900 text-[var(--navy)] mb-1">{value}</div>
