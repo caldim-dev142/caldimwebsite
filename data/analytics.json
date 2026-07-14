@@ -1,10 +1,10 @@
 {
   "pageViews": {
-    "/": 237,
+    "/": 238,
     "/about": 102,
     "/services": 78,
-    "/products": 118,
-    "/products/caltims": 43,
+    "/products": 119,
+    "/products/caltims": 44,
     "/contact": 62,
     "/industries": 67,
     "/privacy": 2,
@@ -25,21 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T05:03:51.305Z",
-      "action": "Page View",
-      "details": "/products/calems"
-    },
-    {
-      "timestamp": "2026-07-13T05:21:12.878Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T05:49:15.222Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T05:50:00.031Z",
       "action": "Page View",
@@ -524,6 +509,21 @@
       "timestamp": "2026-07-14T08:05:57.460Z",
       "action": "Page View",
       "details": "/products/calbuy"
+    },
+    {
+      "timestamp": "2026-07-14T08:20:35.102Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T08:20:51.358Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T08:25:17.804Z",
+      "action": "Page View",
+      "details": "/products"
     }
   ]
 }
