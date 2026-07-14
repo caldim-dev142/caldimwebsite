@@ -81,8 +81,8 @@ export default function AboutPage() {
                   {[
                     { label: "Founded", value: "2016s" },
                     { label: "Software Division", value: "2025" },
-                    { label: "Products", value: "9" },
-                    { label: "Industries", value: "8+" },
+                    { label: "Products", value: "10+" },
+                    { label: "Industries", value: "5+" },
                   ].map(({ label, value }) => (
                     <div key={label} className="bg-[var(--navy)] text-white rounded-2xl p-6 shadow-xl border border-blue-400/30 text-center flex flex-col items-center justify-center min-h-[110px]">
                       <div className="text-3xl md:text-4xl font-900 text-white mb-1 tracking-tight">{value}</div>

@@ -1,7 +1,7 @@
 {
   "pageViews": {
     "/": 243,
-    "/about": 102,
+    "/about": 103,
     "/services": 78,
     "/products": 121,
     "/products/caltims": 44,
@@ -26,11 +26,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:13:58.134Z",
-      "action": "Page View",
-      "details": "/"
-    },
     {
       "timestamp": "2026-07-13T06:16:31.824Z",
       "action": "Page View",
@@ -525,6 +520,11 @@
       "timestamp": "2026-07-14T10:03:29.617Z",
       "action": "Page View",
       "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T10:06:58.479Z",
+      "action": "Page View",
+      "details": "/about"
     }
   ]
 }
