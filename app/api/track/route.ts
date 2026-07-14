@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -11,19 +11,21 @@ interface AnalyticsData {
   logs: { timestamp: string; action: string; details?: string }[];
 }
 
-function initData(): AnalyticsData {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
+async function initData(): Promise<AnalyticsData> {
+  try {
+    await fs.mkdir(DATA_DIR, { recursive: true });
+  } catch (e) {}
 
-  if (!fs.existsSync(DATA_FILE)) {
+  try {
+    const content = await fs.readFile(DATA_FILE, "utf-8");
+    return JSON.parse(content);
+  } catch (e) {
     const initial: AnalyticsData = {
       pageViews: {
         "/": 0,
         "/about": 0,
         "/services": 0,
         "/products": 0,
-        "/products/caltims": 0,
         "/contact": 0
       },
       events: {
@@ -31,20 +33,17 @@ function initData(): AnalyticsData {
       },
       logs: []
     };
-    fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2));
+    try {
+      await fs.writeFile(DATA_FILE, JSON.stringify(initial, null, 2));
+    } catch (writeErr) {}
     return initial;
-  }
-
-  try {
-    const content = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(content);
-  } catch (e) {
-    return { pageViews: {}, events: {}, logs: [] };
   }
 }
 
-function saveData(data: AnalyticsData) {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+async function saveData(data: AnalyticsData) {
+  try {
+    await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
+  } catch (e) {}
 }
 
 export async function POST(request: Request) {
@@ -53,7 +52,7 @@ export async function POST(request: Request) {
     const page = url.searchParams.get("page");
     const action = url.searchParams.get("action");
 
-    const data = initData();
+    const data = await initData();
     const timestamp = new Date().toISOString();
 
     if (page) {
@@ -71,7 +70,7 @@ export async function POST(request: Request) {
       data.logs.shift();
     }
 
-    saveData(data);
+    await saveData(data);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
@@ -81,7 +80,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const data = initData();
+    const data = await initData();
     return NextResponse.json(data);
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

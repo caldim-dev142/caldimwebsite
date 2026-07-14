@@ -1,10 +1,10 @@
 {
   "pageViews": {
-    "/": 244,
-    "/about": 103,
+    "/": 245,
+    "/about": 104,
     "/services": 78,
-    "/products": 122,
-    "/products/caltims": 49,
+    "/products": 124,
+    "/products/caltims": 52,
     "/contact": 63,
     "/industries": 67,
     "/privacy": 3,
@@ -17,7 +17,7 @@
     "/products/asset-management": 2,
     "/products/cal-ems": 10,
     "/products/calems": 6,
-    "/products/calmisc": 3,
+    "/products/calmisc": 4,
     "/products/warehouse-management": 3,
     "/products/ai-beauty": 5,
     "/terms": 1
@@ -26,46 +26,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T08:25:11.361Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-13T08:25:35.680Z",
-      "action": "Page View",
-      "details": "/services"
-    },
-    {
-      "timestamp": "2026-07-13T08:25:43.357Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T08:26:30.518Z",
-      "action": "Page View",
-      "details": "/about"
-    },
-    {
-      "timestamp": "2026-07-13T08:26:32.856Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T08:26:43.024Z",
-      "action": "Page View",
-      "details": "/products/calmisc"
-    },
-    {
-      "timestamp": "2026-07-13T08:27:02.141Z",
-      "action": "Page View",
-      "details": "/products/warehouse-management"
-    },
-    {
-      "timestamp": "2026-07-13T08:27:06.299Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T08:32:50.313Z",
       "action": "Page View",
@@ -523,6 +483,46 @@
     },
     {
       "timestamp": "2026-07-14T11:20:03.578Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T11:20:59.031Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T11:21:24.976Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T11:21:31.117Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T11:21:54.035Z",
+      "action": "Page View",
+      "details": "/products/calmisc"
+    },
+    {
+      "timestamp": "2026-07-14T11:28:31.079Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T11:29:02.601Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-14T11:31:05.735Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T11:31:09.111Z",
       "action": "Page View",
       "details": "/products/caltims"
     }

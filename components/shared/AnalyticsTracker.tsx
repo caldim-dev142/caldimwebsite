@@ -9,7 +9,9 @@ export function AnalyticsTracker() {
   useEffect(() => {
     // Record page view on path transition
     fetch(`/api/track?page=${encodeURIComponent(pathname)}`, { method: "POST" })
-      .catch((err) => console.error("Failed to post view analytic:", err));
+      .catch(() => {
+        // Silently catch fetch errors to prevent Next.js dev overlay popups
+      });
   }, [pathname]);
 
   return null;
