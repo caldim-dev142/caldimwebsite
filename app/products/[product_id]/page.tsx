@@ -100,10 +100,10 @@ const productsData: Record<string, ProductInfo> = {
   },
   calbuy: {
     id: "calbuy",
-    name: "CalBuy Steel",
+    name: "CalBuy",
     category: "Procurement Automation",
     tagline: "The AI-native procurement operating system.",
-    description: "CalBuy Steel automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution. Built for procurement officers and sourcing specialists in manufacturing, fabrication, and EPC sectors. Cuts procurement cycle times and reduces material acquisition cost using real-time market intelligence.",
+    description: "CalBuy automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution. Built for procurement officers and sourcing specialists in manufacturing, fabrication, and EPC sectors. Cuts procurement cycle times and reduces material acquisition cost using real-time market intelligence.",
     icon: ShoppingCart,
     color: "#10B981",
     capabilities: [
@@ -160,7 +160,7 @@ const productsData: Record<string, ProductInfo> = {
     ],
     workflow: {
       headline: "Drawing to Purchase Order",
-      description: "CalBuy Steel automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution.",
+      description: "CalBuy automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution.",
       phases: [
         {
           name: "Phase 1: Demand & Sourcing",

@@ -10,10 +10,10 @@
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
-    "/products/calbuy": 20,
+    "/products/calbuy": 22,
     "/products/caltrack": 8,
     "/products/project-management": 9,
-    "/products/calrims": 14,
+    "/products/calrims": 15,
     "/products/asset-management": 3,
     "/products/cal-ems": 10,
     "/products/calems": 7,
@@ -26,21 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T11:17:16.330Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T11:22:39.339Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T11:22:51.414Z",
-      "action": "Page View",
-      "details": "/products/cal-ems"
-    },
     {
       "timestamp": "2026-07-13T11:22:56.986Z",
       "action": "Page View",
@@ -525,6 +510,21 @@
       "timestamp": "2026-07-14T11:51:25.946Z",
       "action": "Page View",
       "details": "/products/calmisc"
+    },
+    {
+      "timestamp": "2026-07-14T11:54:22.201Z",
+      "action": "Page View",
+      "details": "/products/calbuy"
+    },
+    {
+      "timestamp": "2026-07-14T11:54:30.517Z",
+      "action": "Page View",
+      "details": "/products/calrims"
+    },
+    {
+      "timestamp": "2026-07-14T11:54:34.534Z",
+      "action": "Page View",
+      "details": "/products/calbuy"
     }
   ]
 }
