@@ -1,11 +1,11 @@
 {
   "pageViews": {
-    "/": 238,
+    "/": 241,
     "/about": 102,
     "/services": 78,
-    "/products": 119,
+    "/products": 120,
     "/products/caltims": 44,
-    "/contact": 62,
+    "/contact": 63,
     "/industries": 67,
     "/privacy": 2,
     "/admin/login": 6,
@@ -25,31 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T05:50:00.031Z",
-      "action": "Page View",
-      "details": "/products/caltrack"
-    },
-    {
-      "timestamp": "2026-07-13T05:50:53.148Z",
-      "action": "Page View",
-      "details": "/contact"
-    },
-    {
-      "timestamp": "2026-07-13T05:50:59.510Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T05:51:08.558Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T06:00:50.815Z",
-      "action": "Page View",
-      "details": "/about"
-    },
     {
       "timestamp": "2026-07-13T06:01:15.338Z",
       "action": "Page View",
@@ -524,6 +499,31 @@
       "timestamp": "2026-07-14T08:25:17.804Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T08:58:07.704Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T08:58:48.139Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-14T08:58:58.016Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T09:03:51.825Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T09:04:17.950Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }

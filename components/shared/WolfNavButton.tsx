@@ -19,7 +19,7 @@ export const WolfNavButton: React.FC = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isEvading, setIsEvading] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [shiftPressed, setShiftPressed] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [showGames, setShowGames] = useState(false);
   
   const buttonRef = useRef<HTMLDivElement>(null);
@@ -31,16 +31,16 @@ export const WolfNavButton: React.FC = () => {
     { label: "Contact", icon: Mail, href: "/contact", dx: 0, dy: -90 },
   ];
 
-  // Listen for shift key press globally
+  // Listen for Ctrl+Shift key press globally
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setShiftPressed(true);
+      if (e.ctrlKey && e.shiftKey) {
+        setIsUnlocked(true);
       }
     };
     const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setShiftPressed(false);
+      if (!e.ctrlKey || !e.shiftKey) {
+        setIsUnlocked(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -81,8 +81,8 @@ export const WolfNavButton: React.FC = () => {
       const homeCenterX = btnCenterX - offset.x;
       const homeCenterY = btnCenterY - offset.y;
 
-      // If shift is held, we do not evade and return to original center
-      if (e.shiftKey || shiftPressed) {
+      // If Ctrl+Shift is held, we do not evade and return to original center
+      if ((e.shiftKey && e.ctrlKey) || isUnlocked) {
         setOffset({ x: 0, y: 0 });
         setIsEvading(false);
         return;
@@ -118,7 +118,7 @@ export const WolfNavButton: React.FC = () => {
         setIsEvading(false);
       }
     },
-    [offset, isEvading, isExpanded, showGames, shiftPressed]
+    [offset, isEvading, isExpanded, showGames, isUnlocked]
   );
 
   useEffect(() => {
@@ -130,7 +130,7 @@ export const WolfNavButton: React.FC = () => {
 
   const toggleMenu = () => {
     // Only allow expanding if shift is pressed, OR if already expanded (to close it)
-    if (isExpanded || shiftPressed) {
+    if (isExpanded || isUnlocked) {
       setIsExpanded(!isExpanded);
     }
   };
@@ -160,7 +160,7 @@ export const WolfNavButton: React.FC = () => {
       >
         {/* Lock indicator ring when Shift is pressed */}
         <AnimatePresence>
-          {shiftPressed && !isExpanded && !showGames && (
+          {isUnlocked && !isExpanded && !showGames && (
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1.15, opacity: 0.8 }}
@@ -233,12 +233,12 @@ export const WolfNavButton: React.FC = () => {
           className={`relative w-14 h-14 rounded-full overflow-hidden flex items-center justify-center transition-all duration-300 outline-none bg-[#071B34]/95 border border-white/20 shadow-[0_8px_32px_rgba(7,27,52,0.8)] backdrop-blur-xl ${
             isExpanded
               ? "text-red-500 hover:text-red-400"
-              : shiftPressed
+              : isUnlocked
               ? "text-cyan-400 cursor-pointer"
               : "text-blue-400 hover:text-blue-300"
           }`}
           style={{
-            cursor: shiftPressed || isExpanded ? "pointer" : "default",
+            cursor: isUnlocked || isExpanded ? "pointer" : "default",
           }}
           aria-label={isExpanded ? "Close menu" : "Wolf navigation menu"}
         >
