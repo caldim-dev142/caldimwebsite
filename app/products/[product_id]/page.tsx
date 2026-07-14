@@ -1213,7 +1213,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {/* Reusable Coming Soon Info Section */}
         <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/60 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(255,255,255,1)_0%,_transparent_100%)] pointer-events-none" />
-          <div className="container-narrow text-center">
+          <div className="container-narrow text-center relative z-10">
             <FadeUp>
               <div className="w-16 h-16 rounded-full bg-white shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 flex items-center justify-center mx-auto mb-6 text-slate-900 animate-bounce">
                 <Mail size={20} />

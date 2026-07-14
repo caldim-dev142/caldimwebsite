@@ -19,18 +19,13 @@
     "/products/calems": 6,
     "/products/calmisc": 3,
     "/products/warehouse-management": 3,
-    "/products/ai-beauty": 4,
+    "/products/ai-beauty": 5,
     "/terms": 1
   },
   "events": {
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:51:43.692Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
     {
       "timestamp": "2026-07-13T06:52:48.711Z",
       "action": "Page View",
@@ -525,6 +520,11 @@
       "timestamp": "2026-07-14T10:45:57.709Z",
       "action": "Page View",
       "details": "/products/warehouse-management"
+    },
+    {
+      "timestamp": "2026-07-14T10:50:35.764Z",
+      "action": "Page View",
+      "details": "/products/ai-beauty"
     }
   ]
 }
