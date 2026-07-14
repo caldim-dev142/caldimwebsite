@@ -71,7 +71,7 @@ const productsList = [
   {
     name: "CALRIMS",
     desc: "Recruitment Intelligence",
-    href: "/products#calrims",
+    href: "/products/calrims",
     icon: Package,
     iconColor: "text-emerald-400",
     previewColor: "from-emerald-900/40 to-[#0a192f]",
@@ -84,7 +84,7 @@ const productsList = [
   {
     name: "CALBUY",
     desc: "Procurement Platform",
-    href: "/products#calbuy",
+    href: "/products/calbuy",
     icon: ShoppingCart,
     iconColor: "text-amber-400",
     previewColor: "from-amber-900/40 to-[#0a192f]",
