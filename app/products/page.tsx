@@ -65,7 +65,7 @@ const products: ProductItem[] = [
       "Visual Kanban Pipeline & Stage Enforcement Policies",
       "Self-Service Digital Onboarding & Document Signatures"
     ],
-    unsplashUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1920&auto=format&fit=crop"
+    unsplashUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "calbuy",
@@ -103,7 +103,7 @@ const products: ProductItem[] = [
       "Guaranteed Overtime & Break Compliance",
       "Seamless Customer Booking & ETA Tracking"
     ],
-    unsplashUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920&auto=format&fit=crop"
+    unsplashUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "ai-beauty",
