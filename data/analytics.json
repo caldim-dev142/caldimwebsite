@@ -3,14 +3,14 @@
     "/": 237,
     "/about": 102,
     "/services": 78,
-    "/products": 117,
+    "/products": 118,
     "/products/caltims": 43,
     "/contact": 62,
     "/industries": 67,
     "/privacy": 2,
     "/admin/login": 6,
     "/admin/analytics": 1,
-    "/products/calbuy": 19,
+    "/products/calbuy": 20,
     "/products/caltrack": 6,
     "/products/project-management": 8,
     "/products/calrims": 14,
@@ -25,16 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T05:03:30.038Z",
-      "action": "Page View",
-      "details": "/products/cal-ems"
-    },
-    {
-      "timestamp": "2026-07-13T05:03:38.947Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T05:03:51.305Z",
       "action": "Page View",
@@ -524,6 +514,16 @@
       "timestamp": "2026-07-14T07:10:51.289Z",
       "action": "Page View",
       "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T08:05:12.783Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T08:05:57.460Z",
+      "action": "Page View",
+      "details": "/products/calbuy"
     }
   ]
 }
