@@ -275,7 +275,64 @@ const productsData: Record<string, ProductInfo> = {
         title: "Guaranteed Labor Compliance",
         desc: "Built-in rules engine protects your business from costly overtime and break violations automatically."
       }
-    ]
+    ],
+    workflow: {
+      headline: "Complete Field Service Lifecycle",
+      description: "From the customer's first booking click to the technician's final payslip, CALTRACK automates every step.",
+      phases: [
+        {
+          name: "Phase 1: Booking & Dispatch",
+          stages: [
+            {
+              number: 1,
+              name: "Customer Books",
+              action: "Online Portal",
+              details: "Customer selects services and a preferred time slot online."
+            },
+            {
+              number: 2,
+              name: "Tech Assigned",
+              action: "Smart Dispatch",
+              details: "Admin assigns the right field technician to the job."
+            }
+          ]
+        },
+        {
+          name: "Phase 2: Execution & Tracking",
+          stages: [
+            {
+              number: 3,
+              name: "Tech Clocks In",
+              action: "GPS Check-In",
+              details: "Technician arrives on-site and clocks in with verified location."
+            },
+            {
+              number: 4,
+              name: "Job Completed",
+              action: "Upload Proof",
+              details: "Technician uploads photos and completes the digital checklist."
+            }
+          ]
+        },
+        {
+          name: "Phase 3: Feedback & Payroll",
+          stages: [
+            {
+              number: 5,
+              name: "Customer Rates",
+              action: "Feedback Link",
+              details: "Customer rates the service quality via an automated SMS link."
+            },
+            {
+              number: 6,
+              name: "Payroll Calculated",
+              action: "Auto Payroll",
+              details: "System instantly calculates technician pay, overtime, and mileage."
+            }
+          ]
+        }
+      ]
+    }
   },
   "ai-beauty": {
     id: "ai-beauty",

@@ -89,19 +89,19 @@ const products: ProductItem[] = [
   {
     id: "caltrack",
     name: "CALTRACK",
-    category: "Asset Fleet Radar",
-    description: "GPS-enabled tracking system for high-value machinery, shipping containers, and transport fleets. Features live map panels, geofencing boundary alerts, and automated predictive maintenance alarms.",
+    category: "Field Service Management",
+    description: "CalTrack is an end-to-end platform for managing field operations, automated timesheets, and payroll compliance. Built for service-based businesses and mobile workforces, it bridges the gap between customer bookings and field technician dispatching.",
     icon: MapPin,
     status: "coming-soon",
     color: "#F59E0B",
-    videoTagline: "Watch Live Fleet & High-Value Machinery Geofence Radar",
-    mediaTitle: "GPS Asset Radar & Live Fleet Telemetry Panel",
-    architectureHighlight: "High-frequency MQTT telemetry ingestion with predictive wear algorithms.",
+    videoTagline: "Watch Live Field Technician Dispatch & GPS Tracking Radar",
+    mediaTitle: "Smart Dispatch & Mobile Workforce Telemetry",
+    architectureHighlight: "High-frequency GPS ingestion with real-time labor compliance rules engine.",
     metrics: [
-      "High-Precision GPS Geofencing & Boundary Alerts",
-      "Predictive Maintenance & Engine Health Alarms",
-      "Real-Time Transport Fleet Telemetry & Routing",
-      "Continuous High-Value Machinery Protection"
+      "Zero Payroll Errors via Automated Calculation",
+      "Real-Time Field Workforce Visibility",
+      "Guaranteed Overtime & Break Compliance",
+      "Seamless Customer Booking & ETA Tracking"
     ],
     unsplashUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920&auto=format&fit=crop"
   },

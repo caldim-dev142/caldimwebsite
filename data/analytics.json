@@ -11,7 +11,7 @@
     "/admin/login": 6,
     "/admin/analytics": 1,
     "/products/calbuy": 19,
-    "/products/caltrack": 4,
+    "/products/caltrack": 5,
     "/products/project-management": 8,
     "/products/calrims": 14,
     "/products/asset-management": 2,
@@ -25,11 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T04:52:24.493Z",
-      "action": "Page View",
-      "details": "/"
-    },
     {
       "timestamp": "2026-07-13T04:53:27.255Z",
       "action": "Page View",
@@ -524,6 +519,11 @@
       "timestamp": "2026-07-14T04:27:18.038Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T04:38:16.843Z",
+      "action": "Page View",
+      "details": "/products/caltrack"
     }
   ]
 }
