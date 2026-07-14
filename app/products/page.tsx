@@ -380,9 +380,20 @@ export default function ProductsPage() {
 
                       {/* 16:9 CINEMATIC VIDEO & SCREEN RECORDING STAGE (Pre-wired for videos!) */}
                       <div className="relative w-full min-h-[300px] sm:min-h-[360px] rounded-2xl bg-[#0A192F] border border-white/20 shadow-2xl overflow-hidden mb-7 group flex items-center justify-center text-center p-6 md:p-10">
+                        {/* Hookup / Poster Image (Tries local image first, falls back to dynamic placeholder) */}
+                        <img 
+                          src={`/images/${selectedProduct.id}-poster.jpg`}
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = `https://picsum.photos/seed/${selectedProduct.id}/1920/1080`;
+                          }}
+                          alt={`${selectedProduct.name} Preview`}
+                          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"
+                        />
+                        
                         {/* Blueprint Grid & Simulated Waveforms inside Video Box */}
-                        <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none group-hover:scale-105 transition-transform duration-700" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#020c1b] via-transparent to-transparent opacity-80 pointer-events-none" />
+                        <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none mix-blend-overlay" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#020c1b] via-[#020c1b]/60 to-transparent opacity-70 pointer-events-none" />
 
                         {/* Animated Video Play Center Overlay - Perfectly Centered */}
                         <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto py-6 max-w-xl mx-auto w-full">
