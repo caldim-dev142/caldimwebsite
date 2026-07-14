@@ -7,10 +7,10 @@ import { ArrowRight, Factory, Cog, Award, Users } from "lucide-react";
 import { FadeUp, Counter } from "../animations/Animations";
 
 const highlights = [
-  { icon: Factory, value: 10, suffix: "+", label: "Years of Engineering" },
-  { icon: Users, value: 200, suffix: "+", label: "Clients Served" },
-  { icon: Award, value: 50, suffix: "+", label: "Projects Delivered" },
-  { icon: Cog, value: 9, suffix: "", label: "Enterprise Products" },
+  { icon: Factory, value: 1, suffix: "+", label: "Years of Engineering" },
+  { icon: Users, value: 5, suffix: "+", label: "Clients Served" },
+  { icon: Award, value: 15, suffix: "+", label: "Projects Delivered" },
+  { icon: Cog, value: 10, suffix: "+", label: "Enterprise Products" },
 ];
 
 export const AboutSection: React.FC = () => {
