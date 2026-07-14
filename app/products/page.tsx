@@ -390,7 +390,7 @@ export default function ProductsPage() {
                       </div>
 
                       {/* 16:9 CINEMATIC VIDEO & SCREEN RECORDING STAGE (Pre-wired for videos!) */}
-                      <div className="relative w-full aspect-video rounded-2xl bg-[#0A192F] border border-white/20 shadow-2xl overflow-hidden mb-7 group flex items-center justify-center text-center p-6 md:p-10">
+                      <div className="relative w-full min-h-[320px] sm:min-h-[400px] md:min-h-[480px] rounded-2xl bg-[#0A192F] border border-white/20 shadow-2xl overflow-hidden mb-7 group flex flex-col items-center justify-center text-center p-6 md:p-10">
                         {/* Hookup / Poster Image (Tries local image first, falls back to dynamic placeholder) */}
                         <img 
                           src={`/images/${selectedProduct.id}-poster.jpg`}
@@ -399,7 +399,7 @@ export default function ProductsPage() {
                             e.currentTarget.src = selectedProduct.unsplashUrl;
                           }}
                           alt={`${selectedProduct.name} Preview`}
-                          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"
+                          className="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"
                         />
                         
                         {/* Blueprint Grid & Simulated Waveforms inside Video Box */}
