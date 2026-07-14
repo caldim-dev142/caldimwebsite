@@ -1,6 +1,6 @@
 {
   "pageViews": {
-    "/": 242,
+    "/": 243,
     "/about": 102,
     "/services": 78,
     "/products": 121,
@@ -26,11 +26,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:07:18.151Z",
-      "action": "Page View",
-      "details": "/products/project-management"
-    },
     {
       "timestamp": "2026-07-13T06:13:58.134Z",
       "action": "Page View",
@@ -523,6 +518,11 @@
     },
     {
       "timestamp": "2026-07-14T09:23:21.874Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T10:03:29.617Z",
       "action": "Page View",
       "details": "/"
     }
