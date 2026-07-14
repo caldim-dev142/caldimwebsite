@@ -3,22 +3,22 @@
     "/": 243,
     "/about": 103,
     "/services": 78,
-    "/products": 121,
-    "/products/caltims": 44,
+    "/products": 122,
+    "/products/caltims": 46,
     "/contact": 63,
     "/industries": 67,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
     "/products/calbuy": 20,
-    "/products/caltrack": 6,
+    "/products/caltrack": 7,
     "/products/project-management": 8,
     "/products/calrims": 14,
     "/products/asset-management": 2,
     "/products/cal-ems": 10,
     "/products/calems": 6,
-    "/products/calmisc": 2,
-    "/products/warehouse-management": 2,
+    "/products/calmisc": 3,
+    "/products/warehouse-management": 3,
     "/products/ai-beauty": 4,
     "/terms": 1
   },
@@ -26,36 +26,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:16:31.824Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T06:16:50.981Z",
-      "action": "Page View",
-      "details": "/products/project-management"
-    },
-    {
-      "timestamp": "2026-07-13T06:26:07.160Z",
-      "action": "Page View",
-      "details": "/products/project-management"
-    },
-    {
-      "timestamp": "2026-07-13T06:32:14.887Z",
-      "action": "Page View",
-      "details": "/products/project-management"
-    },
-    {
-      "timestamp": "2026-07-13T06:32:25.927Z",
-      "action": "Page View",
-      "details": "/products/calmisc"
-    },
-    {
-      "timestamp": "2026-07-13T06:45:42.574Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T06:51:43.692Z",
       "action": "Page View",
@@ -525,6 +495,36 @@
       "timestamp": "2026-07-14T10:06:58.479Z",
       "action": "Page View",
       "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-14T10:18:16.023Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T10:19:16.291Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T10:19:18.833Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T10:19:41.293Z",
+      "action": "Page View",
+      "details": "/products/caltrack"
+    },
+    {
+      "timestamp": "2026-07-14T10:19:53.989Z",
+      "action": "Page View",
+      "details": "/products/calmisc"
+    },
+    {
+      "timestamp": "2026-07-14T10:45:57.709Z",
+      "action": "Page View",
+      "details": "/products/warehouse-management"
     }
   ]
 }
