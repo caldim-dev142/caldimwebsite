@@ -25,6 +25,7 @@ interface ProductItem {
   mediaTitle: string;
   architectureHighlight: string;
   metrics: string[];
+  unsplashUrl: string;
 }
 
 const products: ProductItem[] = [
@@ -44,7 +45,8 @@ const products: ProductItem[] = [
       "Sub-Second Timesheet & Shift Ledger Sync",
       "100% Audit-Ready & Statutory Compliance Verification",
       "Zero Spreadsheet Error Margin across 10,000+ Workers"
-    ]
+    ],
+    unsplashUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "calrims",
@@ -62,7 +64,8 @@ const products: ProductItem[] = [
       "Interactive Voice & Text Interview Screenings",
       "Visual Kanban Pipeline & Stage Enforcement Policies",
       "Self-Service Digital Onboarding & Document Signatures"
-    ]
+    ],
+    unsplashUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "calbuy",
@@ -80,7 +83,8 @@ const products: ProductItem[] = [
       "Live Vendor Lead Time & Delivery SLA Tracking",
       "Zero Email Requisition Clutter or Rogue Spend",
       "Instant 3-Way Invoice Matching & Audit Verification"
-    ]
+    ],
+    unsplashUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "caltrack",
@@ -98,7 +102,8 @@ const products: ProductItem[] = [
       "Predictive Maintenance & Engine Health Alarms",
       "Real-Time Transport Fleet Telemetry & Routing",
       "Continuous High-Value Machinery Protection"
-    ]
+    ],
+    unsplashUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "ai-beauty",
@@ -116,7 +121,8 @@ const products: ProductItem[] = [
       "Real-Time Cosmetic Retail Sales Velocity Analytics",
       "AI-Driven Consumer Preference Pattern Mapping"
     ],
-    architectureHighlight: "Custom LLM & time-series neural network trained on retail purchasing vectors."
+    architectureHighlight: "Custom LLM & time-series neural network trained on retail purchasing vectors.",
+    unsplashUrl: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "project-management",
@@ -134,7 +140,8 @@ const products: ProductItem[] = [
       "Verified Milestone & Phase Gate Verification",
       "Real-Time Critical Path Bottleneck Detection"
     ],
-    architectureHighlight: "Deterministic DAG scheduling engine with automated resource leveling."
+    architectureHighlight: "Deterministic DAG scheduling engine with automated resource leveling.",
+    unsplashUrl: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "calems",
@@ -152,7 +159,8 @@ const products: ProductItem[] = [
       "Automated Complex Payroll Computation",
       "Isolated Multi-Tenant Security Architecture"
     ],
-    architectureHighlight: "Encrypted multi-tenant database with automated compliance audit logging."
+    architectureHighlight: "Encrypted multi-tenant database with automated compliance audit logging.",
+    unsplashUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "warehouse-management",
@@ -170,7 +178,8 @@ const products: ProductItem[] = [
       "Automated Picking Checklists & Shipping Verification",
       "Zero Mis-Shipment Rate across High-Volume Bays"
     ],
-    architectureHighlight: "Sub-millisecond inventory bin indexing with 3D spatial coordinate routing."
+    architectureHighlight: "Sub-millisecond inventory bin indexing with 3D spatial coordinate routing.",
+    unsplashUrl: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "asset-management",
@@ -188,7 +197,8 @@ const products: ProductItem[] = [
       "Centralized Audit-Ready Lifecycle Asset Register",
       "Preventive Maintenance Logging & Warranty Tracking"
     ],
-    architectureHighlight: "Immutable audit trail logging with barcode register synchronization."
+    architectureHighlight: "Immutable audit trail logging with barcode register synchronization.",
+    unsplashUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop"
   },
   {
     id: "calmisc",
@@ -206,7 +216,8 @@ const products: ProductItem[] = [
       "Built-In IBC and OSHA Code Compliance Checks",
       "Instant Print-Ready PDF & BOM Generation"
     ],
-    architectureHighlight: "Dynamic multi-variable pricing matrix with real-time geometric calculation engine."
+    architectureHighlight: "Dynamic multi-variable pricing matrix with real-time geometric calculation engine.",
+    unsplashUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop"
   }
 ];
 
@@ -385,7 +396,7 @@ export default function ProductsPage() {
                           src={`/images/${selectedProduct.id}-poster.jpg`}
                           onError={(e) => {
                             e.currentTarget.onerror = null;
-                            e.currentTarget.src = `https://picsum.photos/seed/${selectedProduct.id}/1920/1080`;
+                            e.currentTarget.src = selectedProduct.unsplashUrl;
                           }}
                           alt={`${selectedProduct.name} Preview`}
                           className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"

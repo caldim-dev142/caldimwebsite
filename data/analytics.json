@@ -3,7 +3,7 @@
     "/": 236,
     "/about": 101,
     "/services": 78,
-    "/products": 116,
+    "/products": 117,
     "/products/caltims": 43,
     "/contact": 62,
     "/industries": 67,
@@ -25,11 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T04:51:39.175Z",
-      "action": "Page View",
-      "details": "/products/cal-ems"
-    },
     {
       "timestamp": "2026-07-13T04:52:24.493Z",
       "action": "Page View",
@@ -522,6 +517,11 @@
     },
     {
       "timestamp": "2026-07-14T04:24:17.529Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T04:27:18.038Z",
       "action": "Page View",
       "details": "/products"
     }
