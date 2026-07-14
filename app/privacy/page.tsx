@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
                 <h3 className="text-xl font-900 text-[var(--navy)] mt-8 mb-4">5. Contact Us</h3>
                 <p className="text-slate-700 font-500 leading-relaxed mb-6">
                   If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact our engineering operations desk at: <br/>
-                  <a href="mailto:salesandsupport@caldimengg.in" className="text-blue-600 hover:underline font-700">salesandsupport@caldimengg.in</a>
+                  <a href="mailto:support@caldimengg.in" className="text-blue-600 hover:underline font-700">support@caldimengg.in</a>
                 </p>
               </div>
             </FadeUp>

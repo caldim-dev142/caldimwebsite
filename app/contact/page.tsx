@@ -120,7 +120,7 @@ export default function ContactPage() {
                       <div>
                         <div className="text-[11px] font-900 text-blue-600 uppercase tracking-wider mb-1">Direct Engineering Channel</div>
                         <a href="mailto:support@caldimengg.in" className="text-lg font-900 text-[var(--navy)] hover:text-blue-600 transition-colors tracking-tight">
-                          salesandsupport@caldimengg.in
+                          support@caldimengg.in
                         </a>
                         <div className="text-xs text-slate-900 mt-1.5 font-600 leading-relaxed">
                           Bypass all forms and reach our lead architects directly for immediate scoping support.

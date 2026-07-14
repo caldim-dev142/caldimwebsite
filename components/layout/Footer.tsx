@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-2.5">
               <a href="mailto:support@caldimengg.in" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
                 <Mail size={14} className="text-[var(--accent-light)] shrink-0" />
-                salesandsupport@caldimengg.in
+                support@caldimengg.in
               </a>
               <a href="tel:+91" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
                 <Phone size={14} className="text-[var(--accent-light)] shrink-0" />

@@ -1,13 +1,13 @@
 {
   "pageViews": {
-    "/": 241,
+    "/": 242,
     "/about": 102,
     "/services": 78,
-    "/products": 120,
+    "/products": 121,
     "/products/caltims": 44,
     "/contact": 63,
     "/industries": 67,
-    "/privacy": 2,
+    "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
     "/products/calbuy": 20,
@@ -19,32 +19,13 @@
     "/products/calems": 6,
     "/products/calmisc": 2,
     "/products/warehouse-management": 2,
-    "/products/ai-beauty": 4
+    "/products/ai-beauty": 4,
+    "/terms": 1
   },
   "events": {
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:01:15.338Z",
-      "action": "Page View",
-      "details": "/services"
-    },
-    {
-      "timestamp": "2026-07-13T06:01:18.935Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T06:01:49.018Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T06:07:03.613Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T06:07:18.151Z",
       "action": "Page View",
@@ -522,6 +503,26 @@
     },
     {
       "timestamp": "2026-07-14T09:04:17.950Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T09:19:52.875Z",
+      "action": "Page View",
+      "details": "/privacy"
+    },
+    {
+      "timestamp": "2026-07-14T09:20:49.121Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T09:20:57.109Z",
+      "action": "Page View",
+      "details": "/terms"
+    },
+    {
+      "timestamp": "2026-07-14T09:23:21.874Z",
       "action": "Page View",
       "details": "/"
     }
