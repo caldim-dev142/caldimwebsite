@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { DataNodeDivider } from "../shared/DataNodeDivider";
 
 const footerLinks = {
   Company: [
@@ -36,8 +37,9 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[var(--navy)] text-white" aria-label="Site footer">
+      <DataNodeDivider />
       {/* Main footer */}
-      <div className="container-wide py-16">
+      <div className="container-wide py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">

@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 246,
-    "/about": 105,
-    "/services": 80,
-    "/products": 131,
+    "/": 248,
+    "/about": 106,
+    "/services": 81,
+    "/products": 132,
     "/products/caltims": 55,
     "/contact": 65,
-    "/industries": 71,
+    "/industries": 72,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -26,36 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T11:55:44.869Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T12:01:52.570Z",
-      "action": "Page View",
-      "details": "/products/warehouse-management"
-    },
-    {
-      "timestamp": "2026-07-13T12:02:09.926Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T12:22:22.138Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T12:22:45.558Z",
-      "action": "Page View",
-      "details": "/products/ai-beauty"
-    },
-    {
-      "timestamp": "2026-07-13T12:23:11.130Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T12:23:18.257Z",
       "action": "Page View",
@@ -525,6 +495,36 @@
       "timestamp": "2026-07-14T12:03:26.678Z",
       "action": "Page View",
       "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-14T12:22:18.072Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-14T12:22:27.284Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T12:22:36.951Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T12:23:16.821Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-14T12:23:42.145Z",
+      "action": "Page View",
+      "details": "/services"
+    },
+    {
+      "timestamp": "2026-07-14T12:24:06.901Z",
+      "action": "Page View",
+      "details": "/products"
     }
   ]
 }
