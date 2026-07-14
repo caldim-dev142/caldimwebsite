@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 245,
-    "/about": 104,
-    "/services": 78,
-    "/products": 124,
+    "/": 246,
+    "/about": 105,
+    "/services": 79,
+    "/products": 125,
     "/products/caltims": 52,
-    "/contact": 63,
-    "/industries": 67,
+    "/contact": 64,
+    "/industries": 68,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -23,44 +23,9 @@
     "/terms": 1
   },
   "events": {
-    "consultation_booked": 0
+    "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T08:32:50.313Z",
-      "action": "Page View",
-      "details": "/industries"
-    },
-    {
-      "timestamp": "2026-07-13T08:32:55.565Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T08:34:50.087Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T08:36:34.461Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T08:41:46.971Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T08:50:33.309Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-13T08:51:03.010Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-13T08:51:06.922Z",
       "action": "Page View",
@@ -525,6 +490,41 @@
       "timestamp": "2026-07-14T11:31:09.111Z",
       "action": "Page View",
       "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T11:35:51.381Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T11:36:18.273Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-14T11:36:42.152Z",
+      "action": "Page View",
+      "details": "/services"
+    },
+    {
+      "timestamp": "2026-07-14T11:36:51.269Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-14T11:37:36.715Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-14T11:38:26.810Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-14T11:40:15.316Z",
+      "action": "Event Trigger",
+      "details": "consultation_booked"
     }
   ]
 }
