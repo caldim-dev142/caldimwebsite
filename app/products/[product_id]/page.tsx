@@ -931,97 +931,115 @@ const productsData: Record<string, ProductInfo> = {
   caltims: {
     id: "caltims",
     name: "CalTIMS",
-    category: "Timesheet, HR, & Payroll",
-    tagline: "Effortless Time Tracking & Payroll for Modern Teams.",
-    description: "CalTIMS bridges the gap between daily work logs and month-end payroll. Track hours, manage leaves, allocate project tasks, and generate compliance-ready payslips in a single, secure platform.",
+    category: "HR & Payroll Management",
+    tagline: "Sync timesheets to payroll instantly.",
+    description: "CalTIMS automates employee timesheets, leave tracking, and payroll in a single unified system. Built for growing teams and HR managers. Reduces payroll processing time by 90% while eliminating manual errors.",
     icon: Clock,
     color: "#4F46E5",
     capabilities: [
-      "Spreadsheet-like Weekly Timesheets",
-      "Project & Task Allocation",
-      "Timesheet-to-Payroll Integration",
-      "Granular Role-Based Access Control",
-      "Instant 1-Click Payroll Runs",
-      "Real-Time Cost Insights"
+      "Log Weekly Timesheets",
+      "Manage Employee Leaves",
+      "Run Monthly Payroll",
+      "Export Bank Transfers",
+      "Configure Users & Roles",
+      "Generate Custom Reports"
     ],
     features: [
       {
-        title: "Spreadsheet-like Weekly Timesheets",
-        desc: "Log hours across assigned projects with a familiar grid layout. Daily totals auto-calculate dynamically."
+        title: "Log Weekly Timesheets",
+        desc: "Submits work hours against assigned projects using a clean spreadsheet grid."
       },
       {
-        title: "Project Allocation & Manager Assignment",
-        desc: "Organize projects with custom codes and restrict timesheet logging so employees only see assigned projects."
+        title: "Manage Employee Leaves",
+        desc: "Syncs approved time-off requests directly to active timesheet grids automatically."
       },
       {
-        title: "Timesheet-to-Payroll Integration",
-        desc: "Calculates payouts based on approved hours and auto-deducts for Loss-of-Pay (LOP)."
+        title: "Run Monthly Payroll",
+        desc: "Auto-calculates earnings, deductions, and tax slabs from approved time logs."
       },
       {
-        title: "Advanced Compliance Templates",
-        desc: "Built-in calculation templates for PF, ESI, and Tax withholding under multiple tax regimes."
+        title: "Export Bank Transfers",
+        desc: "Downloads direct banking-portal-ready payment files in one click."
       },
       {
-        title: "Granular Role-Based Access",
-        desc: "Create custom roles with strict access validation mapped at the Module, Submodule, and Action levels."
+        title: "Configure Users & Roles",
+        desc: "Secures sensitive workforce financial data through granular permission tables."
       },
       {
-        title: "One-Click Payslip Generation",
-        desc: "Generate and distribute professional PDF payslips directly to employee portals instantly."
+        title: "Generate Custom Reports",
+        desc: "Analyzes team utilization and historical payroll costs in seconds."
       }
     ],
     whyChoose: [
       {
-        title: "100% Accurate Time Tracking",
-        desc: "Auto-lock approved leave days and configure custom validation rules to prevent input errors."
+        title: "Save Administrative Days",
+        desc: "Syncs timesheets directly to payroll to eliminate hours of manual entry."
       },
       {
-        title: "Instant 1-Click Payroll Runs",
-        desc: "Ditch the spreadsheets. Built-in compliance templates automatically compute tax and PF deductions."
+        title: "Zero Legal Mistakes",
+        desc: "Automates Indian tax slabs, PF, and ESI rules to guarantee compliance."
       },
       {
-        title: "Enterprise-Grade Data Security",
-        desc: "Encrypted databases, isolated data schemas, and immutable audit logs ensure complete data privacy."
+        title: "Total Project Visibility",
+        desc: "Displays live employee utilization rates and time allocation on one dashboard."
       },
       {
-        title: "Granular Role-Based Access Control",
-        desc: "Strict access validation at the API level ensures users only see what their role permits."
+        title: "Secure Payroll Privacy",
+        desc: "Restricts sensitive financial access through module-level permissions and audit logs."
       }
     ],
     workflow: {
-      headline: "How CalTIMS Works",
-      description: "From daily work logs to month-end payroll processing, everything flows seamlessly in three steps.",
+      headline: "Automated Track-to-Pay Workflow",
+      description: "From daily work logs to month-end payroll processing, everything flows seamlessly to ensure accuracy and reduce manual intervention.",
       phases: [
         {
-          name: "Phase 1: Time Logging",
+          name: "Phase 1: Time & Attendance",
           stages: [
             {
               number: 1,
-              name: "Log Hours",
-              action: "Timesheet Grid",
-              details: "Employees enter hours against their assigned projects on their weekly grid and submit them in one click."
-            }
-          ]
-        },
-        {
-          name: "Phase 2: Approval",
-          stages: [
+              name: "Submit Timesheets",
+              action: "Timesheet Entry",
+              details: "Employees record work hours against assigned projects on a spreadsheet grid."
+            },
             {
               number: 2,
-              name: "Review & Approve",
-              action: "Manager Dashboard",
-              details: "Managers review submissions on the compliance dashboard and approve hours with optional review notes."
+              name: "Approve Timesheets",
+              action: "Timesheet Approval",
+              details: "Managers review submitted timesheets and approve them with one click."
             }
           ]
         },
         {
-          name: "Phase 3: Payroll",
+          name: "Phase 2: Payroll Processing",
           stages: [
             {
               number: 3,
-              name: "Process & Pay",
-              action: "Payroll Engine",
-              details: "The system auto-calculates LOP, tax deductions, and PF contributions, generating payroll reports and PDF payslips."
+              name: "Edit Payroll Profiles",
+              action: "Profile Assignment",
+              details: "HR associates employees with custom earning and deduction rules."
+            },
+            {
+              number: 4,
+              name: "Run Monthly Payroll",
+              action: "Payroll Execution",
+              details: "System computes net salaries, taxes, and loss-of-pay deductions instantly."
+            }
+          ]
+        },
+        {
+          name: "Phase 3: Payout & Reporting",
+          stages: [
+            {
+              number: 5,
+              name: "View My Payslips",
+              action: "PDF Download",
+              details: "Employees view and download professional branded payslips from their portal."
+            },
+            {
+              number: 6,
+              name: "Export Bank Transfer",
+              action: "Bank File Export",
+              details: "Finance downloads portal-ready transfer files for bulk banking payments."
             }
           ]
         }

@@ -4,7 +4,7 @@
     "/about": 103,
     "/services": 78,
     "/products": 122,
-    "/products/caltims": 47,
+    "/products/caltims": 49,
     "/contact": 63,
     "/industries": 67,
     "/privacy": 3,
@@ -26,16 +26,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T06:56:04.819Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-13T08:23:42.670Z",
-      "action": "Page View",
-      "details": "/"
-    },
     {
       "timestamp": "2026-07-13T08:25:11.361Z",
       "action": "Page View",
@@ -525,6 +515,16 @@
       "timestamp": "2026-07-14T10:54:11.147Z",
       "action": "Page View",
       "details": "/"
+    },
+    {
+      "timestamp": "2026-07-14T11:19:34.187Z",
+      "action": "Page View",
+      "details": "/products/caltims"
+    },
+    {
+      "timestamp": "2026-07-14T11:20:03.578Z",
+      "action": "Page View",
+      "details": "/products/caltims"
     }
   ]
 }
