@@ -357,7 +357,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
           seen.get(val)!.push(c);
         }
       }
-      for (const [cols] of seen.entries() as any) {
+      for (const cols of Array.from(seen.values())) {
         if (cols.length > 1) {
           cols.forEach((c: number) => conflictCells.add(`${r}-${c}`));
         }
@@ -374,7 +374,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
           seen.get(val)!.push(r);
         }
       }
-      for (const [rows] of seen.entries() as any) {
+      for (const rows of Array.from(seen.values())) {
         if (rows.length > 1) {
           rows.forEach((r: number) => conflictCells.add(`${r}-${c}`));
         }
@@ -396,7 +396,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
             }
           }
         }
-        for (const [coords] of seen.entries() as any) {
+        for (const coords of Array.from(seen.values())) {
           if (coords.length > 1) {
             coords.forEach(([ar, ac]: [number, number]) => conflictCells.add(`${ar}-${ac}`));
           }

@@ -8,7 +8,7 @@ import { GameCenter } from "./GameCenter";
 
 interface MenuItem {
   label: string;
-  icon: React.ComponentType<any>;
+  icon: React.ElementType;
   href?: string;
   onClick?: () => void;
   dx: number;

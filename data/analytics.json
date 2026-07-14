@@ -6,7 +6,7 @@
     "/products": 131,
     "/products/caltims": 55,
     "/contact": 65,
-    "/industries": 70,
+    "/industries": 71,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -26,11 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T11:45:22.108Z",
-      "action": "Page View",
-      "details": "/"
-    },
     {
       "timestamp": "2026-07-13T11:55:44.869Z",
       "action": "Page View",
@@ -523,6 +518,11 @@
     },
     {
       "timestamp": "2026-07-14T12:00:33.048Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-14T12:03:26.678Z",
       "action": "Page View",
       "details": "/industries"
     }

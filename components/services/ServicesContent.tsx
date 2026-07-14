@@ -265,7 +265,7 @@ export const ServicesContent: React.FC = () => {
               How We Take You From Idea to Enterprise Production
             </h2>
             <p className="text-slate-300 font-medium text-base md:text-lg leading-relaxed">
-              When you hire CALDIM, you don't get junior developers guessing at requirements. You get a systematic, milestone-driven engineering methodology designed for zero downtime.
+              When you hire CALDIM, you don&apos;t get junior developers guessing at requirements. You get a systematic, milestone-driven engineering methodology designed for zero downtime.
             </p>
           </div>
 
@@ -336,7 +336,7 @@ export const ServicesContent: React.FC = () => {
               <div>
                 <h4 className="font-900 text-[var(--navy)] text-base mb-1.5">Senior Architects Only</h4>
                 <p className="text-slate-900 font-600 text-xs md:text-sm leading-relaxed">
-                  We don't outsource to junior contractors. Your project is engineered by senior full-stack developers and industrial automation specialists.
+                  We don&apos;t outsource to junior contractors. Your project is engineered by senior full-stack developers and industrial automation specialists.
                 </p>
               </div>
             </div>
