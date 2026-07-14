@@ -111,9 +111,7 @@ export default function ContactPage() {
                     
                     {/* Direct Mail Card */}
                     <div className="bg-gradient-to-br from-blue-50/60 to-white border-2 border-blue-500/80 rounded-2xl p-5 shadow-md flex items-start gap-4 transition-all hover:shadow-lg relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 bg-blue-500 text-white text-[8px] font-900 px-3 py-1 rounded-bl-xl uppercase tracking-widest shadow-sm">
-                        Recommended
-                      </div>
+
                       <div className="w-11 h-11 rounded-xl bg-blue-500 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-sm group-hover:scale-105 transition-transform duration-200">
                         <Mail size={20} />
                       </div>
