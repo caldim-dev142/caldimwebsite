@@ -185,19 +185,7 @@ const productsList = [
     tagline: "Generate steel bids in minutes",
     features: ["Configure Stair Geometry", "Calculate Live Costs", "Verify Code Compliance"]
   },
-  {
-    name: "CalTIMS",
-    desc: "HR & Payroll Management",
-    href: "/products/caltims",
-    icon: LayoutGrid,
-    iconColor: "text-amber-500",
-    previewColor: "from-amber-900/40 to-[#0a192f]",
-    glowColor: "bg-amber-600/20",
-    accentColor: "text-amber-500",
-    borderGlow: "group-hover:border-amber-500/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]",
-    tagline: "Sync timesheets to payroll instantly",
-    features: ["Log Weekly Timesheets", "Manage Employee Leaves", "Run Monthly Payroll"]
-  },
+
 ];
 
 export const Navbar: React.FC = () => {

@@ -1,7 +1,7 @@
 {
   "pageViews": {
-    "/": 236,
-    "/about": 101,
+    "/": 237,
+    "/about": 102,
     "/services": 78,
     "/products": 117,
     "/products/caltims": 43,
@@ -16,7 +16,7 @@
     "/products/calrims": 14,
     "/products/asset-management": 2,
     "/products/cal-ems": 10,
-    "/products/calems": 5,
+    "/products/calems": 6,
     "/products/calmisc": 2,
     "/products/warehouse-management": 2,
     "/products/ai-beauty": 4
@@ -25,21 +25,6 @@
     "consultation_booked": 0
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T04:53:39.786Z",
-      "action": "Page View",
-      "details": "/products/cal-ems"
-    },
-    {
-      "timestamp": "2026-07-13T04:54:14.554Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T04:54:19.356Z",
-      "action": "Page View",
-      "details": "/products/cal-ems"
-    },
     {
       "timestamp": "2026-07-13T05:03:30.038Z",
       "action": "Page View",
@@ -524,6 +509,21 @@
       "timestamp": "2026-07-14T07:04:58.340Z",
       "action": "Page View",
       "details": "/products/caltrack"
+    },
+    {
+      "timestamp": "2026-07-14T07:10:30.417Z",
+      "action": "Page View",
+      "details": "/products/calems"
+    },
+    {
+      "timestamp": "2026-07-14T07:10:37.705Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-14T07:10:51.289Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }
