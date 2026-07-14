@@ -15,12 +15,10 @@ export const metadata: Metadata = {
 };
 
 const timeline = [
-  { year: "2010s", title: "Engineering Foundation", description: "CALDIM established its engineering practice, delivering precision engineering solutions to industrial clients." },
-  { year: "2018", title: "Digital Expansion Begins", description: "Recognized the need for integrated digital tools to complement physical engineering — began internal software development." },
-  { year: "2020", title: "Software Division Formed", description: "CALDIM Software Division officially established to serve enterprise software needs of industrial clients." },
-  { year: "2022", title: "First Enterprise Products", description: "CALTIMS launched — the first product in what would become the CALDIM Enterprise Product Suite." },
-  // { year: "2024", title: "AI & Cloud Integration", description: "Expanded capabilities to include AI-powered tools, cloud infrastructure, and data engineering services." },
-  { year: "2025+", title: "Scaling the Product Suite", description: "Building out the full 9-product enterprise suite and expanding into new industry verticals." },
+  { year: "2016", title: "Engineering Foundation", description: "CALDIM established its core engineering practice, delivering precision solutions to automotive and manufacturing clients." },
+  { year: "2020", title: "Internal Digitalization", description: "Recognized the need for integrated digital tools to complement physical engineering and began developing internal software solutions." },
+  { year: "2025", title: "CALDIM-DAS Founded", description: "CALDIM Digital & Automation Solutions (Software Division) officially launched to bring our enterprise software to the global market." },
+  { year: "2025+", title: "Enterprise Product Suite", description: "Scaling out our comprehensive suite of 10+ enterprise products, including CALTIMS, CALRIMS, and AI integration platforms." },
 ];
 
 export default function AboutPage() {
