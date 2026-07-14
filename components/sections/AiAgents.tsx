@@ -7,6 +7,7 @@ import { FadeUp } from "../animations/Animations";
 import { RecruitmentSimulator } from "./RecruitmentSimulator";
 import { ProcurementSimulator } from "./ProcurementSimulator";
 import { CalemsSimulator } from "./CalemsSimulator";
+import { CaltimsSimulator } from "./CaltimsSimulator";
 import { MiscSimulator } from "./MiscSimulator";
 import { ProjectManagementSimulator } from "./ProjectManagementSimulator";
 import { AssetManagementSimulator } from "./AssetManagementSimulator";
@@ -395,6 +396,24 @@ export const AiAgentsSection: React.FC = () => {
                 </button>
                 <div className="max-h-[90vh] overflow-y-auto">
                   <CalemsSimulator />
+                </div>
+              </motion.div>
+            ) : activeId === "caltims" ? (
+              <motion.div
+                initial={{ scale: 0.95, y: 16 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 16 }}
+                className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setActiveId(null)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors p-2 z-10 bg-slate-100 hover:bg-slate-200 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                <div className="max-h-[90vh] overflow-y-auto">
+                  <CaltimsSimulator />
                 </div>
               </motion.div>
             ) : activeId === "calmisc" ? (
