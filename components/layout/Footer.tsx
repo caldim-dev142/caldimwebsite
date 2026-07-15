@@ -20,6 +20,7 @@ const footerLinks = {
   Services: [
     { label: "Enterprise Software", href: "/services#enterprise" },
     { label: "AI & ML Solutions", href: "/services#ai" },
+    // { label: "Cloud Platforms", href: "/services#cloud" },
     { label: "ERP & Automation", href: "/services#erp" },
     { label: "Consulting", href: "/services#consulting" },
   ],

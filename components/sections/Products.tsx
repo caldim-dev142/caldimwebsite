@@ -14,7 +14,7 @@ interface Product {
   contents: string;
   icon: React.ElementType;
   href: string;
-  status: "live" | "coming-soon";
+
   accentColor: string;
 }
 
@@ -27,7 +27,7 @@ const products: Product[] = [
     contents: "CALTIMS is an AI-powered HR & Payroll solution designed for modern teams. It streamlines timesheet tracking, leave management, and automated payroll processing into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless HR management.",
     icon: Clock,
     href: "/products/caltims",
-    status: "live",
+   
     accentColor: "#3b82f6", // Blue
   },
   {
@@ -38,7 +38,7 @@ const products: Product[] = [
     contents: "CAL-RIMS is a unified recruitment intelligence platform that automates applicant sourcing, intelligent resume screening, virtual interviews, and digital onboarding workflows.",
     icon: Package,
     href: "/products/calrims",
-    status: "coming-soon",
+  
     accentColor: "#8B5CF6", // Purple
   },
   {
@@ -49,7 +49,7 @@ const products: Product[] = [
     contents: "CALBUY is an AI-powered Procurement portal that turns engineering drawings into validated, cost-estimated Bill of Material(BOM) and vendor RFQs in minutes.",
     icon: ShoppingCart,
     href: "/products/calbuy",
-    status: "coming-soon",
+
     accentColor: "#10B981", // Emerald
   },
   {
@@ -60,7 +60,7 @@ const products: Product[] = [
     contents: "CALTRACK bridges the gap between customer bookings and field technician dispatching. It automates timesheets, GPS clock-in verification, mileage reimbursements, and payroll compliance in one platform — reducing administrative processing time by 90% for mobile workforces.",
     icon: MapPin,
     href: "/products/caltrack",
-    status: "coming-soon",
+ 
     accentColor: "#F59E0B", // Amber
   },
   {
@@ -71,7 +71,7 @@ const products: Product[] = [
     contents: "AI Beauty Consultant automates salon operations while delivering tailored service recommendations based on live biometric scans. It processes image data in under 2 seconds to instantly boost service conversions and tracks booking analytics in real time.",
     icon: Sparkles,
     href: "/products/ai-beauty",
-    status: "coming-soon",
+ 
     accentColor: "#EC4899", // Pink
   },
   {
@@ -82,7 +82,7 @@ const products: Product[] = [
     contents: "CALDIM PMS replaces 5+ disconnected spreadsheets with one integrated system that manages bids, projects, change orders, invoices, and vendor payments across the full engineering project lifecycle.",
     icon: FolderKanban,
     href: "/products/project-management",
-    status: "coming-soon",
+
     accentColor: "#6366F1", // Indigo
   },
   {
@@ -93,7 +93,7 @@ const products: Product[] = [
     contents: "CALEMS is a secure, multi-tenant HR platform that automates the full employee lifecycle. From paperless onboarding and real-time attendance tracking to payroll processing and policy management — it eliminates 90% of HR administrative workload through intelligent self-service workflows.",
     icon: Package,
     href: "/products/calems",
-    status: "coming-soon",
+
     accentColor: "#3B82F6", // Blue
   },
   {
@@ -104,7 +104,7 @@ const products: Product[] = [
     contents: "This product automates engine-to-accessory matching, packing, and dispatch workflows. Built for floor managers and dispatch operators in industrial manufacturing. Eliminates manual tracking errors and ensures strict dispatch discipline.",
     icon: Warehouse,
     href: "/products/warehouse-management",
-    status: "coming-soon",
+  
     accentColor: "#14B8A6", // Teal
   },
   {
@@ -115,7 +115,7 @@ const products: Product[] = [
     contents: "This platform automates the 7-stage engineering asset lifecycle, from initial request to final production. Built for manufacturing engineering teams and designers. Eliminates approval bottlenecks and secures proprietary CAD files.",
     icon: Cpu,
     href: "/products/asset-management",
-    status: "coming-soon",
+
     accentColor: "#64748B", // Slate
   },
   {
@@ -126,7 +126,7 @@ const products: Product[] = [
     contents: "CAL MISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
     icon: Box,
     href: "/products/calmisc",
-    status: "coming-soon",
+  
     accentColor: "#F43F5E", // Rose
   }
 ];
@@ -193,9 +193,7 @@ export const ProductsSection: React.FC = () => {
                       <h3 className={`text-xl font-800 transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                         {product.name}
                       </h3>
-                      {product.status === "live" && (
-                        <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Live</span>
-                      )}
+                    
                     </div>
                     <p className={`text-sm font-600 transition-colors duration-300 ${isActive ? 'text-slate-200' : 'text-slate-400'}`}>
                       {product.category}
@@ -252,9 +250,7 @@ export const ProductsSection: React.FC = () => {
                     <Link href={activeProduct.href} className="btn text-white hover:opacity-90 transition-opacity border-none font-bold" style={{ background: activeProduct.accentColor }}>
                       Explore {activeProduct.name} <ArrowRight size={16} />
                     </Link>
-                    {activeProduct.status === "coming-soon" && (
-                      <span className="text-sm font-semibold text-slate-500 uppercase tracking-widest">In Development</span>
-                    )}
+                   
                   </div>
                 </div>
 

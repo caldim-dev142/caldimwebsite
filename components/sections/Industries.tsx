@@ -252,7 +252,7 @@ export const IndustriesSection: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-1 text-[9px] font-mono font-700" style={{ color: ind.accent }}>
                       <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-                      <span>LIVE</span>
+                    
                     </div>
                   </div>
 

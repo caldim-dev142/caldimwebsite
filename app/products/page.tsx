@@ -19,7 +19,7 @@ interface ProductItem {
   category: string;
   description: string;
   icon: React.ElementType;
-  status: "live" | "coming-soon";
+  
   color: string;
   videoTagline: string;
   mediaTitle: string;
@@ -35,7 +35,7 @@ const products: ProductItem[] = [
     category: "HR & Payroll Engine",
     description: "Our core timesheet and payroll automation engine. CalTIMS bridges the gap between daily work logs and month-end payroll by calculating leaves, task allocations, and tax deductions automatically without manual intervention.",
     icon: Clock,
-    status: "live",
+
     color: "#2563EB",
     videoTagline: "Watch 2-Min Payroll Automation & Timesheet Walkthrough",
     mediaTitle: "Timesheet & Automated Payroll Telemetry Hub",
@@ -54,7 +54,7 @@ const products: ProductItem[] = [
     category: "Recruitment Intelligence",
     description: "An end-to-end hiring platform that automates the full candidate journey — from application ingestion and candidate screening to interviews, offer management, and onboarding.",
     icon: Package,
-    status: "live",
+
     color: "#8B5CF6",
     videoTagline: "Watch Candidate Resume Parsing & Automated Voice Interview Demo",
     mediaTitle: "Recruitment Pipeline & Auto-Screening Dashboard",
@@ -73,7 +73,7 @@ const products: ProductItem[] = [
     category: "Procurement Pipeline",
     description: "Automate purchase orders, track vendor lead times, and manage inventory requisitions across global suppliers. Integrated multi-stage approval paths completely eliminate chaotic email clutter and unapproved POs.",
     icon: ShoppingCart,
-    status: "live",
+
     color: "#10B981",
     videoTagline: "Watch Automated Requisition & Vendor Approval Pipeline Demo",
     mediaTitle: "Multi-Tier Enterprise Procurement Hub",
@@ -92,7 +92,7 @@ const products: ProductItem[] = [
     category: "Field Service Management",
     description: "CalTrack is an end-to-end platform for managing field operations, automated timesheets, and payroll compliance. Built for service-based businesses and mobile workforces, it bridges the gap between customer bookings and field technician dispatching.",
     icon: MapPin,
-    status: "live",
+
     color: "#F59E0B",
     videoTagline: "Watch Live Field Technician Dispatch & GPS Tracking Radar",
     mediaTitle: "Smart Dispatch & Mobile Workforce Telemetry",
@@ -111,7 +111,7 @@ const products: ProductItem[] = [
     category: "AI Neural Analytics",
     description: "AI-based recommendations and trend predictive analytics tailored for cosmetic retailers. Processes demographic statistics, regional climate shifts, and real-time sales velocity to suggest exact stock counts.",
     icon: Sparkles,
-    status: "live",
+
     color: "#EC4899",
     videoTagline: "Watch Neural Trend Predictive Analytics & Stock Engine Demo",
     mediaTitle: "AI Neural Recommendation & Forecasting Engine",
@@ -130,7 +130,7 @@ const products: ProductItem[] = [
     category: "Industrial Scheduling",
     description: "Structured project planners, task allocation systems, and verified milestones logging. Designed specifically for precision scheduling in complex industrial manufacturing and plant setup delivery projects.",
     icon: FolderKanban,
-    status: "live",
+
     color: "#6366F1",
     videoTagline: "Watch Industrial Milestone & Delivery Planner Walkthrough",
     mediaTitle: "Interactive Gantt & Industrial Milestone Matrix",
@@ -149,7 +149,7 @@ const products: ProductItem[] = [
     category: "HR & Employee Management",
     description: "Secure, multi-tenant HR platform that automates the full employee lifecycle. Manages paperless onboarding, real-time attendance, and automated payroll processing.",
     icon: Package,
-    status: "live",
+   
     color: "#3B82F6",
     videoTagline: "Watch Real-Time Onboarding & Payroll Processing",
     mediaTitle: "Digital HR & Employee Lifecycle Command",
@@ -168,7 +168,7 @@ const products: ProductItem[] = [
     category: "Logistics Automation",
     description: "Manage barcode logging, storage aisle optimization, and automated picking checklists. Built for high-volume industrial supply chains, distribution bays, and rapid shipping verification.",
     icon: Warehouse,
-    status: "live",
+
     color: "#14B8A6",
     videoTagline: "Watch Automated Barcode Logging & High-Speed Picking Demo",
     mediaTitle: "Warehouse Logistics & Aisle Optimization Matrix",
@@ -187,7 +187,7 @@ const products: ProductItem[] = [
     category: "Enterprise Infrastructure",
     description: "Log equipment maintenance schedules, calculate automated depreciation records, and verify hardware usage licenses across your organization. Centralized, audit-ready asset register built for enterprise scale.",
     icon: Cpu,
-    status: "live",
+
     color: "#64748B",
     videoTagline: "Watch Centralized Hardware & License Register Walkthrough",
     mediaTitle: "Enterprise Asset Register & Lifecycle Registry",
@@ -206,7 +206,7 @@ const products: ProductItem[] = [
     category: "Steel Estimation",
     description: "Generate precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators.",
     icon: Box,
-    status: "live",
+
     color: "#F43F5E",
     videoTagline: "Watch Real-Time Steel Estimation & Bidding Walkthrough",
     mediaTitle: "Structural Steel Proposal & BOM Engine",
@@ -311,11 +311,8 @@ export default function ProductsPage() {
                             <ItemIcon size={18} />
                           </div>
                           <div className="truncate">
-                            <div className="text-sm tracking-tight truncate flex items-center gap-2">
-                              <span>{item.name}</span>
-                              {item.status === "live" && (
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" title="Live Production" />
-                              )}
+                            <div className="text-sm font-800 tracking-tight text-white truncate">
+                              {item.name}
                             </div>
                             <div className="text-[11px] text-white/60 font-500 truncate">
                               {item.category}
@@ -329,10 +326,7 @@ export default function ProductsPage() {
                   })}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/10 px-3 text-[11px] text-white/50 font-mono flex items-center justify-between">
-                  <span>Navigation: Side-by-Side</span>
-                  <span>⚡ Instant Switch</span>
-                </div>
+                
               </div>
 
               {/* Right Side: Massive 16:9 Cinematic Video & Telemetry Stage (8 cols) */}
@@ -373,16 +367,7 @@ export default function ProductsPage() {
                         </div>
 
                         <div className="flex items-center gap-2 shrink-0">
-                          {selectedProduct.status === "live" ? (
-                            <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-800 uppercase tracking-wide font-mono flex items-center gap-1.5 shadow">
-                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                              Live Production
-                            </span>
-                          ) : (
-                            <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-slate-300 text-xs font-800 uppercase tracking-wide font-mono">
-                              In Engineering / Soon
-                            </span>
-                          )}
+                          
                           <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-800 font-mono">
                             HD Video Ready
                           </span>
@@ -557,18 +542,7 @@ export default function ProductsPage() {
                           <td className="py-4 px-6 text-slate-600 font-600">
                             {item.category}
                           </td>
-                          <td className="py-4 px-6">
-                            {item.status === "live" ? (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-800 text-[10px] uppercase">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Live
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-700 text-[10px] uppercase font-mono">
-                                Coming Soon
-                              </span>
-                            )}
-                          </td>
+                          
                           <td className="py-4 px-6 text-slate-600 font-500 max-w-xs truncate" title={item.metrics[0]}>
                             {item.metrics[0]}
                           </td>

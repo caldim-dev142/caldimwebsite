@@ -63,10 +63,7 @@ export const DevelopmentProcess: React.FC = () => {
     >
       <div className="container-wide relative z-10">
         <FadeUp className="text-center mb-16">
-          <div className="badge badge-navy mx-auto mb-4 flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full ${!isHovered ? "bg-blue-600 animate-ping" : "bg-slate-400"}`} />
-            Development Process {!isHovered ? "• Autoplay Active 🟢" : "• Autoplay Paused ⏸"}
-          </div>
+        
           <h2 id="process-heading" className="text-section-title text-[var(--navy)] mb-4">
             How We Build
           </h2>
