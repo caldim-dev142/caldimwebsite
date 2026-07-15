@@ -287,10 +287,12 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 badge badge-accent mb-6 bg-blue-50 border border-blue-100 text-blue-600 shadow-sm"
+              className="inline-flex items-center gap-2.5 badge badge-accent mb-6 bg-blue-50/90 border border-blue-200/80 text-blue-700 px-4 py-1.5 rounded-full shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-              CALDIM-DAS Platform
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+              <span className="font-800 tracking-wide">CALDIM • DAS</span>
+              <span className="text-slate-300">|</span>
+              <span className="font-600 text-slate-700">Digitalization & Automation Solutions</span>
             </motion.div>
 
             <motion.h1
@@ -309,7 +311,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-slate-900 font-700 text-lg md:text-xl max-w-xl leading-relaxed mb-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200"
             >
-              CALDIM-DAS delivers enterprise software, AI solutions, cloud platforms, digital transformation services, and industry-focused technology solutions built for modern businesses.
+              <strong className="text-blue-700 font-800">CALDIM-DAS (Digitalization & Automation Solutions)</strong> delivers enterprise software, AI solutions, cloud platforms, and industry-focused technology solutions built for modern businesses.
             </motion.p>
 
             <motion.div
