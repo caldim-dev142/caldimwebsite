@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Factory, Car, TrendingUp, ShoppingBag, Package, 
-  ArrowRight, Terminal, Activity, Building2 
+  ArrowRight, Terminal, Activity, Building2, ChevronLeft, ChevronRight 
 } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
 
@@ -156,6 +156,19 @@ const industriesList: IndustryData[] = [
 ];
 
 export const IndustriesSection: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth > 768 ? 400 : 330;
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <section 
       id="industries" 
@@ -167,21 +180,45 @@ export const IndustriesSection: React.FC = () => {
 
       <div className="container-wide relative z-10">
         
-        {/* Section Header */}
-        <FadeUp className="text-center mb-16">
-          <div className="badge mb-4 mx-auto border-blue-900/50 bg-blue-900/20 text-blue-300 uppercase tracking-widest text-xs">
-            Core Target Verticals
-          </div>
-          <h2 id="industries-heading" className="text-4xl md:text-5xl font-900 text-white tracking-tight mb-4">
-            Built for Industrial Complexity
-          </h2>
-          <p className="text-slate-400 font-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Every module is tailored to sync your physical operations with secure, enterprise-grade cloud systems.
-          </p>
-        </FadeUp>
+        {/* Section Header with Carousel Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <FadeUp className="text-left max-w-2xl">
+            <div className="badge mb-4 border-blue-900/50 bg-blue-900/20 text-blue-300 uppercase tracking-widest text-xs">
+              Core Target Verticals
+            </div>
+            <h2 id="industries-heading" className="text-4xl md:text-5xl font-900 text-white tracking-tight mb-4">
+              Built for Industrial Complexity
+            </h2>
+            <p className="text-slate-400 font-500 text-base md:text-lg leading-relaxed">
+              Every module is tailored to sync your physical operations with secure, enterprise-grade cloud systems. Swipe or click to inspect all 6 sectors.
+            </p>
+          </FadeUp>
 
-        {/* 6-Item Grid of High-Tech Terminal Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Navigation Arrows */}
+          <div className="flex items-center gap-3 self-end shrink-0">
+            <button
+              onClick={() => scroll("left")}
+              className="w-12 h-12 rounded-2xl border border-white/10 bg-[#0a192f]/80 hover:bg-blue-600 hover:border-blue-500 text-white flex items-center justify-center transition-all duration-300 shadow-lg active:scale-95"
+              aria-label="Previous Industry"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="w-12 h-12 rounded-2xl border border-white/10 bg-[#0a192f]/80 hover:bg-blue-600 hover:border-blue-500 text-white flex items-center justify-center transition-all duration-300 shadow-lg active:scale-95"
+              aria-label="Next Industry"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
+        </div>
+
+        {/* Horizontal Swipe Carousel of High-Tech Terminal Cards */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {industriesList.map((ind, i) => {
             const Icon = ind.icon;
             return (
@@ -191,7 +228,7 @@ export const IndustriesSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="h-full"
+                className="w-[310px] sm:w-[350px] md:w-[380px] shrink-0 snap-start h-full"
               >
                 <Link
                   href={ind.href}

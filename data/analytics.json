@@ -1,6 +1,6 @@
 {
   "pageViews": {
-    "/": 249,
+    "/": 250,
     "/about": 106,
     "/services": 81,
     "/products": 132,
@@ -26,11 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T12:40:58.024Z",
-      "action": "Page View",
-      "details": "/products/ai-beauty"
-    },
     {
       "timestamp": "2026-07-13T12:45:36.465Z",
       "action": "Page View",
@@ -525,6 +520,11 @@
       "timestamp": "2026-07-15T05:41:56.042Z",
       "action": "Page View",
       "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-15T05:54:40.567Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }
