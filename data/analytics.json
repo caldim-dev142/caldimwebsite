@@ -1,6 +1,6 @@
 {
   "pageViews": {
-    "/": 272,
+    "/": 274,
     "/about": 117,
     "/services": 83,
     "/products": 136,
@@ -26,16 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-14T11:28:31.079Z",
-      "action": "Page View",
-      "details": "/"
-    },
-    {
-      "timestamp": "2026-07-14T11:29:02.601Z",
-      "action": "Page View",
-      "details": "/about"
-    },
     {
       "timestamp": "2026-07-14T11:31:05.735Z",
       "action": "Page View",
@@ -525,6 +515,16 @@
       "timestamp": "2026-07-15T09:50:27.691Z",
       "action": "Page View",
       "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-15T10:16:12.850Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T10:17:04.293Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }

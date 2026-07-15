@@ -645,8 +645,8 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-900 text-[var(--navy)] tracking-tight mb-6 leading-tight"
             >
-              Engineering Digital Solutions{" "}
-              <span className="gradient-text">That Drive Business Growth</span>
+              Next-Generation Software & AI{" "}
+              <span className="gradient-text">That Drives Business Growth</span>
             </motion.h1>
 
             <motion.p
