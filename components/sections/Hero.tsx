@@ -301,7 +301,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-900 text-[var(--navy)] tracking-tight mb-6 leading-tight"
             >
-              Engineering Digital Solutions{" "}
+              Next-Generation Software & AI{" "}
               <span className="gradient-text">That Drive Business Growth</span>
             </motion.h1>
 
@@ -342,9 +342,9 @@ export const HeroSection: React.FC = () => {
               className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-6"
             >
               {[
-                { value: "1+", label: "Years Engineering" },
-                { value: "15+", label: "Projects Delivered" },
-                { value: "10+", label: "Enterprise Products" },
+                { value: "5+", label: "Software Solutions" },
+                { value: "20+", label: "Tech Deployments" },
+                { value: "10+", label: "Enterprise Projects" },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div className="text-3xl font-900 text-[var(--navy)] mb-1">{value}</div>
