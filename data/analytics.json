@@ -1,9 +1,9 @@
 {
   "pageViews": {
-    "/": 279,
+    "/": 280,
     "/about": 118,
     "/services": 83,
-    "/products": 141,
+    "/products": 142,
     "/products/caltims": 60,
     "/contact": 72,
     "/industries": 78,
@@ -27,16 +27,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-14T11:51:18.805Z",
-      "action": "Page View",
-      "details": "/products/warehouse-management"
-    },
-    {
-      "timestamp": "2026-07-14T11:51:25.946Z",
-      "action": "Page View",
-      "details": "/products/calmisc"
-    },
     {
       "timestamp": "2026-07-14T11:54:22.201Z",
       "action": "Page View",
@@ -526,6 +516,16 @@
       "timestamp": "2026-07-15T12:27:15.566Z",
       "action": "Page View",
       "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-15T12:46:44.062Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T12:47:07.421Z",
+      "action": "Page View",
+      "details": "/products"
     }
   ]
 }

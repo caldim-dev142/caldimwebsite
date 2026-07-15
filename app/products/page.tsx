@@ -152,7 +152,7 @@ export default function ProductsPage() {
               {/* Left Side: Dynamic Selector Panel (4 cols) */}
               <div className="lg:col-span-4 flex flex-col justify-between">
                 
-                <div className="flex flex-col gap-2.5 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                <div className="flex flex-col gap-2 max-h-[780px] overflow-y-auto pr-2 custom-scrollbar">
                   {productsList.map((item) => {
                     const isSelected = item.id === selectedId;
                     const ItemIcon = getIconComponent(item.iconName);
@@ -161,36 +161,36 @@ export default function ProductsPage() {
                       <button
                         key={item.id}
                         onClick={() => setSelectedId(item.id)}
-                        className={`w-full text-left p-4 rounded-2xl flex items-center justify-between border transition-all duration-300 group ${
+                        className={`w-full text-left p-3 rounded-xl flex items-center justify-between border transition-all duration-300 group ${
                           isSelected 
                             ? "bg-white/10 border-white/20 shadow-lg" 
                             : "bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10"
                         }`}
                         style={{
-                          borderLeft: isSelected ? `4px solid ${item.color}` : ""
+                          borderLeft: isSelected ? `3px solid ${item.color}` : ""
                         }}
                       >
-                        <div className="flex items-center gap-3 truncate">
+                        <div className="flex items-center gap-2.5 truncate">
                           <div 
-                            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-white/10"
+                            className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border border-white/10"
                             style={{ 
                               background: isSelected ? item.color : "rgba(255,255,255,0.05)",
                               color: isSelected ? "#fff" : item.color
                             }}
                           >
-                            <ItemIcon size={18} />
+                            <ItemIcon size={16} />
                           </div>
                           <div className="truncate">
-                            <div className="text-sm font-800 tracking-tight truncate">
+                            <div className="text-xs font-800 tracking-tight truncate">
                               {item.name}
                             </div>
-                            <div className="text-[11px] text-white/60 font-500 truncate">
+                            <div className="text-[10px] text-white/50 font-500 truncate">
                               {item.category}
                             </div>
                           </div>
                         </div>
 
-                        <ChevronRight size={16} className={`shrink-0 transition-transform ${isSelected ? "translate-x-1 text-white" : "text-white/30 group-hover:text-white group-hover:translate-x-0.5"}`} />
+                        <ChevronRight size={14} className={`shrink-0 transition-transform ${isSelected ? "translate-x-1 text-white" : "text-white/30 group-hover:text-white group-hover:translate-x-0.5"}`} />
                       </button>
                     );
                   })}
