@@ -1,11 +1,11 @@
 {
   "pageViews": {
-    "/": 278,
-    "/about": 117,
+    "/": 279,
+    "/about": 118,
     "/services": 83,
     "/products": 141,
     "/products/caltims": 60,
-    "/contact": 71,
+    "/contact": 72,
     "/industries": 78,
     "/privacy": 3,
     "/admin/login": 9,
@@ -27,21 +27,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-14T11:51:03.593Z",
-      "action": "Page View",
-      "details": "/products/caltrack"
-    },
-    {
-      "timestamp": "2026-07-14T11:51:10.061Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-14T11:51:14.329Z",
-      "action": "Page View",
-      "details": "/products/ai-beauty"
-    },
     {
       "timestamp": "2026-07-14T11:51:18.805Z",
       "action": "Page View",
@@ -526,6 +511,21 @@
       "timestamp": "2026-07-15T12:17:16.943Z",
       "action": "Page View",
       "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-15T12:26:28.037Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-15T12:26:34.307Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T12:27:15.566Z",
+      "action": "Page View",
+      "details": "/about"
     }
   ]
 }
