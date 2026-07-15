@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 271,
-    "/about": 115,
+    "/": 272,
+    "/about": 117,
     "/services": 83,
     "/products": 136,
     "/products/caltims": 57,
     "/contact": 69,
-    "/industries": 77,
+    "/industries": 78,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -26,26 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-14T11:20:59.031Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-14T11:21:24.976Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-14T11:21:31.117Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-14T11:21:54.035Z",
-      "action": "Page View",
-      "details": "/products/calmisc"
-    },
     {
       "timestamp": "2026-07-14T11:28:31.079Z",
       "action": "Page View",
@@ -525,6 +505,26 @@
       "timestamp": "2026-07-15T09:32:00.820Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-15T09:45:40.047Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-15T09:49:26.916Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-15T09:50:26.372Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T09:50:27.691Z",
+      "action": "Page View",
+      "details": "/about"
     }
   ]
 }
