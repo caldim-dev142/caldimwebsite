@@ -40,8 +40,35 @@ interface IndustrySection {
 
 const industryStrips: IndustrySection[] = [
   {
-    id: "manufacturing",
+    id: "construction",
     number: "01",
+    title: "Construction & Fabrication",
+    subtitle: "Massive Infrastructure BIM & Raw Material Tracking",
+    domainName: "Heavy Engineering & Mega-Project Sites",
+    icon: Building2,
+    themeColor: "#f59e0b",
+    badgeBg: "bg-amber-100 border-amber-300 text-amber-900",
+    badgeText: "Real-Time Site Automation",
+    stripBg: "bg-[#0A192F] text-white",
+    textColor: "text-white",
+    legacyBottleneck: "Disjointed contractor schedules, lost raw materials leading to massive budget overruns, and manual paper-based safety compliance logs.",
+    caldimTransformation: "Centralized structural BIM (Building Information Modeling) integrations, automated supply chain GPS routing, and instant digital compliance sign-offs.",
+    softwareStack: [
+      { layer: "Layer 01 • Material Sync", title: "Supplier Procurement Portal", description: "Automated PO generation and raw material lead-time tracking for steel and concrete.", engine: "CALBUY" },
+      { layer: "Layer 02 • Site Logistics", title: "Heavy Equipment GPS Radar", description: "Live tracking of critical heavy machinery and fleet transit across mega-sites.", engine: "CALTRACK" },
+      { layer: "Layer 03 • Daily Logs", title: "Digital Compliance & Safety Ledger", description: "Timestamped mobile safety checklists replacing traditional contractor paperwork.", engine: "CALTIMS" },
+      { layer: "Layer 04 • Executive BIM", title: "3D Project Lifecycle Matrix", description: "Real-time project completion mapping synced directly with ERP financial ledgers.", engine: "Core Suite" }
+    ],
+    metrics: [
+      { label: "Material Waste Reduction", value: "-45%" },
+      { label: "Contractor Log Accuracy", value: "100%" },
+      { label: "Project Delay Mitigation", value: "+30%" },
+      { label: "Safety Audit Readiness", value: "Instant" }
+    ]
+  },
+  {
+    id: "manufacturing",
+    number: "02",
     title: "Manufacturing & Heavy Industry",
     subtitle: "Plant Floor Automation & High-Speed Machine Telemetry",
     domainName: "Heavy Industrial Stamping & Assembly Bays",
@@ -49,8 +76,8 @@ const industryStrips: IndustrySection[] = [
     themeColor: "#2563EB",
     badgeBg: "bg-blue-600/15 border-blue-400/40 text-blue-300",
     badgeText: "24/7 Floor Telemetry Sync",
-    stripBg: "bg-[#0A192F] text-white",
-    textColor: "text-white",
+    stripBg: "bg-slate-50 text-[var(--navy)] border-y border-slate-200",
+    textColor: "text-[var(--navy)]",
     legacyBottleneck: "Paper checksheet inspection logs, siloed PLC status across isolated machinery, and blind machine downtime that halts entire production shifts.",
     caldimTransformation: "Direct IoT sensor ingestion, live OEE (Overall Equipment Effectiveness) status monitors, and automated paperless shift-to-shift handover verification.",
     softwareStack: [
@@ -68,7 +95,7 @@ const industryStrips: IndustrySection[] = [
   },
   {
     id: "automotive",
-    number: "02",
+    number: "03",
     title: "Automotive & Logistics Systems",
     subtitle: "Just-In-Time Assembly & Multi-Tier Supply Chain Radar",
     domainName: "Automotive Assembly Lines & Global Dealer Networks",
@@ -76,8 +103,8 @@ const industryStrips: IndustrySection[] = [
     themeColor: "#8B5CF6",
     badgeBg: "bg-purple-100 border-purple-300 text-purple-900",
     badgeText: "Just-In-Time Assembly Radar",
-    stripBg: "bg-slate-50 text-[var(--navy)] border-y border-slate-200",
-    textColor: "text-[var(--navy)]",
+    stripBg: "bg-[#020c1b] text-white border-b border-white/10",
+    textColor: "text-white",
     legacyBottleneck: "Chaotic multi-tier parts requisitions, untracked delivery routes across global suppliers, and high-margin assembly line yield delays.",
     caldimTransformation: "Automated vendor lead-time portals, real-time high-value machinery GPS radar, and synchronized parts inventory matrices.",
     softwareStack: [
@@ -95,7 +122,7 @@ const industryStrips: IndustrySection[] = [
   },
   {
     id: "finance",
-    number: "03",
+    number: "04",
     title: "Finance & Fintech Systems",
     subtitle: "High-Performance Transaction Ledgers & Audit Governance",
     domainName: "Global Corporate Treasuries & Multi-Entity Ledger Networks",
@@ -103,8 +130,8 @@ const industryStrips: IndustrySection[] = [
     themeColor: "#10B981",
     badgeBg: "bg-emerald-500/15 border-emerald-400/40 text-emerald-300",
     badgeText: "Immutable Cryptographic Ledger",
-    stripBg: "bg-[#020c1b] text-white border-b border-white/10",
-    textColor: "text-white",
+    stripBg: "bg-white text-[var(--navy)] border-b border-slate-200",
+    textColor: "text-[var(--navy)]",
     legacyBottleneck: "Manual corporate expense reconciliation, vulnerable spreadsheet payroll calculations, and opaque audit trails during statutory compliance review.",
     caldimTransformation: "Zod-verified schema calculations, automated tax and leave deduction engines, and immutable multi-signature audit trails.",
     softwareStack: [
@@ -122,7 +149,7 @@ const industryStrips: IndustrySection[] = [
   },
   {
     id: "retail",
-    number: "04",
+    number: "05",
     title: "Retail & E-Commerce Systems",
     subtitle: "Multichannel SKU Synchronization & Neural Stock Forecasting",
     domainName: "High-Volume SKU Catalogs & Multichannel Fulfillment Centers",
@@ -130,8 +157,8 @@ const industryStrips: IndustrySection[] = [
     themeColor: "#EC4899",
     badgeBg: "bg-pink-100 border-pink-300 text-pink-900",
     badgeText: "AI Neural Forecasting Engine",
-    stripBg: "bg-white text-[var(--navy)] border-b border-slate-200",
-    textColor: "text-[var(--navy)]",
+    stripBg: "bg-[#0A192F] text-white",
+    textColor: "text-white",
     legacyBottleneck: "Disconnected online store catalogs versus physical warehouse stock, leading to backorders, dead inventory buildup, and slow order fulfillment.",
     caldimTransformation: "Real-time multichannel inventory synchronization, AI-based demographic sales velocity prediction, and high-speed warehouse picking verification.",
     softwareStack: [
@@ -149,7 +176,7 @@ const industryStrips: IndustrySection[] = [
   },
   {
     id: "logistics",
-    number: "05",
+    number: "06",
     title: "Supply Chain & Logistics",
     subtitle: "High-Volume Warehouse Bays & Real-Time Freight Radar",
     domainName: "International Distribution Hubs & High-Speed Dock Bays",
@@ -157,8 +184,8 @@ const industryStrips: IndustrySection[] = [
     themeColor: "#F59E0B",
     badgeBg: "bg-amber-500/15 border-amber-400/40 text-amber-300",
     badgeText: "3D Spatial Bin Indexing",
-    stripBg: "bg-[#0A192F] text-white",
-    textColor: "text-white",
+    stripBg: "bg-slate-50 text-[var(--navy)] border-t border-slate-200",
+    textColor: "text-[var(--navy)]",
     legacyBottleneck: "Inaccurate warehouse bin allocations, untracked fleet transport delays, and manual shipping barcode check-ins that cause dock congestion.",
     caldimTransformation: "Custom barcode tracker integrations, automated shipping delay triggers, and high-precision spatial warehouse coordinate routing.",
     softwareStack: [
@@ -172,33 +199,6 @@ const industryStrips: IndustrySection[] = [
       { label: "Mis-Shipment Error Rate", value: "0.02%" },
       { label: "Real-Time Tracking Uptime", value: "99.99%" },
       { label: "Logistics Labor Optimization", value: "+40%" }
-    ]
-  },
-  {
-    id: "construction",
-    number: "06",
-    title: "Construction & Fabrication",
-    subtitle: "Massive Infrastructure BIM & Raw Material Tracking",
-    domainName: "Heavy Engineering & Mega-Project Sites",
-    icon: Building2,
-    themeColor: "#f59e0b",
-    badgeBg: "bg-amber-100 border-amber-300 text-amber-900",
-    badgeText: "Real-Time Site Automation",
-    stripBg: "bg-slate-50 text-[var(--navy)] border-t border-slate-200",
-    textColor: "text-[var(--navy)]",
-    legacyBottleneck: "Disjointed contractor schedules, lost raw materials leading to massive budget overruns, and manual paper-based safety compliance logs.",
-    caldimTransformation: "Centralized structural BIM (Building Information Modeling) integrations, automated supply chain GPS routing, and instant digital compliance sign-offs.",
-    softwareStack: [
-      { layer: "Layer 01 • Material Sync", title: "Supplier Procurement Portal", description: "Automated PO generation and raw material lead-time tracking for steel and concrete.", engine: "CALBUY" },
-      { layer: "Layer 02 • Site Logistics", title: "Heavy Equipment GPS Radar", description: "Live tracking of critical heavy machinery and fleet transit across mega-sites.", engine: "CALTRACK" },
-      { layer: "Layer 03 • Daily Logs", title: "Digital Compliance & Safety Ledger", description: "Timestamped mobile safety checklists replacing traditional contractor paperwork.", engine: "CALTIMS" },
-      { layer: "Layer 04 • Executive BIM", title: "3D Project Lifecycle Matrix", description: "Real-time project completion mapping synced directly with ERP financial ledgers.", engine: "Core Suite" }
-    ],
-    metrics: [
-      { label: "Material Waste Reduction", value: "-45%" },
-      { label: "Contractor Log Accuracy", value: "100%" },
-      { label: "Project Delay Mitigation", value: "+30%" },
-      { label: "Safety Audit Readiness", value: "Instant" }
     ]
   }
 ];

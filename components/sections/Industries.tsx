@@ -24,6 +24,25 @@ interface IndustryData {
 
 const industriesList: IndustryData[] = [
   {
+    id: "construction",
+    icon: Building2,
+    title: "Construction & Fabrication",
+    description: "Advanced structural BIM integration, raw material supply chain tracking, and real-time site automation for heavy engineering projects.",
+    href: "/industries#construction",
+    accent: "#f59e0b", // Amber
+    metricLabel: "Material Tracking",
+    metricValue: "Real-time",
+    metricDetail: "Automated workflows",
+    svgVisual: (color) => (
+      <svg viewBox="0 0 200 60" className="w-full h-10">
+        <path d="M20,50 L40,10 L60,50 M40,10 L80,10 L100,50" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="120" y="20" width="30" height="30" fill="none" stroke={color} strokeWidth="1.5" />
+        <line x1="120" y1="35" x2="150" y2="35" stroke={color} strokeWidth="1.5" />
+        <line x1="135" y1="20" x2="135" y2="50" stroke={color} strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
     id: "manufacturing",
     icon: Factory,
     title: "Manufacturing",
@@ -131,25 +150,6 @@ const industriesList: IndustryData[] = [
         />
         <circle cx="75" cy="40" r="3" fill={color} />
         <circle cx="125" cy="40" r="3" fill={color} />
-      </svg>
-    )
-  },
-  {
-    id: "construction",
-    icon: Building2,
-    title: "Construction & Fabrication",
-    description: "Advanced structural BIM integration, raw material supply chain tracking, and real-time site automation for heavy engineering projects.",
-    href: "/industries#construction",
-    accent: "#f59e0b", // Amber
-    metricLabel: "Material Tracking",
-    metricValue: "Real-time",
-    metricDetail: "Automated workflows",
-    svgVisual: (color) => (
-      <svg viewBox="0 0 200 60" className="w-full h-10">
-        <path d="M20,50 L40,10 L60,50 M40,10 L80,10 L100,50" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="120" y="20" width="30" height="30" fill="none" stroke={color} strokeWidth="1.5" />
-        <line x1="120" y1="35" x2="150" y2="35" stroke={color} strokeWidth="1.5" />
-        <line x1="135" y1="20" x2="135" y2="50" stroke={color} strokeWidth="1.5" />
       </svg>
     )
   }
