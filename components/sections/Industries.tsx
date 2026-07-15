@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Factory, Car, TrendingUp, ShoppingBag, Package, 
-  ArrowRight, Terminal, Activity 
+  ArrowRight, Terminal, Activity, Building2 
 } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
 
@@ -133,6 +133,25 @@ const industriesList: IndustryData[] = [
         <circle cx="125" cy="40" r="3" fill={color} />
       </svg>
     )
+  },
+  {
+    id: "construction",
+    icon: Building2,
+    title: "Construction & Fabrication",
+    description: "Advanced structural BIM integration, raw material supply chain tracking, and real-time site automation for heavy engineering projects.",
+    href: "/industries#construction",
+    accent: "#f59e0b", // Amber
+    metricLabel: "Material Tracking",
+    metricValue: "Real-time",
+    metricDetail: "Automated workflows",
+    svgVisual: (color) => (
+      <svg viewBox="0 0 200 60" className="w-full h-10">
+        <path d="M20,50 L40,10 L60,50 M40,10 L80,10 L100,50" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="120" y="20" width="30" height="30" fill="none" stroke={color} strokeWidth="1.5" />
+        <line x1="120" y1="35" x2="150" y2="35" stroke={color} strokeWidth="1.5" />
+        <line x1="135" y1="20" x2="135" y2="50" stroke={color} strokeWidth="1.5" />
+      </svg>
+    )
   }
 ];
 
@@ -161,8 +180,8 @@ export const IndustriesSection: React.FC = () => {
           </p>
         </FadeUp>
 
-        {/* 5-Column Grid of High-Tech Terminal Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {/* 6-Item Grid of High-Tech Terminal Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {industriesList.map((ind, i) => {
             const Icon = ind.icon;
             return (
