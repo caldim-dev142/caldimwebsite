@@ -77,6 +77,10 @@ export const Footer: React.FC = () => {
                 <Phone size={14} className="text-[var(--accent-light)] shrink-0" />
                 +91 9952968294
               </a>
+              <a href="tel:+914344610637" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
+                <Phone size={14} className="text-[var(--accent-light)] shrink-0" />
+                +91 4344-610637
+              </a>
               <div className="flex items-start gap-2 text-sm text-white/60">
                 <MapPin size={14} className="text-[var(--accent-light)] shrink-0 mt-0.5" />
                 Chennai & Hosur, India

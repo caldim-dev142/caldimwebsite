@@ -123,6 +123,27 @@ export default function ContactPage() {
                       </div>
                     </div>
 
+                    {/* Direct Phone Card */}
+                    <div className="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-sm flex items-start gap-4 transition-all hover:border-blue-300">
+                      <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0 mt-0.5">
+                        <Phone size={20} />
+                      </div>
+                      <div>
+                        <div className="text-[11px] font-800 text-slate-500 uppercase tracking-wider mb-1">Direct Phone Channels</div>
+                        <div className="flex flex-col gap-1 text-sm font-800 text-[var(--navy)]">
+                          <a href="tel:+919952968294" className="hover:text-blue-600 transition-colors">
+                            +91 9952968294
+                          </a>
+                          <a href="tel:+914344610637" className="hover:text-blue-600 transition-colors">
+                            +91 4344-610637
+                          </a>
+                        </div>
+                        <div className="text-xs text-slate-900 mt-1 font-600 leading-relaxed">
+                          Immediate technical desk support & consultation.
+                        </div>
+                      </div>
+                    </div>
+
                     {/* SLA & Security Protocol Card */}
                     <div className="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-sm flex items-start gap-4 transition-all hover:border-blue-300">
                       <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
