@@ -7,10 +7,10 @@ import { ArrowRight, Factory, Cog, Award, Users } from "lucide-react";
 import { FadeUp, Counter } from "../animations/Animations";
 
 const highlights = [
-  { icon: Factory, value: 10, suffix: "+", label: "Years of CALDIM Growth" },
-  { icon: Cog, value: 10, suffix: "+", label: "DAS Software Products" },
-  { icon: Award, value: 50, suffix: "+", label: "Projects & Deployments" },
-  { icon: Users, value: 25, suffix: "+", label: "Enterprise Clients" },
+  { icon: Factory, value: 1, suffix: "+", label: "Years of Engineering" },
+  { icon: Users, value: 5, suffix: "+", label: "Clients Served" },
+  { icon: Award, value: 15, suffix: "+", label: "Projects Delivered" },
+  { icon: Cog, value: 10, suffix: "+", label: "Enterprise Products" },
 ];
 
 export const AboutSection: React.FC = () => {
@@ -21,20 +21,20 @@ export const AboutSection: React.FC = () => {
           {/* Left: Copy */}
           <div>
             <FadeUp>
-              <div className="badge badge-accent mb-4">About CALDIM • DAS Division</div>
+              <div className="badge badge-accent mb-4">About CALDIM &amp; CALDIM-DAS</div>
               <h2 id="about-heading" className="text-section-title text-[var(--navy)] mb-6">
-                10+ Years of Engineering Rigor,{" "}
-                <span className="gradient-text-navy">Leading Software Innovation</span>
+                The CALDIM Group &amp;{" "}
+                <span className="gradient-text-navy">CALDIM-DAS Software Division</span>
               </h2>
               <div className="section-divider mb-6" />
-              <p className="text-body-lg mb-4">
-                For over a decade (10+ years), CALDIM has grown and expanded as a premier precision engineering and industrial operations powerhouse. Building on this solid foundation of trust and technical excellence, we established <strong className="text-[var(--navy)] font-800">CALDIM-DAS (Digitalization & Automation Solutions)</strong> as our dedicated Software Division.
+              <p className="text-body-lg mb-4 font-600 text-slate-800">
+                <strong>CALDIM</strong> is a rapidly growing enterprise group with deep technical roots, renowned for precision execution across automotive, manufacturing, and industrial sectors.
               </p>
-              <p className="text-body mb-8">
-                <strong className="text-[var(--navy)] font-800">CALDIM-DAS</strong> operates at the exact intersection of 10 years of industrial mastery and state-of-the-art software architecture. We build cloud ERP platforms, AI automation tools, and specialized web applications tailored specifically for manufacturing, automotive, and industrial enterprises.
+              <p className="text-body mb-8 font-600 text-slate-700">
+                As CALDIM expanded globally, we established <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> as our dedicated, specialized <strong>Software &amp; AI Division</strong>. CALDIM-DAS applies our parent company&apos;s rigorous engineering discipline to architect cutting-edge enterprise software, cloud automation suites, and neural AI platforms for modern businesses worldwide.
               </p>
               <Link href="/about" className="btn btn-navy inline-flex" id="about-learn-more">
-                Explore CALDIM • DAS Story
+                Explore CALDIM-DAS Story
                 <ArrowRight size={18} />
               </Link>
             </FadeUp>

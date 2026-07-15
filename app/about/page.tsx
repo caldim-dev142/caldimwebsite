@@ -35,14 +35,14 @@ export default function AboutPage() {
           <div className="container-wide text-center">
             <FadeUp>
               <div className="badge badge-navy font-600 mb-4 inline-flex items-center gap-2">
-                About CALDIM-DAS
+                About CALDIM &amp; CALDIM-DAS
               </div>
               <h1 className="text-4xl md:text-6xl font-900 text-[var(--navy)] tracking-tight mb-6 leading-tight">
-                Engineering Heritage,<br />
-                <span className="gradient-text">Software Innovation</span>
+                The CALDIM Group &amp;<br />
+                <span className="gradient-text">CALDIM-DAS Software Division</span>
               </h1>
-              <p className="text-slate-900 font-700 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200 inline-block">
-                CALDIM-DAS is an engineering company with deep industrial roots. Our Software Division delivers enterprise-grade digital solutions built on the same precision and discipline as our engineering work.
+              <p className="text-slate-900 font-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200 inline-block">
+                <strong>CALDIM</strong> is a rapidly expanding industrial enterprise. <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> is our independent, high-growth Software Division focused on architecting enterprise SaaS, AI engines, and cloud automation suites.
               </p>
             </FadeUp>
           </div>
@@ -56,19 +56,19 @@ export default function AboutPage() {
               {/* Left Column: Solid White Card to protect text from watermark */}
               <FadeUp className="lg:col-span-7 flex flex-col justify-between bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-300 relative z-20">
                 <div>
-                  <div className="badge badge-accent mb-4 font-700 inline-block">Our Story</div>
+                  <div className="badge badge-accent mb-4 font-700 inline-block">Our Story &amp; Evolution</div>
                   <h2 className="text-3xl md:text-4xl font-900 text-[var(--navy)] mb-6 tracking-tight">
-                    Built on 10+ Years of Growth: The CALDIM-DAS Software Division
+                    From Industrial Growth to Software Excellence: The Birth of CALDIM-DAS
                   </h2>
                   <div className="w-16 h-1 bg-blue-600 rounded-full mb-8" />
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">
-                    <strong className="text-[var(--navy)] font-800">For over a decade (10+ years), CALDIM has grown and expanded as a trusted precision engineering and industrial powerhouse.</strong> Serving top-tier automotive, manufacturing, and heavy engineering sectors, our parent organization built an unshakeable reputation for rigorous quality standards, deep technical mastery, and operational excellence.
+                    <strong>The Growth of CALDIM:</strong> CALDIM originated as a high-precision engineering firm serving top-tier automotive and manufacturing sectors. Through uncompromising quality standards and technical mastery, the CALDIM parent group has continually expanded its global footprint across industrial sectors.
                   </p>
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">
-                    Through 10 years of hands-on industrial partnerships, we recognized a critical operational bottleneck: while advanced machinery and physical engineering progressed rapidly, enterprise workflows were still managed through disconnected spreadsheets, manual approvals, and siloed software systems.
+                    <strong>The Digitalization Challenge:</strong> As CALDIM and our enterprise partners grew, we recognized a critical operational gap — advanced physical machinery and high-speed facilities were still managed via siloed spreadsheets, manual approvals, and disconnected legacy software.
                   </p>
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed">
-                    To bridge this gap and lead the digital future, we established <strong className="text-[var(--navy)] font-800">CALDIM-DAS (Digitalization & Automation Solutions)</strong> — our specialized <strong className="text-blue-700 font-800">Software Division</strong>. Combining our 10-year heritage of industrial domain mastery with state-of-the-art software engineering, <strong className="text-[var(--navy)] font-800">CALDIM-DAS</strong> builds enterprise web applications, AI automation suites, and cloud platforms tailored specifically for modern industrial scale.
+                    <strong>The Launch of CALDIM-DAS:</strong> To solve this bottleneck, CALDIM established <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> as our dedicated, premier <strong>Software &amp; AI Division</strong>. CALDIM-DAS combines our parent group&apos;s rigorous engineering discipline with modern software architecture to deliver state-of-the-art enterprise platforms, neural AI analytics, and cloud automation workflows.
                   </p>
                 </div>
               </FadeUp>
@@ -77,14 +77,14 @@ export default function AboutPage() {
               <FadeUp delay={0.2} className="lg:col-span-5 flex flex-col justify-between gap-6 relative z-20">
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { label: "CALDIM Heritage", value: "10+ Years" },
-                    { label: "DAS Division", value: "Software & AI" },
-                    { label: "Product Suite", value: "10+ Modules" },
-                    { label: "Industries Served", value: "6+ Sectors" },
+                    { label: "Founded", value: "2016s" },
+                    { label: "Software Division", value: "2025" },
+                    { label: "Products", value: "10+" },
+                    { label: "Industries", value: "5+" },
                   ].map(({ label, value }) => (
                     <div key={label} className="bg-[var(--navy)] text-white rounded-2xl p-6 shadow-xl border border-blue-400/30 text-center flex flex-col items-center justify-center min-h-[110px]">
-                      <div className="text-2xl md:text-3xl font-900 text-white mb-1 tracking-tight">{value}</div>
-                      <div className="text-[11px] md:text-xs font-800 text-blue-200 uppercase tracking-widest">{label}</div>
+                      <div className="text-3xl md:text-4xl font-900 text-white mb-1 tracking-tight">{value}</div>
+                      <div className="text-xs md:text-sm font-700 text-blue-200 uppercase tracking-widest">{label}</div>
                     </div>
                   ))}
                 </div>
