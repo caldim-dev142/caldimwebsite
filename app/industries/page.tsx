@@ -9,7 +9,7 @@ import { FadeUp } from "@/components/animations/Animations";
 import { CTASection } from "@/components/sections/CTA";
 import { 
   Factory, Car, TrendingUp, ShoppingBag, Package, 
-  CheckCircle2, AlertTriangle, ArrowRight, Layers, Activity, Cpu, ShieldCheck, Terminal, ChevronRight, Zap, RefreshCw, BarChart3, ArrowDownRight, GitBranch, Database, ShieldAlert, CheckCircle, Network, HardDrive
+  CheckCircle2, AlertTriangle, ArrowRight, Layers, Activity, Cpu, ShieldCheck, Terminal, ChevronRight, Zap, RefreshCw, BarChart3, ArrowDownRight, GitBranch, Database, ShieldAlert, CheckCircle, Network, HardDrive, Building2
 } from "lucide-react";
 
 interface IndustrySection {
@@ -172,6 +172,33 @@ const industryStrips: IndustrySection[] = [
       { label: "Mis-Shipment Error Rate", value: "0.02%" },
       { label: "Real-Time Tracking Uptime", value: "99.99%" },
       { label: "Logistics Labor Optimization", value: "+40%" }
+    ]
+  },
+  {
+    id: "construction",
+    number: "06",
+    title: "Construction & Fabrication",
+    subtitle: "Massive Infrastructure BIM & Raw Material Tracking",
+    domainName: "Heavy Engineering & Mega-Project Sites",
+    icon: Building2,
+    themeColor: "#f59e0b",
+    badgeBg: "bg-amber-100 border-amber-300 text-amber-900",
+    badgeText: "Real-Time Site Automation",
+    stripBg: "bg-slate-50 text-[var(--navy)] border-t border-slate-200",
+    textColor: "text-[var(--navy)]",
+    legacyBottleneck: "Disjointed contractor schedules, lost raw materials leading to massive budget overruns, and manual paper-based safety compliance logs.",
+    caldimTransformation: "Centralized structural BIM (Building Information Modeling) integrations, automated supply chain GPS routing, and instant digital compliance sign-offs.",
+    softwareStack: [
+      { layer: "Layer 01 • Material Sync", title: "Supplier Procurement Portal", description: "Automated PO generation and raw material lead-time tracking for steel and concrete.", engine: "CALBUY" },
+      { layer: "Layer 02 • Site Logistics", title: "Heavy Equipment GPS Radar", description: "Live tracking of critical heavy machinery and fleet transit across mega-sites.", engine: "CALTRACK" },
+      { layer: "Layer 03 • Daily Logs", title: "Digital Compliance & Safety Ledger", description: "Timestamped mobile safety checklists replacing traditional contractor paperwork.", engine: "CALTIMS" },
+      { layer: "Layer 04 • Executive BIM", title: "3D Project Lifecycle Matrix", description: "Real-time project completion mapping synced directly with ERP financial ledgers.", engine: "Core Suite" }
+    ],
+    metrics: [
+      { label: "Material Waste Reduction", value: "-45%" },
+      { label: "Contractor Log Accuracy", value: "100%" },
+      { label: "Project Delay Mitigation", value: "+30%" },
+      { label: "Safety Audit Readiness", value: "Instant" }
     ]
   }
 ];

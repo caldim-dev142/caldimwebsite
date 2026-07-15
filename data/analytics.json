@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 248,
+    "/": 249,
     "/about": 106,
     "/services": 81,
     "/products": 132,
     "/products/caltims": 55,
     "/contact": 65,
-    "/industries": 72,
+    "/industries": 73,
     "/privacy": 3,
     "/admin/login": 6,
     "/admin/analytics": 1,
@@ -26,16 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T12:23:18.257Z",
-      "action": "Page View",
-      "details": "/products/ai-beauty"
-    },
-    {
-      "timestamp": "2026-07-13T12:32:04.823Z",
-      "action": "Page View",
-      "details": "/products/ai-beauty"
-    },
     {
       "timestamp": "2026-07-13T12:40:58.024Z",
       "action": "Page View",
@@ -525,6 +515,16 @@
       "timestamp": "2026-07-14T12:24:06.901Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-15T05:22:03.906Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T05:41:56.042Z",
+      "action": "Page View",
+      "details": "/industries"
     }
   ]
 }
