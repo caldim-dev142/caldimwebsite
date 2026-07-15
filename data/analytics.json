@@ -1,11 +1,11 @@
 {
   "pageViews": {
-    "/": 277,
+    "/": 278,
     "/about": 117,
     "/services": 83,
-    "/products": 140,
+    "/products": 141,
     "/products/caltims": 60,
-    "/contact": 70,
+    "/contact": 71,
     "/industries": 78,
     "/privacy": 3,
     "/admin/login": 9,
@@ -27,21 +27,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-14T11:50:13.587Z",
-      "action": "Page View",
-      "details": "/products/project-management"
-    },
-    {
-      "timestamp": "2026-07-14T11:50:27.572Z",
-      "action": "Page View",
-      "details": "/products/asset-management"
-    },
-    {
-      "timestamp": "2026-07-14T11:50:39.867Z",
-      "action": "Page View",
-      "details": "/products"
-    },
     {
       "timestamp": "2026-07-14T11:51:03.593Z",
       "action": "Page View",
@@ -526,6 +511,21 @@
       "timestamp": "2026-07-15T11:39:45.628Z",
       "action": "Page View",
       "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-15T12:15:31.066Z",
+      "action": "Page View",
+      "details": "/products"
+    },
+    {
+      "timestamp": "2026-07-15T12:16:41.966Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T12:17:16.943Z",
+      "action": "Page View",
+      "details": "/contact"
     }
   ]
 }

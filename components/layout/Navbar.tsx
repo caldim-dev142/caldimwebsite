@@ -406,16 +406,7 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            {/* Right: Book Call Action Pill */}
-            <div className="hidden lg:flex items-center gap-4">
-              <Link
-                href="/contact"
-                className="btn btn-primary text-xs py-2 px-5 rounded-full tracking-wider uppercase font-800 shadow-md shadow-blue-600/10 hover:shadow-lg hover:shadow-blue-600/20 active:scale-95 transition-all"
-                id="navbar-cta-btn"
-              >
-                Request Scoping
-              </Link>
-            </div>
+
 
             {/* Mobile Menu Icon */}
             <button
@@ -499,13 +490,6 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            <Link
-              href="/contact"
-              className="btn btn-primary w-full justify-center text-center uppercase tracking-wider text-xs py-4 rounded-2xl font-800"
-              onClick={() => setMobileOpen(false)}
-            >
-              Request Scoping Consultation
-            </Link>
           </motion.div>
         )}
       </AnimatePresence>
