@@ -99,9 +99,10 @@ export default function ProductsPage() {
     }
 
     // Direct MP4 link / local file URL
+    const safeUrl = encodeURI(url);
     return (
       <video 
-        src={url}
+        src={safeUrl}
         controls
         autoPlay
         className="absolute inset-0 w-full h-full object-cover z-20"
