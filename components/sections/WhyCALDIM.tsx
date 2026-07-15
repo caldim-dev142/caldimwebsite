@@ -7,10 +7,10 @@ import { FadeUp } from "../animations/Animations";
 
 const reasons = [
   {
-    code: "01 // SFT",
+    code: "01 // ENG",
     icon: Cog,
-    title: "Software-First Architecture",
-    description: "Every enterprise application is designed with clean software architectural discipline — scalable, maintainable, and built to last.",
+    title: "Engineering-First Approach",
+    description: "Every solution is designed with architectural discipline — scalable, maintainable, and built to last.",
   },
   {
     code: "02 // SEC",
@@ -70,7 +70,7 @@ export const WhyCALDIM: React.FC = () => {
             What Sets Us <span className="text-blue-600 italic font-light">Apart</span>
           </h2>
           <p className="text-slate-600 font-semibold text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Built by veteran software architects, our digital division brings rigorous industrial discipline to enterprise software delivery.
+            Built on an engineering foundation, our software division brings industrial discipline to digital product delivery.
           </p>
         </FadeUp>
 

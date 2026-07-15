@@ -91,7 +91,6 @@ export default function AboutPage() {
 
                 <div className="bg-[var(--navy)] text-white rounded-3xl p-7 shadow-xl border border-white/10 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-blue-300 mb-1 block">Engineering Objective</span>
                   <h3 className="font-900 text-white text-xl mb-3">Our Mission</h3>
                   <p className="text-slate-100 font-600 text-sm md:text-base leading-relaxed">
                     To enable industrial enterprises to achieve operational excellence through purpose-built software solutions that reflect real-world engineering complexity.
@@ -100,8 +99,7 @@ export default function AboutPage() {
 
                 <div className="bg-[var(--navy)] text-white rounded-3xl p-7 shadow-xl border border-white/10 relative overflow-hidden">
                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-blue-300 mb-1 block">Global Outlook</span>
-                  <h3 className="font-900 text-white text-xl mb-3">Our Vision</h3>
+                 <h3 className="font-900 text-white text-xl mb-3">Our Vision</h3>
                   <p className="text-slate-100 font-600 text-sm md:text-base leading-relaxed">
                     To be the trusted digital transformation partner for engineering-led organizations across manufacturing, automotive, and industrial sectors globally.
                   </p>

@@ -301,8 +301,8 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-900 text-[var(--navy)] tracking-tight mb-6 leading-tight"
             >
-              Next-Generation Software & AI{" "}
-              <span className="gradient-text">That Drive Business Growth</span>
+              Building Enterprise Software{" "}
+              <span className="gradient-text">That Drives Business Growth</span>
             </motion.h1>
 
             <motion.p
@@ -311,7 +311,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-slate-900 font-700 text-lg md:text-xl max-w-xl leading-relaxed mb-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200"
             >
-              <strong className="text-blue-700 font-800">CALDIM-DAS (Digitalization & Automation Solutions)</strong> delivers enterprise software, AI solutions, cloud platforms, and industry-focused technology solutions built for modern businesses.
+              <strong className="text-blue-700 font-800">CALDIM-DAS (Digitalization & Automation Solutions)</strong> delivers enterprise software, AI solutions and industry-focused technology solutions built for modern businesses.
             </motion.p>
 
             <motion.div
@@ -342,9 +342,9 @@ export const HeroSection: React.FC = () => {
               className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-6"
             >
               {[
-                { value: "5+", label: "Software Solutions" },
-                { value: "20+", label: "Tech Deployments" },
-                { value: "10+", label: "Enterprise Projects" },
+                { value: "1+", label: "Years Engineering" },
+                { value: "15+", label: "Projects Delivered" },
+                { value: "10+", label: "Enterprise Products" },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div className="text-3xl font-900 text-[var(--navy)] mb-1">{value}</div>

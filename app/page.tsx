@@ -18,7 +18,7 @@ import { WolfNavButton } from "@/components/shared/WolfNavButton";
 export const metadata: Metadata = {
   title: "CALDIM Software Division — Enterprise Digital Solutions",
   description:
-    "CALDIM Software Division delivers enterprise software, AI solutions, cloud platforms, and digital transformation services for manufacturing, automotive, and industrial enterprises.",
+    "CALDIM Software Division delivers enterprise software, AI solutions,  and digital transformation services for manufacturing, automotive, and industrial enterprises.",
   alternates: {
     canonical: "/",
   },

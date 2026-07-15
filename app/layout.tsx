@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     template: "%s | CALDIM-DAS",
   },
   description:
-    "CALDIM-DAS delivers enterprise software, AI solutions, cloud platforms, and digital transformation services for manufacturing, automotive, and industrial enterprises.",
+    "CALDIM-DAS delivers enterprise software, AI solutions, and digital transformation services for manufacturing, automotive, and industrial enterprises.",
   keywords: [
     "enterprise software",
     "digital transformation",
     "ERP solutions",
     "custom software development",
     "AI solutions",
-    "cloud platforms",
+   
     "CALDIM",
     "manufacturing software",
     "industrial software",

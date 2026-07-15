@@ -127,13 +127,13 @@ export const ServicesSection: React.FC = () => {
       <div className="container-wide relative z-10">
         <FadeUp className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="badge badge-accent mb-4 border-blue-900/50 bg-blue-900/20 text-blue-300 uppercase tracking-widest text-xs">Software Ecosystem</div>
+            <div className="badge badge-accent mb-4 border-blue-900/50 bg-blue-900/20 text-blue-300 uppercase tracking-widest text-xs">Engineering Ecosystem</div>
             <h2 id="services-heading" className="text-4xl md:text-5xl font-900 text-white tracking-tight">
               Full-Stack Digital Services
             </h2>
           </div>
           <p className="text-lg text-slate-400 max-w-md leading-relaxed">
-            From concept to deployment, we deliver end-to-end software solutions that solve real business problems with rigorous software engineering and AI architecture.
+            From concept to deployment, we deliver end-to-end software solutions that solve real business problems with engineering discipline.
           </p>
         </FadeUp>
 

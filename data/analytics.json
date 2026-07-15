@@ -1,11 +1,11 @@
 {
   "pageViews": {
-    "/": 251,
-    "/about": 106,
+    "/": 254,
+    "/about": 107,
     "/services": 81,
     "/products": 132,
     "/products/caltims": 55,
-    "/contact": 65,
+    "/contact": 66,
     "/industries": 73,
     "/privacy": 3,
     "/admin/login": 6,
@@ -26,31 +26,6 @@
     "consultation_booked": 1
   },
   "logs": [
-    {
-      "timestamp": "2026-07-13T12:45:39.045Z",
-      "action": "Page View",
-      "details": "/products/caltims"
-    },
-    {
-      "timestamp": "2026-07-13T12:45:52.776Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T12:46:01.042Z",
-      "action": "Page View",
-      "details": "/products/calems"
-    },
-    {
-      "timestamp": "2026-07-13T12:47:26.349Z",
-      "action": "Page View",
-      "details": "/products"
-    },
-    {
-      "timestamp": "2026-07-13T12:47:34.760Z",
-      "action": "Page View",
-      "details": "/products/calrims"
-    },
     {
       "timestamp": "2026-07-13T12:52:52.228Z",
       "action": "Page View",
@@ -523,6 +498,31 @@
     },
     {
       "timestamp": "2026-07-15T08:25:42.259Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T08:43:11.888Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T08:44:36.730Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-15T08:44:58.200Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-15T08:45:34.801Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-15T08:48:28.200Z",
       "action": "Page View",
       "details": "/"
     }

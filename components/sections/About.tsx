@@ -31,7 +31,7 @@ export const AboutSection: React.FC = () => {
                 CALDIM is an engineering company with deep industrial roots. Founded on a foundation of precision engineering and technical excellence, CALDIM has expanded its capabilities to include a dedicated Software Division focused on delivering enterprise-grade digital solutions.
               </p>
               <p className="text-body mb-8">
-                Our Software Division operates at the intersection of engineering discipline and modern technology. We develop custom enterprise software, AI-powered tools, cloud platforms, and automation systems specifically designed for manufacturing, automotive, and industrial organizations.
+                Our Software Division operates at the intersection of engineering discipline and modern technology. We develop custom enterprise software, AI-powered tools, and automation systems specifically designed for manufacturing, automotive, and industrial organizations.
               </p>
               <Link href="/about" className="btn btn-navy inline-flex" id="about-learn-more">
                 Learn About CALDIM
