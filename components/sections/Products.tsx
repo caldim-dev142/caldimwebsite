@@ -1,10 +1,12 @@
 "use client";
-// Force hot reload for new layout
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Clock, Package, ShoppingCart, MapPin, Sparkles, FolderKanban, Zap, Warehouse, Cpu, Box } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FadeUp } from "../animations/Animations";
+import { getIconComponent } from "@/utils/iconHelper";
+import staticProducts from "@/data/products.json";
 
 interface Product {
   id: string;
@@ -12,128 +14,32 @@ interface Product {
   category: string;
   description: string;
   contents: string;
-  icon: React.ElementType;
-  href: string;
-
-  accentColor: string;
+  color: string;
+  iconName: string;
 }
 
-const products: Product[] = [
-  {
-    id: "caltims",
-    name: "CALTIMS",
-    category: "HR & Payroll",
-    description: "Timesheet tracking, leave management, and automated payroll processing for modern teams.",
-    contents: "CALTIMS is an AI-powered HR & Payroll solution designed for modern teams. It streamlines timesheet tracking, leave management, and automated payroll processing into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless HR management.",
-    icon: Clock,
-    href: "/products/caltims",
-   
-    accentColor: "#3b82f6", // Blue
-  },
-  {
-    id: "calrims",
-    name: "CALRIMS",
-    category: "Recruitment",
-    description: "An end-to-end hiring platform that automates the full candidate journey from sourcing to onboarding.",
-    contents: "CAL-RIMS is a unified recruitment intelligence platform that automates applicant sourcing, intelligent resume screening, virtual interviews, and digital onboarding workflows.",
-    icon: Package,
-    href: "/products/calrims",
-  
-    accentColor: "#8B5CF6", // Purple
-  },
-  {
-    id: "calbuy",
-    name: "CALBUY",
-    category: "Procurement",
-    description: "Intelligent Drawing-to-RFQ Procurement.",
-    contents: "CALBUY is an AI-powered Procurement portal that turns engineering drawings into validated, cost-estimated Bill of Material(BOM) and vendor RFQs in minutes.",
-    icon: ShoppingCart,
-    href: "/products/calbuy",
-
-    accentColor: "#10B981", // Emerald
-  },
-  {
-    id: "caltrack",
-    name: "CALTRACK",
-    category: "Field Service Management",
-    description: "End-to-end field service platform — from customer booking and GPS dispatch to automated payroll and labor compliance.",
-    contents: "CALTRACK bridges the gap between customer bookings and field technician dispatching. It automates timesheets, GPS clock-in verification, mileage reimbursements, and payroll compliance in one platform — reducing administrative processing time by 90% for mobile workforces.",
-    icon: MapPin,
-    href: "/products/caltrack",
- 
-    accentColor: "#F59E0B", // Amber
-  },
-  {
-    id: "ai-beauty",
-    name: "AI Beauty Consultant",
-    category: "Salon & Spa Management",
-    description: "AI-powered growth for salons with real-time biometric skin and face-shape analysis.",
-    contents: "AI Beauty Consultant automates salon operations while delivering tailored service recommendations based on live biometric scans. It processes image data in under 2 seconds to instantly boost service conversions and tracks booking analytics in real time.",
-    icon: Sparkles,
-    href: "/products/ai-beauty",
- 
-    accentColor: "#EC4899", // Pink
-  },
-  {
-    id: "project-management",
-    name: "Project Management",
-    category: "Engineering Project Management",
-    description: "End-to-end lifecycle management for engineering projects — from bid estimation and milestone tracking to invoicing and vendor payments.",
-    contents: "CALDIM PMS replaces 5+ disconnected spreadsheets with one integrated system that manages bids, projects, change orders, invoices, and vendor payments across the full engineering project lifecycle.",
-    icon: FolderKanban,
-    href: "/products/project-management",
-
-    accentColor: "#6366F1", // Indigo
-  },
-  {
-    id: "calems",
-    name: "CALEMS",
-    category: "HR & Employee Management",
-    description: "Full employee lifecycle management — from paperless onboarding and attendance to automated payroll.",
-    contents: "CALEMS is a secure, multi-tenant HR platform that automates the full employee lifecycle. From paperless onboarding and real-time attendance tracking to payroll processing and policy management — it eliminates 90% of HR administrative workload through intelligent self-service workflows.",
-    icon: Package,
-    href: "/products/calems",
-
-    accentColor: "#3B82F6", // Blue
-  },
-  {
-    id: "warehouse-management",
-    name: "Warehouse Management",
-    category: "Warehouse Execution & Logistics",
-    description: "Smart Warehouse Execution. Zero Packing Errors.",
-    contents: "This product automates engine-to-accessory matching, packing, and dispatch workflows. Built for floor managers and dispatch operators in industrial manufacturing. Eliminates manual tracking errors and ensures strict dispatch discipline.",
-    icon: Warehouse,
-    href: "/products/warehouse-management",
-  
-    accentColor: "#14B8A6", // Teal
-  },
-  {
-    id: "asset-management",
-    name: "Asset Management",
-    category: "Engineering Workflow Automation",
-    description: "Streamline asset requests from concept to production.",
-    contents: "This platform automates the 7-stage engineering asset lifecycle, from initial request to final production. Built for manufacturing engineering teams and designers. Eliminates approval bottlenecks and secures proprietary CAD files.",
-    icon: Cpu,
-    href: "/products/asset-management",
-
-    accentColor: "#64748B", // Slate
-  },
-  {
-    id: "calmisc",
-    name: "CAL MISC",
-    category: "Steel Estimation",
-    description: "Generate precise stair, railing, and guard-rail bids with real-time cost breakdowns in minutes.",
-    contents: "CAL MISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
-    icon: Box,
-    href: "/products/calmisc",
-  
-    accentColor: "#F43F5E", // Rose
-  }
-];
-
 export const ProductsSection: React.FC = () => {
+  const [productsList, setProductsList] = useState<Product[]>(staticProducts as unknown as Product[]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeProduct = products[activeIndex];
+
+  useEffect(() => {
+    fetch("/api/admin/products")
+      .then(res => {
+        if (res.ok) return res.json();
+      })
+      .then(data => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          setProductsList(data);
+        }
+      })
+      .catch(err => console.error("Error syncing products:", err));
+  }, []);
+
+  const activeProduct = productsList[activeIndex] || productsList[0];
+
+  if (!activeProduct) return null;
+
+  const ActiveIcon = getIconComponent(activeProduct.iconName);
 
   return (
     <section className="section-padding bg-[#020c1b] relative overflow-hidden border-b border-slate-900" id="products">
@@ -159,9 +65,8 @@ export const ProductsSection: React.FC = () => {
             {/* Vertical timeline line */}
             <div className="absolute left-[22px] top-4 bottom-4 w-px bg-slate-800" />
 
-            {products.map((product, i) => {
+            {productsList.map((product, i) => {
               const isActive = i === activeIndex;
-              const Icon = product.icon;
               return (
                 <div
                   key={product.id}
@@ -172,8 +77,8 @@ export const ProductsSection: React.FC = () => {
                   {/* Active Indicator Dot */}
                   <div className="absolute left-[17px] top-[26px] w-3 h-3 rounded-full transition-all duration-500 z-10"
                     style={{
-                      background: isActive ? product.accentColor : '#1e293b',
-                      boxShadow: isActive ? `0 0 15px ${product.accentColor}` : 'none',
+                      background: isActive ? product.color : '#1e293b',
+                      boxShadow: isActive ? `0 0 15px ${product.color}` : 'none',
                       transform: isActive ? 'scale(1)' : 'scale(0.7)'
                     }}
                   />
@@ -193,7 +98,6 @@ export const ProductsSection: React.FC = () => {
                       <h3 className={`text-xl font-800 transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                         {product.name}
                       </h3>
-                    
                     </div>
                     <p className={`text-sm font-600 transition-colors duration-300 ${isActive ? 'text-slate-200' : 'text-slate-400'}`}>
                       {product.category}
@@ -219,14 +123,14 @@ export const ProductsSection: React.FC = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_20%,#000_20%,transparent_100%)] pointer-events-none" />
 
                 {/* Glowing top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, transparent, ${activeProduct.accentColor}, transparent)` }} />
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, transparent, ${activeProduct.color}, transparent)` }} />
 
                 <div className="flex-1 p-10 md:p-10 flex flex-col relative z-10 justify-between">
                   <div>
                     {/* Big Icon */}
-                    <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 relative" style={{ background: `${activeProduct.accentColor}15`, border: `1px solid ${activeProduct.accentColor}30` }}>
-                      <div className="absolute inset-0 blur-xl opacity-50" style={{ background: activeProduct.accentColor }} />
-                      <activeProduct.icon size={36} style={{ color: activeProduct.accentColor }} className="relative z-10" />
+                    <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 relative" style={{ background: `${activeProduct.color}15`, border: `1px solid ${activeProduct.color}30` }}>
+                      <div className="absolute inset-0 blur-xl opacity-50" style={{ background: activeProduct.color }} />
+                      <ActiveIcon size={36} style={{ color: activeProduct.color }} className="relative z-10" />
                     </div>
 
                     <h3 className="text-3xl font-900 text-white mb-4 tracking-tight">{activeProduct.name}</h3>
@@ -238,7 +142,7 @@ export const ProductsSection: React.FC = () => {
                   {/* Product Overview Text Block */}
                   <div className="mt-6 flex flex-col gap-3 text-slate-300">
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeProduct.accentColor }} />
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeProduct.color }} />
                       <span className="text-[9px] font-mono tracking-widest uppercase text-slate-500">Overview</span>
                     </div>
                     <p className="text-sm font-550 leading-relaxed text-slate-300">
@@ -247,10 +151,9 @@ export const ProductsSection: React.FC = () => {
                   </div>
 
                   <div className="mt-12 flex items-center gap-4">
-                    <Link href={activeProduct.href} className="btn text-white hover:opacity-90 transition-opacity border-none font-bold" style={{ background: activeProduct.accentColor }}>
+                    <Link href={`/products/${activeProduct.id}`} className="btn text-white hover:opacity-90 transition-opacity border-none font-bold" style={{ background: activeProduct.color }}>
                       Explore {activeProduct.name} <ArrowRight size={16} />
                     </Link>
-                   
                   </div>
                 </div>
 

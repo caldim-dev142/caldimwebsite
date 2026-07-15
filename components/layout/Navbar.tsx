@@ -8,21 +8,12 @@ import {
   Menu,
   X,
   ChevronDown,
-  Clock,
-  Package,
-  ShoppingCart,
-  MapPin,
-  Zap,
   ArrowRight,
   Terminal,
-  Cpu,
-  Users,
-  FolderKanban,
-  Sparkles,
-  Warehouse,
-  Box,
-  LayoutGrid
+  ChevronRight
 } from "lucide-react";
+import { getIconComponent } from "@/utils/iconHelper";
+import staticProducts from "@/data/products.json";
 
 interface NavItem {
   label: string;
@@ -54,147 +45,107 @@ const navItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-const productsList = [
-  {
-    name: "CalTIMS",
-    desc: "Time & Payroll Management",
-    href: "/products/caltims",
-    icon: Clock,
-    iconColor: "text-blue-400",
-    previewColor: "from-blue-900/40 to-[#0a192f]",
-    glowColor: "bg-blue-600/20",
-    accentColor: "text-blue-400",
-    borderGlow: "group-hover:border-blue-500/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]",
-    tagline: "Automated HR intelligence",
-    features: ["Biometric Attendance Sync", "Multi-Gate Payroll Engine", "Leave & Shift Automation"]
-  },
-  {
-    name: "CALRIMS",
-    desc: "Recruitment Intelligence",
-    href: "/products/calrims",
-    icon: Package,
-    iconColor: "text-emerald-400",
-    previewColor: "from-emerald-900/40 to-[#0a192f]",
-    glowColor: "bg-emerald-600/20",
-    accentColor: "text-emerald-400",
-    borderGlow: "group-hover:border-emerald-500/30 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)]",
-    tagline: "AI-powered hiring pipeline",
-    features: ["AI Resume Screening", "Voice Interview Bot", "Onboarding & ID Issuance"]
-  },
-  {
-    name: "CALBUY",
-    desc: "Procurement Platform",
-    href: "/products/calbuy",
-    icon: ShoppingCart,
-    iconColor: "text-amber-400",
-    previewColor: "from-amber-900/40 to-[#0a192f]",
-    glowColor: "bg-amber-600/20",
-    accentColor: "text-amber-400",
-    borderGlow: "group-hover:border-amber-500/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]",
-    tagline: "Drawing-to-PO in minutes",
-    features: ["BOM Auto-Extraction", "AI Should-Cost Pricing", "Vendor RFQ & Bid Matrix"]
-  },
-  {
-    name: "CALTRACK",
-    desc: "Field Service Management",
-    href: "/products/caltrack",
-    icon: MapPin,
-    iconColor: "text-rose-400",
-    previewColor: "from-rose-900/40 to-[#0a192f]",
-    glowColor: "bg-rose-600/20",
-    accentColor: "text-rose-400",
-    borderGlow: "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]",
-    tagline: "Field service & payroll compliance",
-    features: ["Smart Service Dispatch", "GPS Clock-In Verification", "Labor Compliance Engine"]
-  },
-  {
-    name: "CALEMS",
-    desc: "Employee Management",
-    href: "/products/calems",
-    icon: Users,
-    iconColor: "text-blue-300",
-    previewColor: "from-blue-900/40 to-[#0a192f]",
-    glowColor: "bg-blue-600/20",
-    accentColor: "text-blue-300",
-    borderGlow: "group-hover:border-blue-400/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]",
-    tagline: "Hire to payroll in one platform",
-    features: ["Digital Onboarding", "Automated Payroll", "Self-Service Leave"]
-  },
-  {
-    name: "AI Beauty Consultant",
-    desc: "Salon & Spa Management",
-    href: "/products/ai-beauty",
-    icon: Sparkles,
-    iconColor: "text-pink-400",
-    previewColor: "from-pink-900/40 to-[#0a192f]",
-    glowColor: "bg-pink-600/20",
-    accentColor: "text-pink-400",
-    borderGlow: "group-hover:border-pink-500/30 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.2)]",
-    tagline: "AI-powered salon growth",
-    features: ["Biometric Analysis", "No-Show Predictor", "Smart Slot Management"]
-  },
-  {
-    name: "Project Management",
-    desc: "Engineering Control",
-    href: "/products/project-management",
-    icon: FolderKanban,
-    iconColor: "text-indigo-400",
-    previewColor: "from-indigo-900/40 to-[#0a192f]",
-    glowColor: "bg-indigo-600/20",
-    accentColor: "text-indigo-400",
-    borderGlow: "group-hover:border-indigo-500/30 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]",
-    tagline: "End-to-End Project Control",
-    features: ["Bid Pipeline", "Invoice Control", "Change Order Management"]
-  },
-  {
-    name: "Warehouse Management",
-    desc: "Logistics Optimization",
-    href: "/products/warehouse-management",
-    icon: Warehouse,
-    iconColor: "text-teal-400",
-    previewColor: "from-teal-900/40 to-[#0a192f]",
-    glowColor: "bg-teal-600/20",
-    accentColor: "text-teal-400",
-    borderGlow: "group-hover:border-teal-500/30 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.2)]",
-    tagline: "Smart Warehouse Execution. Zero Packing Errors.",
-    features: ["Live Engine Tracking", "Automated ZPL Labeling", "Strict Shipment Validation"]
-  },
-  {
-    name: "Asset Management",
-    desc: "Engineering Workflow Automation",
-    href: "/products/asset-management",
-    icon: Cpu,
-    iconColor: "text-slate-400",
-    previewColor: "from-slate-900/40 to-[#0a192f]",
-    glowColor: "bg-slate-600/20",
-    accentColor: "text-slate-400",
-    borderGlow: "group-hover:border-slate-500/30 group-hover:shadow-[0_0_15px_rgba(100,116,139,0.2)]",
-    tagline: "Streamline asset requests from concept to production.",
-    features: ["7-Stage Smart Routing", "Secure File Quarantine", "Dynamic SLA Tracking"]
-  },
-  {
-    name: "CAL MISC",
-    desc: "Steel Estimation",
-    href: "/products/calmisc",
-    icon: Box,
-    iconColor: "text-rose-500",
-    previewColor: "from-rose-900/40 to-[#0a192f]",
-    glowColor: "bg-rose-600/20",
-    accentColor: "text-rose-500",
-    borderGlow: "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]",
-    tagline: "Generate steel bids in minutes",
-    features: ["Configure Stair Geometry", "Calculate Live Costs", "Verify Code Compliance"]
-  },
+function mapProductToDropdownItem(p: any) {
+  let iconColor = "text-blue-400";
+  let previewColor = "from-blue-900/40 to-[#0a192f]";
+  let glowColor = "bg-blue-600/20";
+  let accentColor = "text-blue-400";
+  let borderGlow = "group-hover:border-blue-500/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]";
 
-];
+  const hex = p.color?.toLowerCase() || "";
+  if (hex.includes("8b5cf6") || hex.includes("indigo") || hex.includes("6366f1")) {
+    iconColor = "text-indigo-400";
+    previewColor = "from-indigo-900/40 to-[#0a192f]";
+    glowColor = "bg-indigo-600/20";
+    accentColor = "text-indigo-400";
+    borderGlow = "group-hover:border-indigo-500/30 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)]";
+  } else if (hex.includes("10b981") || hex.includes("emerald") || hex.includes("green")) {
+    iconColor = "text-emerald-400";
+    previewColor = "from-emerald-900/40 to-[#0a192f]";
+    glowColor = "bg-emerald-600/20";
+    accentColor = "text-emerald-400";
+    borderGlow = "group-hover:border-emerald-500/30 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)]";
+  } else if (hex.includes("f59e0b") || hex.includes("amber") || hex.includes("yellow")) {
+    iconColor = "text-amber-400";
+    previewColor = "from-amber-900/40 to-[#0a192f]";
+    glowColor = "bg-amber-600/20";
+    accentColor = "text-amber-400";
+    borderGlow = "group-hover:border-amber-500/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]";
+  } else if (hex.includes("ec4899") || hex.includes("pink")) {
+    iconColor = "text-pink-400";
+    previewColor = "from-pink-900/40 to-[#0a192f]";
+    glowColor = "bg-pink-600/20";
+    accentColor = "text-pink-400";
+    borderGlow = "group-hover:border-pink-500/30 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.2)]";
+  } else if (hex.includes("f43f5e") || hex.includes("rose") || hex.includes("red")) {
+    iconColor = "text-rose-400";
+    previewColor = "from-rose-900/40 to-[#0a192f]";
+    glowColor = "bg-rose-600/20";
+    accentColor = "text-rose-400";
+    borderGlow = "group-hover:border-rose-500/30 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)]";
+  } else if (hex.includes("14b8a6") || hex.includes("teal")) {
+    iconColor = "text-teal-400";
+    previewColor = "from-teal-900/40 to-[#0a192f]";
+    glowColor = "bg-teal-600/20";
+    accentColor = "text-teal-400";
+    borderGlow = "group-hover:border-teal-500/30 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.2)]";
+  } else if (hex.includes("64748b") || hex.includes("slate") || hex.includes("gray")) {
+    iconColor = "text-slate-400";
+    previewColor = "from-slate-900/40 to-[#0a192f]";
+    glowColor = "bg-slate-600/20";
+    accentColor = "text-slate-400";
+    borderGlow = "group-hover:border-slate-500/30 group-hover:shadow-[0_0_15px_rgba(100,116,139,0.2)]";
+  }
+
+  const features = p.features?.slice(0, 3).map((f: any) => f.title) || 
+                   p.capabilities?.slice(0, 3) || 
+                   ["Automated Flow", "Enterprise Ready", "Zod Verified"];
+
+  return {
+    name: p.name,
+    desc: p.tagline || p.category,
+    href: `/products/${p.id}`,
+    icon: getIconComponent(p.iconName),
+    iconColor,
+    previewColor,
+    glowColor,
+    accentColor,
+    borderGlow,
+    tagline: p.tagline || p.category,
+    features
+  };
+}
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [hoveredProduct, setHoveredProduct] = useState(productsList[0]);
   const pathname = usePathname();
+
+  // Load products list dynamically
+  const [productsList, setProductsList] = useState<any[]>(() => {
+    return (staticProducts as any[]).map(mapProductToDropdownItem);
+  });
+  const [hoveredProduct, setHoveredProduct] = useState<any>(() => {
+    return mapProductToDropdownItem(staticProducts[0]);
+  });
+
+  const syncNavbarProducts = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/products");
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data) && data.length > 0) {
+          const mapped = data.map(mapProductToDropdownItem);
+          setProductsList(mapped);
+          setHoveredProduct(mapped[0]);
+        }
+      }
+    } catch (err) {
+      console.error("Error refreshing Navbar products:", err);
+    }
+  }, []);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 20);
@@ -202,15 +153,16 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    syncNavbarProducts();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, [handleScroll, syncNavbarProducts]);
 
   useEffect(() => {
     setMobileOpen(false);
     setActiveDropdown(null);
   }, [pathname]);
 
-  // Scroll Spy logic based on exact window scroll position
+  // Scroll Spy logic
   useEffect(() => {
     if (pathname !== "/") {
       setActiveSection(null);
@@ -220,7 +172,7 @@ export const Navbar: React.FC = () => {
     const sections = ["about", "services", "products", "industries"];
     
     const handleScrollSpy = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3; // Trigger when section reaches top 1/3 of viewport
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       let currentSection = "";
       
@@ -244,7 +196,6 @@ export const Navbar: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScrollSpy, { passive: true });
-    // Run an initial check on mount
     handleScrollSpy();
 
     return () => {
@@ -252,11 +203,9 @@ export const Navbar: React.FC = () => {
     };
   }, [pathname]);
 
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 md:px-6 flex justify-center">
-        {/* Floating pill navigation container - Navy Theme */}
         <nav
           className={`w-full max-w-6xl mt-4 md:mt-6 pointer-events-auto rounded-full transition-all duration-500 border ${
             scrolled
@@ -308,22 +257,22 @@ export const Navbar: React.FC = () => {
                     onMouseEnter={() => hasChildren && setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                        <Link
-                          href={item.href}
-                          className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] font-800 tracking-wider uppercase transition-all duration-300 ${
-                            isActive
-                              ? "bg-white/10 text-white"
-                              : isCurrentActive
-                              ? "text-blue-400 bg-blue-500/10"
-                              : "text-slate-300 hover:text-white hover:bg-white/5"
-                          }`}
-                          aria-current={isCurrentActive ? "page" : undefined}
-                        >
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] font-800 tracking-wider uppercase transition-all duration-300 ${
+                        isActive
+                          ? "bg-white/10 text-white"
+                          : isCurrentActive
+                          ? "text-blue-400 bg-blue-500/10"
+                          : "text-slate-300 hover:text-white hover:bg-white/5"
+                      }`}
+                      aria-current={isCurrentActive ? "page" : undefined}
+                    >
                       {item.label}
                       {hasChildren && <ChevronDown size={14} className={`opacity-60 transition-transform duration-300 ${isActive ? "rotate-180" : ""}`} />}
                     </Link>
 
-                    {/* Standard Dropdown Container (Dark Mode) */}
+                    {/* Standard Dropdown Container */}
                     <AnimatePresence>
                       {item.children && isActive && (
                         <motion.div
@@ -333,7 +282,6 @@ export const Navbar: React.FC = () => {
                           transition={{ duration: 0.2, ease: "easeOut" }}
                           className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#0a192f]/95 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-[#112240] p-2 z-50 overflow-hidden"
                         >
-                          {/* Inner glowing edge */}
                           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
                           
                           {item.children.map((child) => (
@@ -354,7 +302,7 @@ export const Navbar: React.FC = () => {
                       )}
                     </AnimatePresence>
 
-                    {/* Mega Dropdown Panel for Products (Dark Mode) */}
+                    {/* Mega Dropdown Panel for Products */}
                     <AnimatePresence>
                       {item.isMega && isActive && (
                         <motion.div
@@ -362,12 +310,11 @@ export const Navbar: React.FC = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[900px] bg-[#0a192f]/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-[#112240] p-2 z-50 flex overflow-hidden"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[900px] bg-[#0a192f]/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-[#112240] p-2 z-50 flex overflow-hidden pointer-events-auto"
                         >
-                          {/* Inner glowing edge */}
                           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
 
-                            {/* Products List (Left Side) */}
+                          {/* Products List (Left Side) */}
                           <div className="flex-1 p-6 flex flex-col justify-center">
                             <span className="text-[10px] font-800 tracking-widest text-slate-500 uppercase mb-4 flex items-center gap-2">
                               <Terminal size={12} /> Enterprise Suite
@@ -422,10 +369,8 @@ export const Navbar: React.FC = () => {
                                 transition={{ duration: 0.18, ease: "easeOut" }}
                                 className="absolute inset-0 p-6 flex flex-col justify-center"
                               >
-                                {/* Ambient Glow */}
                                 <div className={`absolute top-0 right-0 w-32 h-32 ${hoveredProduct.glowColor} blur-[40px] rounded-full pointer-events-none`} />
 
-                                {/* Product Icon Preview */}
                                 <div className={`relative w-full h-[90px] rounded-xl overflow-hidden bg-gradient-to-br ${hoveredProduct.previewColor} border border-white/10 shadow-inner flex items-center justify-center mb-4`}>
                                   {React.createElement(hoveredProduct.icon, { size: 40, className: `${hoveredProduct.iconColor} opacity-15 absolute` })}
                                   <div className="relative z-10 flex flex-col items-center gap-1">
@@ -434,7 +379,6 @@ export const Navbar: React.FC = () => {
                                   </div>
                                 </div>
 
-                                {/* Product Info */}
                                 <div className="flex flex-col gap-2.5">
                                   <span className={`text-[10px] font-800 tracking-widest uppercase ${hoveredProduct.accentColor}`}>
                                     {hoveredProduct.tagline}
@@ -443,19 +387,13 @@ export const Navbar: React.FC = () => {
                                     {hoveredProduct.name}
                                   </span>
                                   <div className="flex flex-col gap-1.5 mt-1">
-                                    {hoveredProduct.features.map((f) => (
+                                    {hoveredProduct.features.map((f: string) => (
                                       <div key={f} className="flex items-center gap-2">
                                         <div className={`w-1.5 h-1.5 rounded-full ${hoveredProduct.accentColor.replace("text-", "bg-")} shrink-0`} />
                                         <span className="text-[11px] text-slate-400 font-500">{f}</span>
                                       </div>
                                     ))}
                                   </div>
-                                  <Link
-                                    href={hoveredProduct.href}
-                                    className={`mt-2 text-[11px] font-700 ${hoveredProduct.accentColor} flex items-center gap-1 hover:gap-2 transition-all duration-200`}
-                                  >
-                                    Explore {hoveredProduct.name} <ArrowRight size={11} />
-                                  </Link>
                                 </div>
                               </motion.div>
                             </AnimatePresence>
@@ -468,20 +406,34 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            {/* Mobile Menu Action Toggle */}
+            {/* Right: Book Call Action Pill */}
+            <div className="hidden lg:flex items-center gap-4">
+              <Link
+                href="/contact"
+                className="btn btn-primary text-xs py-2 px-5 rounded-full tracking-wider uppercase font-800 shadow-md shadow-blue-600/10 hover:shadow-lg hover:shadow-blue-600/20 active:scale-95 transition-all"
+                id="navbar-cta-btn"
+              >
+                Request Scoping
+              </Link>
+            </div>
+
+            {/* Mobile Menu Icon */}
             <button
-              className="lg:hidden p-2.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="lg:hidden p-2.5 rounded-full text-slate-300 hover:text-white bg-white/5 border border-white/5 active:scale-95 transition-all"
               aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
+              id="mobile-nav-toggle"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
+
           </div>
         </nav>
       </header>
 
-      {/* Mobile Nav Overlay Menu (Dark Mode) */}
+      {/* Mobile Nav Overlay Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -532,8 +484,10 @@ export const Navbar: React.FC = () => {
                     ) : (
                       <Link
                         href={item.href}
-                        className={`flex items-center py-3 px-4 rounded-xl text-slate-200 font-800 text-lg hover:bg-white/5 transition-colors ${
-                          isCurrentActive ? "text-blue-400 bg-blue-500/10" : ""
+                        className={`block py-3 px-4 rounded-2xl text-base font-800 transition-all ${
+                          isCurrentActive
+                            ? "text-blue-400 bg-blue-500/10 font-900"
+                            : "text-slate-200 hover:text-white hover:bg-white/5"
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
@@ -544,6 +498,14 @@ export const Navbar: React.FC = () => {
                 );
               })}
             </nav>
+
+            <Link
+              href="/contact"
+              className="btn btn-primary w-full justify-center text-center uppercase tracking-wider text-xs py-4 rounded-2xl font-800"
+              onClick={() => setMobileOpen(false)}
+            >
+              Request Scoping Consultation
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

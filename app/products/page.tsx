@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import type { Metadata } from "next";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,222 +8,106 @@ import { FadeUp } from "@/components/animations/Animations";
 import { CTASection } from "@/components/sections/CTA";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Clock, Package, ShoppingCart, MapPin, Sparkles, 
-  FolderKanban, Zap, Warehouse, Cpu, ArrowRight, Play, Video, CheckCircle2, Activity, Layers, Terminal, ShieldCheck, ChevronRight, Eye, Sparkle, Box
+  ArrowRight, Play, Video, CheckCircle2, Activity, Layers, ChevronRight, Box
 } from "lucide-react";
+import { getIconComponent } from "@/utils/iconHelper";
+import staticProducts from "@/data/products.json";
 
 interface ProductItem {
   id: string;
   name: string;
   category: string;
   description: string;
-  icon: React.ElementType;
-  
   color: string;
+  iconName: string;
   videoTagline: string;
   mediaTitle: string;
   architectureHighlight: string;
   metrics: string[];
   unsplashUrl: string;
+  videoUrl: string;
 }
 
-const products: ProductItem[] = [
-  {
-    id: "caltims",
-    name: "CALTIMS",
-    category: "HR & Payroll Engine",
-    description: "Our core timesheet and payroll automation engine. CalTIMS bridges the gap between daily work logs and month-end payroll by calculating leaves, task allocations, and tax deductions automatically without manual intervention.",
-    icon: Clock,
-
-    color: "#2563EB",
-    videoTagline: "Watch 2-Min Payroll Automation & Timesheet Walkthrough",
-    mediaTitle: "Timesheet & Automated Payroll Telemetry Hub",
-    architectureHighlight: "Sub-second Zod verified schema verification & real-time leave ledger synchronization.",
-    metrics: [
-      "Automated Tax & Leave Calculation Engine",
-      "Sub-Second Timesheet & Shift Ledger Sync",
-      "100% Audit-Ready & Statutory Compliance Verification",
-      "Zero Spreadsheet Error Margin across 10,000+ Workers"
-    ],
-    unsplashUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "calrims",
-    name: "CALRIMS",
-    category: "Recruitment Intelligence",
-    description: "An end-to-end hiring platform that automates the full candidate journey — from application ingestion and candidate screening to interviews, offer management, and onboarding.",
-    icon: Package,
-
-    color: "#8B5CF6",
-    videoTagline: "Watch Candidate Resume Parsing & Automated Voice Interview Demo",
-    mediaTitle: "Recruitment Pipeline & Auto-Screening Dashboard",
-    architectureHighlight: "Encrypted resume parsing with adaptive AI candidate evaluation nodes.",
-    metrics: [
-      "Automated Candidate Ingestion & Resume Parsing",
-      "Interactive Voice & Text Interview Screenings",
-      "Visual Kanban Pipeline & Stage Enforcement Policies",
-      "Self-Service Digital Onboarding & Document Signatures"
-    ],
-    unsplashUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "calbuy",
-    name: "CALBUY",
-    category: "Procurement Pipeline",
-    description: "Automate purchase orders, track vendor lead times, and manage inventory requisitions across global suppliers. Integrated multi-stage approval paths completely eliminate chaotic email clutter and unapproved POs.",
-    icon: ShoppingCart,
-
-    color: "#10B981",
-    videoTagline: "Watch Automated Requisition & Vendor Approval Pipeline Demo",
-    mediaTitle: "Multi-Tier Enterprise Procurement Hub",
-    architectureHighlight: "Multi-signature cryptographic approval routing with ERP ledger injection.",
-    metrics: [
-      "Automated Multi-Stage Governance Approvals",
-      "Live Vendor Lead Time & Delivery SLA Tracking",
-      "Zero Email Requisition Clutter or Rogue Spend",
-      "Instant 3-Way Invoice Matching & Audit Verification"
-    ],
-    unsplashUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "caltrack",
-    name: "CALTRACK",
-    category: "Field Service Management",
-    description: "CalTrack is an end-to-end platform for managing field operations, automated timesheets, and payroll compliance. Built for service-based businesses and mobile workforces, it bridges the gap between customer bookings and field technician dispatching.",
-    icon: MapPin,
-
-    color: "#F59E0B",
-    videoTagline: "Watch Live Field Technician Dispatch & GPS Tracking Radar",
-    mediaTitle: "Smart Dispatch & Mobile Workforce Telemetry",
-    architectureHighlight: "High-frequency GPS ingestion with real-time labor compliance rules engine.",
-    metrics: [
-      "Zero Payroll Errors via Automated Calculation",
-      "Real-Time Field Workforce Visibility",
-      "Guaranteed Overtime & Break Compliance",
-      "Seamless Customer Booking & ETA Tracking"
-    ],
-    unsplashUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "ai-beauty",
-    name: "AI BEAUTY",
-    category: "AI Neural Analytics",
-    description: "AI-based recommendations and trend predictive analytics tailored for cosmetic retailers. Processes demographic statistics, regional climate shifts, and real-time sales velocity to suggest exact stock counts.",
-    icon: Sparkles,
-
-    color: "#EC4899",
-    videoTagline: "Watch Neural Trend Predictive Analytics & Stock Engine Demo",
-    mediaTitle: "AI Neural Recommendation & Forecasting Engine",
-    metrics: [
-      "Demographic & Regional Trend Forecasting Matrix",
-      "Automated Store Level Stock Count Optimization",
-      "Real-Time Cosmetic Retail Sales Velocity Analytics",
-      "AI-Driven Consumer Preference Pattern Mapping"
-    ],
-    architectureHighlight: "Custom LLM & time-series neural network trained on retail purchasing vectors.",
-    unsplashUrl: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "project-management",
-    name: "Project Management",
-    category: "Industrial Scheduling",
-    description: "Structured project planners, task allocation systems, and verified milestones logging. Designed specifically for precision scheduling in complex industrial manufacturing and plant setup delivery projects.",
-    icon: FolderKanban,
-
-    color: "#6366F1",
-    videoTagline: "Watch Industrial Milestone & Delivery Planner Walkthrough",
-    mediaTitle: "Interactive Gantt & Industrial Milestone Matrix",
-    metrics: [
-      "Precision Industrial & Engineering Scheduling",
-      "Automated Task Allocation & Engineer Load Balancing",
-      "Verified Milestone & Phase Gate Verification",
-      "Real-Time Critical Path Bottleneck Detection"
-    ],
-    architectureHighlight: "Deterministic DAG scheduling engine with automated resource leveling.",
-    unsplashUrl: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "calems",
-    name: "CALEMS Employee",
-    category: "HR & Employee Management",
-    description: "Secure, multi-tenant HR platform that automates the full employee lifecycle. Manages paperless onboarding, real-time attendance, and automated payroll processing.",
-    icon: Package,
-   
-    color: "#3B82F6",
-    videoTagline: "Watch Real-Time Onboarding & Payroll Processing",
-    mediaTitle: "Digital HR & Employee Lifecycle Command",
-    metrics: [
-      "90% Faster Digital Candidate Onboarding",
-      "Real-Time Attendance & Leave Tracking",
-      "Automated Complex Payroll Computation",
-      "Isolated Multi-Tenant Security Architecture"
-    ],
-    architectureHighlight: "Encrypted multi-tenant database with automated compliance audit logging.",
-    unsplashUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "warehouse-management",
-    name: "Warehouse Management",
-    category: "Logistics Automation",
-    description: "Manage barcode logging, storage aisle optimization, and automated picking checklists. Built for high-volume industrial supply chains, distribution bays, and rapid shipping verification.",
-    icon: Warehouse,
-
-    color: "#14B8A6",
-    videoTagline: "Watch Automated Barcode Logging & High-Speed Picking Demo",
-    mediaTitle: "Warehouse Logistics & Aisle Optimization Matrix",
-    metrics: [
-      "High-Speed Barcode & QR Scanner Telemetry Sync",
-      "Storage Aisle & Pallet Bay Space Optimization",
-      "Automated Picking Checklists & Shipping Verification",
-      "Zero Mis-Shipment Rate across High-Volume Bays"
-    ],
-    architectureHighlight: "Sub-millisecond inventory bin indexing with 3D spatial coordinate routing.",
-    unsplashUrl: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "asset-management",
-    name: "Asset Management",
-    category: "Enterprise Infrastructure",
-    description: "Log equipment maintenance schedules, calculate automated depreciation records, and verify hardware usage licenses across your organization. Centralized, audit-ready asset register built for enterprise scale.",
-    icon: Cpu,
-
-    color: "#64748B",
-    videoTagline: "Watch Centralized Hardware & License Register Walkthrough",
-    mediaTitle: "Enterprise Asset Register & Lifecycle Registry",
-    metrics: [
-      "Automated Depreciation Schedule & Asset Valuation",
-      "Hardware License & Software Expiry Verification",
-      "Centralized Audit-Ready Lifecycle Asset Register",
-      "Preventive Maintenance Logging & Warranty Tracking"
-    ],
-    architectureHighlight: "Immutable audit trail logging with barcode register synchronization.",
-    unsplashUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop"
-  },
-  {
-    id: "calmisc",
-    name: "CAL MISC",
-    category: "Steel Estimation",
-    description: "Generate precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators.",
-    icon: Box,
-
-    color: "#F43F5E",
-    videoTagline: "Watch Real-Time Steel Estimation & Bidding Walkthrough",
-    mediaTitle: "Structural Steel Proposal & BOM Engine",
-    metrics: [
-      "90% Faster Bid Turnaround Time",
-      "Zero Calculation Mistakes via Auto-Formulas",
-      "Built-In IBC and OSHA Code Compliance Checks",
-      "Instant Print-Ready PDF & BOM Generation"
-    ],
-    architectureHighlight: "Dynamic multi-variable pricing matrix with real-time geometric calculation engine.",
-    unsplashUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop"
-  }
-];
-
 export default function ProductsPage() {
+  const [productsList, setProductsList] = useState<ProductItem[]>(staticProducts as ProductItem[]);
   const [selectedId, setSelectedId] = useState<string>("caltims");
-  const selectedProduct = products.find((p) => p.id === selectedId) || products[0];
-  const SelectedIcon = selectedProduct.icon;
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  useEffect(() => {
+    fetch("/api/admin/products")
+      .then(res => {
+        if (res.ok) return res.json();
+      })
+      .then(data => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          setProductsList(data);
+          // If the selected product is not in the list, select the first one
+          if (!data.some(p => p.id === selectedId)) {
+            setSelectedId(data[0].id);
+          }
+        }
+      })
+      .catch(err => console.error("Error refreshing products list:", err));
+  }, []);
+
+  // Reset video playback on product change
+  useEffect(() => {
+    setIsPlaying(false);
+  }, [selectedId]);
+
+  const selectedProduct = productsList.find((p) => p.id === selectedId) || productsList[0];
+
+  if (!selectedProduct) return null;
+
+  const SelectedIcon = getIconComponent(selectedProduct.iconName);
+
+  // Parse and render appropriate player
+  const renderVideoPlayer = (url: string, title: string) => {
+    if (!url) {
+      // Fallback sample video
+      return (
+        <video 
+          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          controls
+          autoPlay
+          className="absolute inset-0 w-full h-full object-cover z-20"
+        />
+      );
+    }
+
+    const isYouTube = url.includes("youtube.com") || url.includes("youtu.be");
+    if (isYouTube) {
+      let embedUrl = url;
+      if (url.includes("youtube.com/watch?v=")) {
+        const vidId = url.split("v=")[1]?.split("&")[0];
+        embedUrl = `https://www.youtube.com/embed/${vidId}?autoplay=1`;
+      } else if (url.includes("youtu.be/")) {
+        const vidId = url.split("youtu.be/")[1]?.split("?")[0];
+        embedUrl = `https://www.youtube.com/embed/${vidId}?autoplay=1`;
+      } else if (!url.includes("/embed/")) {
+        embedUrl = `https://www.youtube.com/embed/${url}?autoplay=1`;
+      }
+      return (
+        <iframe 
+          src={embedUrl}
+          title={title}
+          className="absolute inset-0 w-full h-full border-0 z-20"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      );
+    }
+
+    // Direct MP4 link / local file URL
+    return (
+      <video 
+        src={url}
+        controls
+        autoPlay
+        className="absolute inset-0 w-full h-full object-cover z-20"
+      />
+    );
+  };
 
   return (
     <>
@@ -258,60 +141,41 @@ export default function ProductsPage() {
 
           <div className="container-wide relative z-10">
             
-            {/* Top Console Bar */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 mb-8 border-b border-white/10 gap-4">
-              <div>
-                <span className="text-[10px] font-mono tracking-widest text-blue-400 uppercase block mb-1">
-                  CALDIM DAS • Division Console v2.4
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-900 text-white tracking-tight flex items-center gap-2.5">
-                  <Terminal size={24} className="text-blue-400 shrink-0" />
-                  <span>Interactive Product Command Matrix</span>
-                </h2>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-xs font-700 font-mono flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>{products.length} Products Loaded</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Split Screen Grid: Left Side (Selector Dock - 4 Cols) vs Right Side (Cinematic Video Stage - 8 Cols) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div className="grid lg:grid-cols-12 gap-8 items-stretch">
               
-              {/* Left Side: Sleek Product Selector Dock (4 cols) */}
-              <div className="lg:col-span-4 bg-[#020c1b]/80 rounded-3xl p-4 md:p-5 border border-white/10 shadow-2xl flex flex-col justify-between max-h-[720px] overflow-y-auto">
-                <div className="flex flex-col gap-2">
-                  <div className="text-[10px] font-mono tracking-widest uppercase text-blue-300/80 px-3 py-2 border-b border-white/10 flex items-center justify-between">
-                    <span>Select Product Module</span>
-                    <span className="text-white/40">[{products.length} Items]</span>
-                  </div>
-
-                  {products.map((item) => {
-                    const ItemIcon = item.icon;
+              {/* Left Side: Dynamic Selector Panel (4 cols) */}
+              <div className="lg:col-span-4 flex flex-col justify-between">
+                
+                <div className="flex flex-col gap-2.5 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                  {productsList.map((item) => {
                     const isSelected = item.id === selectedId;
+                    const ItemIcon = getIconComponent(item.iconName);
 
                     return (
                       <button
                         key={item.id}
                         onClick={() => setSelectedId(item.id)}
-                        className={`w-full group flex items-center justify-between p-3.5 rounded-2xl text-left transition-all duration-300 ${
-                          isSelected
-                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30 font-800 scale-[1.02] border border-blue-400/40"
-                            : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white font-700 border border-transparent"
+                        className={`w-full text-left p-4 rounded-2xl flex items-center justify-between border transition-all duration-300 group ${
+                          isSelected 
+                            ? "bg-white/10 border-white/20 shadow-lg" 
+                            : "bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10"
                         }`}
+                        style={{
+                          borderLeft: isSelected ? `4px solid ${item.color}` : ""
+                        }}
                       >
-                        <div className="flex items-center gap-3 min-w-0">
+                        <div className="flex items-center gap-3 truncate">
                           <div 
-                            className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all ${
-                              isSelected ? "bg-white/20 text-white shadow-inner" : "bg-[#0A192F] text-blue-400 group-hover:bg-blue-500/20 group-hover:text-white"
-                            }`}
+                            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-white/10"
+                            style={{ 
+                              background: isSelected ? item.color : "rgba(255,255,255,0.05)",
+                              color: isSelected ? "#fff" : item.color
+                            }}
                           >
                             <ItemIcon size={18} />
                           </div>
                           <div className="truncate">
-                            <div className="text-sm font-800 tracking-tight text-white truncate">
+                            <div className="text-sm font-800 tracking-tight truncate">
                               {item.name}
                             </div>
                             <div className="text-[11px] text-white/60 font-500 truncate">
@@ -326,7 +190,6 @@ export default function ProductsPage() {
                   })}
                 </div>
 
-                
               </div>
 
               {/* Right Side: Massive 16:9 Cinematic Video & Telemetry Stage (8 cols) */}
@@ -367,58 +230,65 @@ export default function ProductsPage() {
                         </div>
 
                         <div className="flex items-center gap-2 shrink-0">
-                          
                           <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-800 font-mono">
                             HD Video Ready
                           </span>
                         </div>
                       </div>
 
-                      {/* 16:9 CINEMATIC VIDEO & SCREEN RECORDING STAGE (Pre-wired for videos!) */}
+                      {/* 16:9 CINEMATIC VIDEO & SCREEN RECORDING STAGE */}
                       <div className="relative w-full min-h-[320px] sm:min-h-[400px] md:min-h-[480px] rounded-2xl bg-[#0A192F] border border-white/20 shadow-2xl overflow-hidden mb-7 group flex flex-col items-center justify-center text-center p-6 md:p-10">
-                        {/* Hookup / Poster Image (Tries local image first, falls back to dynamic placeholder) */}
-                        <img 
-                          src={`/images/${selectedProduct.id}-poster.jpg`}
-                          onError={(e) => {
-                            e.currentTarget.onerror = null;
-                            e.currentTarget.src = selectedProduct.unsplashUrl;
-                          }}
-                          alt={`${selectedProduct.name} Preview`}
-                          className="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"
-                        />
                         
-                        {/* Blueprint Grid & Simulated Waveforms inside Video Box */}
-                        <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none mix-blend-overlay" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#020c1b] via-[#020c1b]/60 to-transparent opacity-70 pointer-events-none" />
+                        {isPlaying ? (
+                          renderVideoPlayer(selectedProduct.videoUrl, selectedProduct.mediaTitle)
+                        ) : (
+                          <>
+                            {/* Hookup / Poster Image */}
+                            <img 
+                              src={`/images/${selectedProduct.id}-poster.jpg`}
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = selectedProduct.unsplashUrl;
+                              }}
+                              alt={`${selectedProduct.name} Preview`}
+                              className="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-40 transition-all duration-700 pointer-events-none scale-105 group-hover:scale-100"
+                            />
+                            
+                            {/* Blueprint Grid & Simulated Waveforms inside Video Box */}
+                            <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none mix-blend-overlay" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#020c1b] via-[#020c1b]/60 to-transparent opacity-70 pointer-events-none" />
 
-                        {/* Animated Video Play Center Overlay - Perfectly Centered */}
-                        <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto py-6 max-w-xl mx-auto w-full">
-                          <motion.div 
-                            whileHover={{ scale: 1.12 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-16 h-16 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-[0_0_40px_rgba(37,99,235,0.6)] cursor-pointer mb-4 border-2 border-white/30 group-hover:ring-4 group-hover:ring-blue-400/30 transition-all shrink-0"
-                            title="Launch Video Walkthrough"
-                          >
-                            <Play size={28} className="fill-white ml-1" />
-                          </motion.div>
-                          
-                          <span className="text-xs font-800 tracking-wider uppercase text-blue-300 font-mono mb-1.5 block">
-                            [Interactive Video & Walkthrough Stage]
-                          </span>
-                          <h4 className="text-xl md:text-2xl font-900 text-white tracking-tight drop-shadow mb-2.5">
-                            {selectedProduct.mediaTitle}
-                          </h4>
-                          <p className="text-xs md:text-sm text-slate-300 font-500 max-w-md mx-auto leading-relaxed">
-                            {selectedProduct.videoTagline}. Ready to drop in `<video src="..." />` or interactive product recording!
-                          </p>
-                        </div>
+                            {/* Animated Video Play Center Overlay - Perfectly Centered */}
+                            <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto py-6 max-w-xl mx-auto w-full">
+                              <motion.div 
+                                onClick={() => setIsPlaying(true)}
+                                whileHover={{ scale: 1.12 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-16 h-16 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-[0_0_40px_rgba(37,99,235,0.6)] cursor-pointer mb-4 border-2 border-white/30 group-hover:ring-4 group-hover:ring-blue-400/30 transition-all shrink-0"
+                                title="Launch Video Walkthrough"
+                              >
+                                <Play size={28} className="fill-white ml-1" />
+                              </motion.div>
+                              
+                              <span className="text-xs font-800 tracking-wider uppercase text-blue-300 font-mono mb-1.5 block">
+                                [Interactive Video & Walkthrough Stage]
+                              </span>
+                              <h4 className="text-xl md:text-2xl font-900 text-white tracking-tight drop-shadow mb-2.5">
+                                {selectedProduct.mediaTitle}
+                              </h4>
+                              <p className="text-xs md:text-sm text-slate-300 font-500 max-w-md mx-auto leading-relaxed">
+                                {selectedProduct.videoTagline}. Click Play to watch live screen demo.
+                              </p>
+                            </div>
+                          </>
+                        )}
 
                         {/* Top corner live telemetry badge */}
-                        <div className="absolute top-4 left-4 flex items-center gap-2 text-[10px] font-mono text-white/80 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">
+                        <div className="absolute top-4 left-4 flex items-center gap-2 text-[10px] font-mono text-white/80 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 z-10">
                           <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
                           <span>LIVE FEED PREVIEW • {selectedProduct.id.toUpperCase()}_ENG_STG</span>
                         </div>
-                        <div className="absolute top-4 right-4 text-[10px] font-mono text-blue-300 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">
+                        <div className="absolute top-4 right-4 text-[10px] font-mono text-blue-300 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 z-10">
                           1080p 60FPS
                         </div>
                       </div>
@@ -506,14 +376,13 @@ export default function ProductsPage() {
                       <th className="py-4 px-6 font-800">Module ID</th>
                       <th className="py-4 px-6 font-800">Product Name</th>
                       <th className="py-4 px-6 font-800">Primary Domain / Category</th>
-                      <th className="py-4 px-6 font-800">Deployment Status</th>
                       <th className="py-4 px-6 font-800">Core Capability & Metric</th>
                       <th className="py-4 px-6 font-800 text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-xs sm:text-sm font-700 text-[var(--navy)]">
-                    {products.map((item) => {
-                      const TIcon = item.icon;
+                    {productsList.map((item) => {
+                      const TIcon = getIconComponent(item.iconName);
                       const isSelected = item.id === selectedId;
 
                       return (
@@ -542,7 +411,6 @@ export default function ProductsPage() {
                           <td className="py-4 px-6 text-slate-600 font-600">
                             {item.category}
                           </td>
-                          
                           <td className="py-4 px-6 text-slate-600 font-500 max-w-xs truncate" title={item.metrics[0]}>
                             {item.metrics[0]}
                           </td>

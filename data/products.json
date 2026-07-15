@@ -1,0 +1,1131 @@
+[
+  {
+    "id": "caltims",
+    "name": "CALTIMS",
+    "category": "HR & Payroll Engine",
+    "tagline": "Sync timesheets to payroll instantly.",
+    "description": "Our core timesheet and payroll automation engine. CalTIMS bridges the gap between daily work logs and month-end payroll by calculating leaves, task allocations, and tax deductions automatically without manual intervention.",
+    "contents": "CALTIMS is an AI-powered HR & Payroll solution designed for modern teams. It streamlines timesheet tracking, leave management, and automated payroll processing into a single, intuitive platform. Say goodbye to manual calculations and hello to effortless HR management.",
+    "color": "#3b82f6",
+    "iconName": "Clock",
+    "videoTagline": "Watch 2-Min Payroll Automation & Timesheet Walkthrough",
+    "mediaTitle": "Timesheet & Automated Payroll Telemetry Hub",
+    "architectureHighlight": "Sub-second Zod verified schema verification & real-time leave ledger synchronization.",
+    "metrics": [
+      "Automated Tax & Leave Calculation Engine",
+      "Sub-Second Timesheet & Shift Ledger Sync",
+      "100% Audit-Ready & Statutory Compliance Verification",
+      "Zero Spreadsheet Error Margin across 10,000+ Workers"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Log Weekly Timesheets",
+      "Manage Employee Leaves",
+      "Run Monthly Payroll",
+      "Export Bank Transfers",
+      "Configure Users & Roles",
+      "Generate Custom Reports"
+    ],
+    "features": [
+      {
+        "title": "Log Weekly Timesheets",
+        "desc": "Submits work hours against assigned projects using a clean spreadsheet grid."
+      },
+      {
+        "title": "Manage Employee Leaves",
+        "desc": "Syncs approved time-off requests directly to active timesheet grids automatically."
+      },
+      {
+        "title": "Run Monthly Payroll",
+        "desc": "Auto-calculates earnings, deductions, and tax slabs from approved time logs."
+      },
+      {
+        "title": "Export Bank Transfers",
+        "desc": "Downloads direct banking-portal-ready payment files in one click."
+      },
+      {
+        "title": "Configure Users & Roles",
+        "desc": "Secures sensitive workforce financial data through granular permission tables."
+      },
+      {
+        "title": "Generate Custom Reports",
+        "desc": "Analyzes team utilization and historical payroll costs in seconds."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Save Administrative Days",
+        "desc": "Syncs timesheets directly to payroll to eliminate hours of manual entry."
+      },
+      {
+        "title": "Zero Legal Mistakes",
+        "desc": "Automates Indian tax slabs, PF, and ESI rules to guarantee compliance."
+      },
+      {
+        "title": "Total Project Visibility",
+        "desc": "Displays live employee utilization rates and time allocation on one dashboard."
+      },
+      {
+        "title": "Secure Payroll Privacy",
+        "desc": "Restricts sensitive financial access through module-level permissions and audit logs."
+      }
+    ],
+    "workflow": {
+      "headline": "Automated Track-to-Pay Workflow",
+      "description": "From daily work logs to month-end payroll processing, everything flows seamlessly to ensure accuracy and reduce manual intervention.",
+      "phases": [
+        {
+          "name": "Phase 1: Time & Attendance",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Submit Timesheets",
+              "action": "Timesheet Entry",
+              "details": "Employees record work hours against assigned projects on a spreadsheet grid."
+            },
+            {
+              "number": 2,
+              "name": "Approve Timesheets",
+              "action": "Timesheet Approval",
+              "details": "Managers review submitted timesheets and approve them with one click."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Payroll Processing",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Edit Payroll Profiles",
+              "action": "Profile Assignment",
+              "details": "HR associates employees with custom earning and deduction rules."
+            },
+            {
+              "number": 4,
+              "name": "Run Monthly Payroll",
+              "action": "Payroll Execution",
+              "details": "System computes net salaries, taxes, and loss-of-pay deductions instantly."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Payout & Reporting",
+          "stages": [
+            {
+              "number": 5,
+              "name": "View My Payslips",
+              "action": "PDF Download",
+              "details": "Employees view and download professional branded payslips from their portal."
+            },
+            {
+              "number": 6,
+              "name": "Export Bank Transfer",
+              "action": "Bank File Export",
+              "details": "Finance downloads portal-ready transfer files for bulk banking payments."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "calrims",
+    "name": "CALRIMS",
+    "category": "Recruitment Intelligence",
+    "tagline": "Automate hiring from application to onboarding.",
+    "description": "CALRIMS automates the end-to-end recruitment process by combining intelligent resume screening with interactive, adaptive AI interviews. It is built for HR managers and corporate recruitment teams. It slashes time-to-hire by eliminating manual screening and administrative tasks.",
+    "contents": "CAL-RIMS is a unified recruitment intelligence platform that automates applicant sourcing, intelligent resume screening, virtual interviews, and digital onboarding workflows.",
+    "color": "#8B5CF6",
+    "iconName": "Package",
+    "videoTagline": "Watch Candidate Resume Parsing & Automated Voice Interview Demo",
+    "mediaTitle": "Recruitment Pipeline & Auto-Screening Dashboard",
+    "architectureHighlight": "Encrypted resume parsing with adaptive AI candidate evaluation nodes.",
+    "metrics": [
+      "Automated Candidate Ingestion & Resume Parsing",
+      "Interactive Voice & Text Interview Screenings",
+      "Visual Kanban Pipeline & Stage Enforcement Policies",
+      "Self-Service Digital Onboarding & Document Signatures"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Screen Resumes Instantly",
+      "Conduct AI Interviews",
+      "Ingest Resumes Automatically",
+      "Generate Digital Offers",
+      "Streamline Employee Onboarding",
+      "Track Pipeline Performance"
+    ],
+    "features": [
+      {
+        "title": "Screen Resumes Instantly",
+        "desc": "Ranks applications automatically by extracting candidate skills and scoring job compatibility."
+      },
+      {
+        "title": "Conduct AI Interviews",
+        "desc": "Evaluates candidate skills in real time using adaptive, voice-enabled online assessments."
+      },
+      {
+        "title": "Ingest Resumes Automatically",
+        "desc": "Converts incoming email attachments into structured candidate profiles without manual data entry."
+      },
+      {
+        "title": "Generate Digital Offers",
+        "desc": "Secures hiring commitments with template-based offer letters and automated PDF creation."
+      },
+      {
+        "title": "Streamline Employee Onboarding",
+        "desc": "Completes pre-employment workflows by collecting documents and printing staff ID cards."
+      },
+      {
+        "title": "Track Pipeline Performance",
+        "desc": "Identifies recruitment bottlenecks using live visual dashboards and custom exportable reports."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Shorter Time-to-Hire",
+        "desc": "Automated screening and AI interviewing shrink the hiring cycle from weeks to days."
+      },
+      {
+        "title": "Zero Manual Data Entry",
+        "desc": "Automated email resume parsing eliminates administrative candidate setup tasks entirely."
+      },
+      {
+        "title": "Fair Candidate Evaluation",
+        "desc": "Standardized AI interviews ensure every applicant receives an objective, unbiased screening."
+      },
+      {
+        "title": "Flawless Compliance Audits",
+        "desc": "Immutable digital audit trails log every pipeline transition and offer decision automatically."
+      }
+    ]
+  },
+  {
+    "id": "calbuy",
+    "name": "CALBUY",
+    "category": "Procurement Pipeline",
+    "tagline": "The AI-native procurement operating system.",
+    "description": "CalBuy automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution. Built for procurement officers and sourcing specialists in manufacturing, fabrication, and EPC sectors. Cuts procurement cycle times and reduces material acquisition cost using real-time market intelligence.",
+    "contents": "CALBUY is an AI-powered Procurement portal that turns engineering drawings into validated, cost-estimated Bill of Material(BOM) and vendor RFQs in minutes.",
+    "color": "#10B981",
+    "iconName": "ShoppingCart",
+    "videoTagline": "Watch Automated Requisition & Vendor Approval Pipeline Demo",
+    "mediaTitle": "Multi-Tier Enterprise Procurement Hub",
+    "architectureHighlight": "Multi-signature cryptographic approval routing with ERP ledger injection.",
+    "metrics": [
+      "Automated Multi-Stage Governance Approvals",
+      "Live Vendor Lead Time & Delivery SLA Tracking",
+      "Zero Email Requisition Clutter or Rogue Spend",
+      "Instant 3-Way Invoice Matching & Audit Verification"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Extract BOMs Instantly",
+      "Price Materials Accurately",
+      "Automate Vendor Negotiations",
+      "Rank Supplier Quotes",
+      "Simplify Bid Collection",
+      "Analyze Spending Trends"
+    ],
+    "features": [
+      {
+        "title": "Extract BOMs Instantly",
+        "desc": "Converts engineering drawings into structured digital material lists."
+      },
+      {
+        "title": "Price Materials Accurately",
+        "desc": "Predicts target should-costs using real-time global commodity rates."
+      },
+      {
+        "title": "Automate Vendor Negotiations",
+        "desc": "Generates optimized negotiation strategies and professional email templates."
+      },
+      {
+        "title": "Rank Supplier Quotes",
+        "desc": "Compares multi-vendor bids instantly on a unified commercial matrix."
+      },
+      {
+        "title": "Simplify Bid Collection",
+        "desc": "Gathers quote details directly via secure, password-free vendor portals."
+      },
+      {
+        "title": "Analyze Spending Trends",
+        "desc": "Delivers automated cost-savings reports and procurement audit trails."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "70% Faster Cycle Times",
+        "desc": "Ingests complex drawings and releases RFQs in minutes instead of weeks."
+      },
+      {
+        "title": "15% Lower Material Costs",
+        "desc": "Real-time commodity should-costing prevents overpaying during supplier bidding."
+      },
+      {
+        "title": "Zero Manual Data Entry",
+        "desc": "Intelligent extraction reads line items directly from supplier PDF invoices and quotes."
+      },
+      {
+        "title": "Complete Audit Transparency",
+        "desc": "Logs every step from drawing upload to final PO signature for compliance."
+      }
+    ],
+    "workflow": {
+      "headline": "Drawing to Purchase Order",
+      "description": "CalBuy automates the entire industrial procurement lifecycle from engineering drawing intake to final purchase order execution.",
+      "phases": [
+        {
+          "name": "Phase 1: Demand & Sourcing",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Upload Drawing",
+              "action": "BOM PDF Extraction",
+              "details": "AI extracts parts and materials from engineering drawings automatically."
+            },
+            {
+              "number": 2,
+              "name": "Launch RFQ",
+              "action": "Automated Vendor Invitation",
+              "details": "System groups items into RFQs and invites qualifying suppliers."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Bid Collection",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Gather Quotes",
+              "action": "Public Vendor Portal",
+              "details": "Suppliers submit quote line-items directly via secure web links."
+            },
+            {
+              "number": 4,
+              "name": "Price Materials",
+              "action": "Live Should-Cost Calculation",
+              "details": "System computes target material costs using current global market rates."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Award & Buy",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Negotiate Bids",
+              "action": "AI Strategy Generator",
+              "details": "AI drafts targeted vendor negotiation emails based on pricing data."
+            },
+            {
+              "number": 6,
+              "name": "Issue Order",
+              "action": "Automatic PO Release",
+              "details": "System drafts the purchase order and triggers transactional workflows."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "caltrack",
+    "name": "CALTRACK",
+    "category": "Field Service Management",
+    "tagline": "Master Your Field Service and Payroll Compliance.",
+    "description": "CALTRACK is an end-to-end platform for managing field operations, automated timesheets, and payroll compliance. Built for service-based businesses and mobile workforces, it bridges the gap between customer bookings and field technician dispatching — eliminating labor compliance risks while streamlining your entire mobile workforce.",
+    "contents": "CALTRACK bridges the gap between customer bookings and field technician dispatching. It automates timesheets, GPS clock-in verification, mileage reimbursements, and payroll compliance in one platform — reducing administrative processing time by 90% for mobile workforces.",
+    "color": "#F59E0B",
+    "iconName": "MapPin",
+    "videoTagline": "Watch Live Field Technician Dispatch & GPS Tracking Radar",
+    "mediaTitle": "Smart Dispatch & Mobile Workforce Telemetry",
+    "architectureHighlight": "High-frequency GPS ingestion with real-time labor compliance rules engine.",
+    "metrics": [
+      "Zero Payroll Errors via Automated Calculation",
+      "Real-Time Field Workforce Visibility",
+      "Guaranteed Overtime & Break Compliance",
+      "Seamless Customer Booking & ETA Tracking"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Smart Service Dispatch",
+      "Automated Payroll Engine",
+      "GPS Time Tracking",
+      "Mileage Route Logging",
+      "Customer Booking Portal",
+      "Labor Compliance Engine"
+    ],
+    "features": [
+      {
+        "title": "Smart Service Dispatch",
+        "desc": "Assigns technicians to service requests instantly based on real-time availability — the right person, at the right place, every time."
+      },
+      {
+        "title": "Automated Payroll Engine",
+        "desc": "Calculates gross pay, overtime, and mileage reimbursements instantly for both US and UK compliance rules."
+      },
+      {
+        "title": "GPS Time Tracking",
+        "desc": "Verifies employee locations upon clock-in to ensure field accountability — no more buddy punching or unverified hours."
+      },
+      {
+        "title": "Mileage Route Logging",
+        "desc": "Tracks field travel automatically using compliant IRS and HMRC mileage rates — zero manual entry required."
+      },
+      {
+        "title": "Customer Booking Portal",
+        "desc": "Allows clients to schedule services and track technician arrivals in real time — from booking to doorstep."
+      },
+      {
+        "title": "Labor Compliance Engine",
+        "desc": "Proactively monitors breaks and overtime thresholds to prevent costly labor law violations before they happen."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Zero Payroll Errors",
+        "desc": "Automated timesheet calculations eliminate manual data entry mistakes — payroll that runs itself."
+      },
+      {
+        "title": "Real-Time Field Visibility",
+        "desc": "Track your entire mobile workforce live on a centralized dashboard map, anytime."
+      },
+      {
+        "title": "Seamless Customer Experience",
+        "desc": "Clients stay informed with transparent booking details and live ETA tracking from dispatch to arrival."
+      },
+      {
+        "title": "Guaranteed Labor Compliance",
+        "desc": "Built-in rules engine protects your business from costly overtime and break violations automatically."
+      }
+    ]
+  },
+  {
+    "id": "ai-beauty",
+    "name": "AI Beauty Consultant",
+    "category": "Salon & Spa Management",
+    "tagline": "AI-powered growth for salons and personalized client beauty.",
+    "description": "AI Beauty Consultant automates salon operations while delivering real-time biometric skin and face-shape analysis. Built for modern salon owners and their clients. It seamlessly connects smart online bookings with predictive customer analytics and tailored service recommendations.",
+    "contents": "AI Beauty Consultant automates salon operations while delivering tailored service recommendations based on live biometric scans. It processes image data in under 2 seconds to instantly boost service conversions and tracks booking analytics in real time.",
+    "color": "#EC4899",
+    "iconName": "Sparkles",
+    "videoTagline": "Watch Neural Trend Predictive Analytics & Stock Engine Demo",
+    "mediaTitle": "AI Neural Recommendation & Forecasting Engine",
+    "architectureHighlight": "Custom LLM & time-series neural network trained on retail purchasing vectors.",
+    "metrics": [
+      "Demographic & Regional Trend Forecasting Matrix",
+      "Automated Store Level Stock Count Optimization",
+      "Real-Time Cosmetic Retail Sales Velocity Analytics",
+      "AI-Driven Consumer Preference Pattern Mapping"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Biometric Beauty Analysis",
+      "AI Business Insights",
+      "No-Show Predictor",
+      "Beauty Reels Marketing",
+      "Client Intelligence",
+      "Smart Slot Management"
+    ],
+    "features": [
+      {
+        "title": "Biometric Beauty Analysis",
+        "desc": "Analyzes client facial features in real time to recommend scientifically tailored salon services."
+      },
+      {
+        "title": "AI Business Insights",
+        "desc": "Uses Gemini AI to process your daily booking data and instantly forecast revenue trends."
+      },
+      {
+        "title": "No-Show Predictor",
+        "desc": "Evaluates bookings to flag high-risk appointments so you never face empty chairs."
+      },
+      {
+        "title": "Beauty Reels Marketing",
+        "desc": "Upload engaging video reels directly to the platform to attract and convert local clients."
+      },
+      {
+        "title": "Client Intelligence",
+        "desc": "Tracks individual customer preferences, invoices, and comprehensive booking history in one place."
+      },
+      {
+        "title": "Smart Slot Management",
+        "desc": "Lets clients secure bookings while automatically handling staff allocation and schedule overlaps."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Hyper-Personalized Beauty",
+        "desc": "Advanced CNN models ensure every client receives accurate, data-backed service recommendations."
+      },
+      {
+        "title": "Stop Missing Revenue",
+        "desc": "The predictive No-Show AI prevents last-minute cancellations from hurting your daily income."
+      },
+      {
+        "title": "Real-Time Analytics",
+        "desc": "Get instant, AI-generated reports on your daily performance, confirmed slots, and total revenue."
+      },
+      {
+        "title": "All-in-One Operations",
+        "desc": "Manage staff, inventory, discount coupons, and invoices from a single Shop Owner portal."
+      }
+    ],
+    "workflow": {
+      "headline": "AI Beauty Consultant — Biometric Discovery to Business Analytics",
+      "description": "AI Beauty Consultant automates salon operations while delivering real-time biometric skin and face-shape analysis.",
+      "phases": [
+        {
+          "name": "Phase 1: Discovery & Analysis",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Facial Analysis",
+              "action": "Live Scan",
+              "details": "Clients upload a photo for real-time skin and face-shape AI analysis."
+            },
+            {
+              "number": 2,
+              "name": "Services Matched",
+              "action": "AI Recommendation",
+              "details": "The system recommends specific salon services based on the biometric results."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Booking & Management",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Slot Secured",
+              "action": "Smart Booking",
+              "details": "The client reserves an available time slot with instant confirmation."
+            },
+            {
+              "number": 4,
+              "name": "Risk Evaluated",
+              "action": "No-Show Predictor",
+              "details": "The AI evaluates the new appointment to flag any potential cancellation risk to the owner."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Service & Insights",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Service Completed",
+              "action": "Status Update",
+              "details": "The shop owner marks the appointment complete and generates a digital invoice."
+            },
+            {
+              "number": 6,
+              "name": "Profit Analyzed",
+              "action": "AI Insights",
+              "details": "Gemini AI processes the completed data to generate actionable business performance strategies."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-management",
+    "name": "Project Management",
+    "category": "Engineering Project Management",
+    "tagline": "End-to-End Project Control. Zero Chaos.",
+    "description": "CALDIM PMS manages the full lifecycle of engineering projects — from bid estimation to final payment. Built for project managers, finance teams, and vendors in engineering and construction firms, it eliminates manual tracking, reduces billing errors, and gives leadership real-time project visibility.",
+    "contents": "CALDIM PMS replaces 5+ disconnected spreadsheets with one integrated system that manages bids, projects, change orders, invoices, and vendor payments across the full engineering project lifecycle.",
+    "color": "#6366F1",
+    "iconName": "FolderKanban",
+    "videoTagline": "Watch Industrial Milestone & Delivery Planner Walkthrough",
+    "mediaTitle": "Interactive Gantt & Industrial Milestone Matrix",
+    "architectureHighlight": "Deterministic DAG scheduling engine with automated resource leveling.",
+    "metrics": [
+      "Precision Industrial & Engineering Scheduling",
+      "Automated Task Allocation & Engineer Load Balancing",
+      "Verified Milestone & Phase Gate Verification",
+      "Real-Time Critical Path Bottleneck Detection"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Bid to Project Pipeline",
+      "Live Project Dashboard",
+      "Invoice & Payment Control",
+      "Change Order Management",
+      "Vendor Allocation Engine",
+      "Role-Based Access Control"
+    ],
+    "features": [
+      {
+        "title": "Bid to Project Pipeline",
+        "desc": "Converts approved bid enquiries into live projects instantly — zero re-entry, zero duplication, full continuity."
+      },
+      {
+        "title": "Live Project Dashboard",
+        "desc": "Gives management a real-time view of project status, milestones, hours, and financials — all in one place, always current."
+      },
+      {
+        "title": "Invoice & Payment Control",
+        "desc": "Generates and tracks customer invoices and vendor payments — no more chasing spreadsheets."
+      },
+      {
+        "title": "Change Order Management",
+        "desc": "Captures, prices, and approves change order requests with a full audit trail and hourly rate control — every change documented."
+      },
+      {
+        "title": "Vendor Allocation Engine",
+        "desc": "Assigns vendors to project phases and tracks their deliverables, payments, and change orders centrally across every project."
+      },
+      {
+        "title": "Role-Based Access Control",
+        "desc": "Restricts module access by user role so every team member sees only what they need — secure, clean, and auditable."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "One System, Full Visibility",
+        "desc": "From bid to billing, every project action is tracked in a single platform — no more disconnected spreadsheets."
+      },
+      {
+        "title": "Faster Invoice Cycles",
+        "desc": "Milestone-linked billing and automation cut payment delays significantly — cash flow stays healthy."
+      },
+      {
+        "title": "Vendor Cost Under Control",
+        "desc": "Centralised vendor payment and change order tracking prevents cost overruns before they happen."
+      },
+      {
+        "title": "Built for Engineering Firms",
+        "desc": "Designed around real engineering workflows — not generic templates needing months of setup and customisation."
+      }
+    ],
+    "workflow": {
+      "headline": "CALDIM PMS — Bid to Final Payment",
+      "description": "CALDIM PMS controls every step of the engineering project lifecycle — from the first client enquiry to the final reconciled payment, with zero manual handoffs.",
+      "phases": [
+        {
+          "name": "Phase 1: Estimation",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Log Bid Enquiry",
+              "action": "Bid Entry",
+              "details": "Sales team captures client enquiry with full scope and pricing details into the estimation module."
+            },
+            {
+              "number": 2,
+              "name": "Review Estimation Model",
+              "action": "Management Review",
+              "details": "Management reviews the estimation model summary and approves the bid before it advances to project activation."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Project Execution",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Activate Live Project",
+              "action": "Project Master",
+              "details": "Approved bid converts instantly into a live project with PO phases, milestones, and vendor assignments."
+            },
+            {
+              "number": 4,
+              "name": "Track Hours & Change Orders",
+              "action": "Hours & CORs",
+              "details": "Team logs hours and raises change order requests against the active project — all captured with full audit trail."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Billing & Payments",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Generate Invoice",
+              "action": "Invoice Management",
+              "details": "Milestone-linked invoices are created and sent to the customer for approval — no manual drafting required."
+            },
+            {
+              "number": 6,
+              "name": "Settle Payments",
+              "action": "Payment Master",
+              "details": "Customer and vendor payments are recorded, reconciled, and closed — the project lifecycle is complete."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "calems",
+    "name": "CALEMS",
+    "category": "HR & Employee Management",
+    "tagline": "Streamline employee operations from onboarding to exit.",
+    "description": "CALEMS automates onboarding, attendance tracking, and payroll on a secure multi-tenant platform. Built for modern HR teams and scaling organizations. Cuts administrative workload by 90% through self-service workflows.",
+    "contents": "CALEMS is a secure, multi-tenant HR platform that automates the full employee lifecycle. From paperless onboarding and real-time attendance tracking to payroll processing and policy management — it eliminates 90% of HR administrative workload through intelligent self-service workflows.",
+    "color": "#3B82F6",
+    "iconName": "Package",
+    "videoTagline": "Watch Real-Time Onboarding & Payroll Processing",
+    "mediaTitle": "Digital HR & Employee Lifecycle Command",
+    "architectureHighlight": "Encrypted multi-tenant database with automated compliance audit logging.",
+    "metrics": [
+      "90% Faster Digital Candidate Onboarding",
+      "Real-Time Attendance & Leave Tracking",
+      "Automated Complex Payroll Computation",
+      "Isolated Multi-Tenant Security Architecture"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Manage Candidate Onboarding",
+      "Monitor Attendance Logs",
+      "Streamline Leave Requests",
+      "Process Automated Payroll",
+      "Approve Project Timesheets",
+      "Store Company Policies"
+    ],
+    "features": [
+      {
+        "title": "Manage Candidate Onboarding",
+        "desc": "Onboards new hires with paperless digital document collection and verification."
+      },
+      {
+        "title": "Monitor Attendance Logs",
+        "desc": "Tracks clock-in times and anomalies in real-time."
+      },
+      {
+        "title": "Streamline Leave Requests",
+        "desc": "Requests and approves leaves in seconds with automated balance adjustments."
+      },
+      {
+        "title": "Process Automated Payroll",
+        "desc": "Computes complex salary structures and issues secure, encrypted payslips instantly."
+      },
+      {
+        "title": "Approve Project Timesheets",
+        "desc": "Tracks working hours and allocates team resources to active deliverables."
+      },
+      {
+        "title": "Store Company Policies",
+        "desc": "Files critical organizational documents securely with granular role-based permissions."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "90% Faster Onboarding",
+        "desc": "Eliminates manual data entry and physical paper chasing entirely."
+      },
+      {
+        "title": "Isolated Tenant Data",
+        "desc": "Secures sensitive employee records at the database level for compliance."
+      },
+      {
+        "title": "Effortless Payroll Cycles",
+        "desc": "Calculates payments and deductions automatically without complex spreadsheets."
+      },
+      {
+        "title": "Clear Team Visibility",
+        "desc": "Monitors leaves, attendance, and project timesheets on a live dashboard."
+      }
+    ],
+    "workflow": {
+      "headline": "CALEMS — Hire to Payroll",
+      "description": "CALEMS automates onboarding, attendance tracking, and payroll on a secure multi-tenant platform. Built for modern HR teams and scaling organizations. Cuts administrative workload by 90% through self-service workflows.",
+      "phases": [
+        {
+          "name": "Phase 1: Setup & Onboarding",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Register Your Tenant",
+              "action": "Tenant Account Setup",
+              "details": "Administrator creates the organization account and spins up an isolated database."
+            },
+            {
+              "number": 2,
+              "name": "Complete Document Upload",
+              "action": "Verify Candidate Credentials",
+              "details": "Candidate uploads required identity documents and signs company policies."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Tracking & Absences",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Attendance Check-In",
+              "action": "Log Working Hours",
+              "details": "Employee clocks in through the self-service portal to record daily logs."
+            },
+            {
+              "number": 4,
+              "name": "Request Time Off",
+              "action": "Apply For Leave",
+              "details": "Employee submits leave requests for instant manager review and approval."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Performance & Compensation",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Approve Timesheets",
+              "action": "Allocate Project Resources",
+              "details": "Managers track hours allocated to client deliverables and approve weekly timesheets."
+            },
+            {
+              "number": 6,
+              "name": "Distribute Payslips",
+              "action": "Compensation Processing",
+              "details": "HR calculates monthly payments and releases secure, encrypted digital payslips."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "warehouse-management",
+    "name": "Warehouse Management",
+    "category": "Warehouse Execution & Logistics",
+    "tagline": "Smart Warehouse Execution. Zero Packing Errors.",
+    "description": "This product automates engine-to-accessory matching, packing, and dispatch workflows. Built for floor managers and dispatch operators in industrial manufacturing. Eliminates manual tracking errors and ensures strict dispatch discipline.",
+    "contents": "This product automates engine-to-accessory matching, packing, and dispatch workflows. Built for floor managers and dispatch operators in industrial manufacturing. Eliminates manual tracking errors and ensures strict dispatch discipline.",
+    "color": "#14B8A6",
+    "iconName": "Warehouse",
+    "videoTagline": "Watch Automated Barcode Logging & High-Speed Picking Demo",
+    "mediaTitle": "Warehouse Logistics & Aisle Optimization Matrix",
+    "architectureHighlight": "Sub-millisecond inventory bin indexing with 3D spatial coordinate routing.",
+    "metrics": [
+      "High-Speed Barcode & QR Scanner Telemetry Sync",
+      "Storage Aisle & Pallet Bay Space Optimization",
+      "Automated Picking Checklists & Shipping Verification",
+      "Zero Mis-Shipment Rate across High-Volume Bays"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Live Engine Tracking",
+      "Intelligent Pallet Packing",
+      "Automated ZPL Labeling",
+      "Strict Shipment Validation",
+      "Quick Exception Logging",
+      "ERP Data Synchronization"
+    ],
+    "features": [
+      {
+        "title": "Live Engine Tracking",
+        "desc": "Tracks individual engines and accessories from the production line to final dispatch."
+      },
+      {
+        "title": "Intelligent Pallet Packing",
+        "desc": "Associates engines with specific pallets and racks for optimal space utilization."
+      },
+      {
+        "title": "Automated ZPL Labeling",
+        "desc": "Generates and prints barcode labels instantly directly at the packing workstation."
+      },
+      {
+        "title": "Strict Shipment Validation",
+        "desc": "Validates loaded items against digital manifests to prevent incorrect shipments."
+      },
+      {
+        "title": "Quick Exception Logging",
+        "desc": "Captures damaged goods reports and logs operational exceptions before dispatch."
+      },
+      {
+        "title": "ERP Data Synchronization",
+        "desc": "Syncs all warehouse operations in real time with enterprise MSSQL databases."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Zero Dispatch Errors",
+        "desc": "Automated barcode validation ensures the right engine always goes to the right customer."
+      },
+      {
+        "title": "Real-Time Traceability",
+        "desc": "Every engine movement is logged and visible on a live, centralized dashboard."
+      },
+      {
+        "title": "Cross-Platform Access",
+        "desc": "Run the system effortlessly on mobile devices, tablets, or industrial workstations."
+      },
+      {
+        "title": "Unalterable Audit Trails",
+        "desc": "Complete system event logs maintain total compliance and operational accountability."
+      }
+    ]
+  },
+  {
+    "id": "asset-management",
+    "name": "Asset Management",
+    "category": "Engineering Workflow Automation",
+    "tagline": "Streamline asset requests from concept to production.",
+    "description": "This platform automates the 7-stage engineering asset lifecycle, from initial request to final production. Built for manufacturing engineering teams and designers. Eliminates approval bottlenecks and secures proprietary CAD files.",
+    "contents": "This platform automates the 7-stage engineering asset lifecycle, from initial request to final production. Built for manufacturing engineering teams and designers. Eliminates approval bottlenecks and secures proprietary CAD files.",
+    "color": "#64748B",
+    "iconName": "Cpu",
+    "videoTagline": "Watch Centralized Hardware & License Register Walkthrough",
+    "mediaTitle": "Enterprise Asset Register & Lifecycle Registry",
+    "architectureHighlight": "Immutable audit trail logging with barcode register synchronization.",
+    "metrics": [
+      "Automated Depreciation Schedule & Asset Valuation",
+      "Hardware License & Software Expiry Verification",
+      "Centralized Audit-Ready Lifecycle Asset Register",
+      "Preventive Maintenance Logging & Warranty Tracking"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "7-Stage Smart Routing",
+      "Secure File Quarantine",
+      "Dynamic SLA Tracking",
+      "Role-Based Work Queues",
+      "Centralized Design Library",
+      "Automated Escalation Alerts"
+    ],
+    "features": [
+      {
+        "title": "7-Stage Smart Routing",
+        "desc": "Automatically moves requests through L1, design, checking, and final approvals."
+      },
+      {
+        "title": "Secure File Quarantine",
+        "desc": "Scans all CAD and PDF uploads for viruses before storage."
+      },
+      {
+        "title": "Dynamic SLA Tracking",
+        "desc": "Calculates lead times based on design complexity and alerts on delays."
+      },
+      {
+        "title": "Role-Based Work Queues",
+        "desc": "Shows engineers only the specific tasks assigned to their role."
+      },
+      {
+        "title": "Centralized Design Library",
+        "desc": "Keeps all approved assets and revisions in one searchable location."
+      },
+      {
+        "title": "Automated Escalation Alerts",
+        "desc": "Triggers email notifications instantly when a workflow stage misses its deadline."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Zero Approval Bottlenecks",
+        "desc": "Automated routing guarantees requests never get lost in email threads."
+      },
+      {
+        "title": "Guaranteed Asset Security",
+        "desc": "Strict ClamAV scanning and magic number checks protect your intellectual property."
+      },
+      {
+        "title": "Unmissable Deadlines",
+        "desc": "Real-time SLA tracking keeps every engineer and approver strictly on schedule."
+      },
+      {
+        "title": "Absolute Traceability",
+        "desc": "Every action, rejection, and file upload is permanently logged and audited."
+      }
+    ],
+    "workflow": {
+      "headline": "End-to-End Asset Request Lifecycle",
+      "description": "Asset Management automates the 7-stage engineering asset lifecycle.",
+      "phases": [
+        {
+          "name": "Phase 1: Request & L1 Approval",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Submit Request",
+              "action": "Create Asset",
+              "details": "Engineer submits a new tool or asset requirement with specifications."
+            },
+            {
+              "number": 2,
+              "name": "L1 Validation",
+              "action": "Approve Request",
+              "details": "Manager reviews the request and assigns a target completion timeline."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Design & Verification",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Drafting",
+              "action": "Submit Design",
+              "details": "Assigned designer uploads CAD files through the secure quarantine pipeline."
+            },
+            {
+              "number": 4,
+              "name": "Checking",
+              "action": "Verify Design",
+              "details": "Checker reviews the documents and approves them for final review."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Final Approval & Production",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Sign-Off",
+              "action": "Final Approve",
+              "details": "Head of engineering gives the ultimate sign-off on the design."
+            },
+            {
+              "number": 6,
+              "name": "Implementation",
+              "action": "Advance Production",
+              "details": "Approved design is moved into physical production and marked complete."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "calmisc",
+    "name": "CAL MISC",
+    "category": "Steel Estimation",
+    "tagline": "Generate accurate steel bids in minutes.",
+    "description": "CAL MISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators. Slashes bid turnaround times by 90% while eliminating manual pricing errors.",
+    "contents": "CAL MISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
+    "color": "#F43F5E",
+    "iconName": "Box",
+    "videoTagline": "Watch Real-Time Steel Estimation & Bidding Walkthrough",
+    "mediaTitle": "Structural Steel Proposal & BOM Engine",
+    "architectureHighlight": "Immutable audit trail logging with barcode register synchronization.",
+    "metrics": [
+      "Automated Weight, Scrap & Cost Calculations",
+      "Granular Stair Geometry Estimating Suite",
+      "Print-Ready Proposal PDF Export in One Click",
+      "Auto-Checked Guard Rail Code Compliance"
+    ],
+    "unsplashUrl": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop",
+    "videoUrl": "",
+    "capabilities": [
+      "Configure Stair Geometry",
+      "Attach Rails & Landings",
+      "Calculate Live Costs",
+      "Verify Code Compliance",
+      "Generate Instant Proposals",
+      "Override Pricing Dynamically"
+    ],
+    "features": [
+      {
+        "title": "Configure Stair Geometry",
+        "desc": "Instantly calculates rise, run, slope, and stringer length to prevent alignment errors."
+      },
+      {
+        "title": "Attach Rails & Landings",
+        "desc": "Adjusts hardware and mounting costs automatically as you add handrails, guardrails, or landings."
+      },
+      {
+        "title": "Calculate Live Costs",
+        "desc": "Tracks raw material weight, scrap factors, finish treatments, and labor rates in real time."
+      },
+      {
+        "title": "Verify Code Compliance",
+        "desc": "Flags IBC and OSHA rise/run violations automatically before fabrication begins."
+      },
+      {
+        "title": "Generate Instant Proposals",
+        "desc": "Exports print-ready PDF bids and detailed BOM spreadsheets in one click."
+      },
+      {
+        "title": "Override Pricing Dynamically",
+        "desc": "Adjusts material costs and markups per project for flexible margins."
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "90% Faster Estimations",
+        "desc": "Generate comprehensive bids in minutes instead of spending hours manually compiling spreadsheets."
+      },
+      {
+        "title": "Zero Calculation Mistakes",
+        "desc": "Automated weight, scrap, and finish formulas prevent underbidding and protect your profit margins."
+      },
+      {
+        "title": "Guaranteed Code Compliance",
+        "desc": "Built-in IBC and OSHA validation rules warn you of design violations before they hit the shop floor."
+      },
+      {
+        "title": "Instant Client Trust",
+        "desc": "Deliver professional, granular PDF proposals and Bill of Materials spreadsheets to clients instantly."
+      }
+    ],
+    "workflow": {
+      "headline": "CAL MISC — From Stairs to Print-Ready Bids",
+      "description": "CAL MISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns.",
+      "phases": [
+        {
+          "name": "Phase 1: Configure Stair Geometry",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Input Stair Dimensions",
+              "action": "Define rise and run",
+              "details": "Set the floor-to-floor height, riser limit, and tread width to generate stair slope and stringer length."
+            },
+            {
+              "number": 2,
+              "name": "Select Stringer Style",
+              "action": "Choose profile type",
+              "details": "Pick Channel (MC) or Plate stringers to automatically determine structural weight per foot."
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Customize Components",
+          "stages": [
+            {
+              "number": 3,
+              "name": "Add Handrails",
+              "action": "Select rail type",
+              "details": "Attach guard rails, grab rails, or kick plates to either side of the stair flights."
+            },
+            {
+              "number": 4,
+              "name": "Define Mounting Base",
+              "action": "Set mounting type",
+              "details": "Select Anchored, Embedded, or Welded connections to automatically price required hardware and grout."
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Finalize & Bid",
+          "stages": [
+            {
+              "number": 5,
+              "name": "Apply Surface Finishes",
+              "action": "Select finish treatment",
+              "details": "Choose Primer, Galvanizing, or Powder Coating to instantly calculate surface area pricing."
+            },
+            {
+              "number": 6,
+              "name": "Export Detailed Bid",
+              "action": "Generate PDF/BOM",
+              "details": "Review the live cost summary and download print-ready customer proposals and Excel spreadsheets."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
