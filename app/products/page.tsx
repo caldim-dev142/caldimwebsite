@@ -63,7 +63,12 @@ export default function ProductsPage() {
 
   // Parse and render appropriate player
   const renderVideoPlayer = (url: string, title: string) => {
-    if (!url) {
+    let cleanUrl = url;
+    if (url.startsWith("/var/www/Expo-Page/public")) {
+      cleanUrl = url.replace("/var/www/Expo-Page/public", "");
+    }
+
+    if (!cleanUrl) {
       // Fallback sample video
       return (
         <video 
@@ -75,17 +80,17 @@ export default function ProductsPage() {
       );
     }
 
-    const isYouTube = url.includes("youtube.com") || url.includes("youtu.be");
+    const isYouTube = cleanUrl.includes("youtube.com") || cleanUrl.includes("youtu.be");
     if (isYouTube) {
-      let embedUrl = url;
-      if (url.includes("youtube.com/watch?v=")) {
-        const vidId = url.split("v=")[1]?.split("&")[0];
+      let embedUrl = cleanUrl;
+      if (cleanUrl.includes("youtube.com/watch?v=")) {
+        const vidId = cleanUrl.split("v=")[1]?.split("&")[0];
         embedUrl = `https://www.youtube.com/embed/${vidId}?autoplay=1`;
-      } else if (url.includes("youtu.be/")) {
-        const vidId = url.split("youtu.be/")[1]?.split("?")[0];
+      } else if (cleanUrl.includes("youtu.be/")) {
+        const vidId = cleanUrl.split("youtu.be/")[1]?.split("?")[0];
         embedUrl = `https://www.youtube.com/embed/${vidId}?autoplay=1`;
-      } else if (!url.includes("/embed/")) {
-        embedUrl = `https://www.youtube.com/embed/${url}?autoplay=1`;
+      } else if (!cleanUrl.includes("/embed/")) {
+        embedUrl = `https://www.youtube.com/embed/${cleanUrl}?autoplay=1`;
       }
       return (
         <iframe 
@@ -99,7 +104,7 @@ export default function ProductsPage() {
     }
 
     // Direct MP4 link / local file URL
-    const safeUrl = encodeURI(url);
+    const safeUrl = encodeURI(cleanUrl);
     return (
       <video 
         src={safeUrl}
