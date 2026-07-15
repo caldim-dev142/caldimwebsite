@@ -13,7 +13,6 @@ export default function ContactPage() {
     company: "",
     phone: "",
     service: "Enterprise Web Applications",
-    budget: "Enterprise Core Architecture ($15k - $50k)",
     message: "",
   });
 
@@ -34,7 +33,6 @@ export default function ContactPage() {
 
     const payload = {
       ...formData,
-      message: `[BUDGET SCOPE: ${formData.budget}]\n\n${formData.message}`
     };
 
     try {
@@ -52,7 +50,6 @@ export default function ContactPage() {
           company: "",
           phone: "",
           service: "Enterprise Web Applications",
-          budget: "Enterprise Core Architecture ($15k - $50k)",
           message: "",
         });
         await fetch("/api/track?action=consultation_booked", { method: "POST" }).catch(() => {});
@@ -260,46 +257,26 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      {/* Service & Budget Selects Row */}
-                      <div className="grid sm:grid-cols-2 gap-5">
-                        <div className="flex flex-col gap-2">
-                          <label htmlFor="service" className="text-xs font-800 text-[var(--navy)] uppercase tracking-wider">
-                            Area of Interest *
-                          </label>
-                          <select
-                            id="service"
-                            name="service"
-                            required
-                            value={formData.service}
-                            onChange={handleChange}
-                            className="text-sm font-600 text-slate-900 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition-all"
-                          >
-                            <option value="Enterprise Web Applications">Enterprise Web Applications</option>
-                            <option value="AI & Machine Learning Engine">AI & Machine Learning Engine</option>
-                            <option value="ERP & Custom API Integrations">ERP & Custom API Integrations</option>
-                            <option value="Mobile Applications">Mobile Applications Suite</option>
-                            <option value="Workflow & Telemetry Automation">Workflow & Telemetry Automation</option>
-                            <option value="General Scoping Consultation">General Scoping Consultation</option>
-                          </select>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          <label htmlFor="budget" className="text-xs font-800 text-[var(--navy)] uppercase tracking-wider">
-                            Estimated Project Scope *
-                          </label>
-                          <select
-                            id="budget"
-                            name="budget"
-                            required
-                            value={formData.budget}
-                            onChange={handleChange}
-                            className="text-sm font-600 text-slate-900 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition-all"
-                          >
-                            <option value="Rapid Deployment / MVP (< $15k)">Rapid Deployment / MVP (&lt; $15k)</option>
-                            <option value="Enterprise Core Architecture ($15k - $50k)">Enterprise Core Architecture ($15k - $50k)</option>
-                            <option value="Custom Dedicated Team ($50k+)">Custom Dedicated Team ($50k+)</option>
-                            <option value="To Be Scoped During Call">To Be Scoped During Call</option>
-                          </select>
-                        </div>
+                      {/* Service Select Row */}
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="service" className="text-xs font-800 text-[var(--navy)] uppercase tracking-wider">
+                          Area of Interest *
+                        </label>
+                        <select
+                          id="service"
+                          name="service"
+                          required
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="text-sm font-600 text-slate-900 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition-all"
+                        >
+                          <option value="Enterprise Web Applications">Enterprise Web Applications</option>
+                          <option value="AI & Machine Learning Engine">AI & Machine Learning Engine</option>
+                          <option value="ERP & Custom API Integrations">ERP & Custom API Integrations</option>
+                          <option value="Mobile Applications">Mobile Applications Suite</option>
+                          <option value="Workflow & Telemetry Automation">Workflow & Telemetry Automation</option>
+                          <option value="General Scoping Consultation">General Scoping Consultation</option>
+                        </select>
                       </div>
 
                       {/* Message / Requirements Outline */}
