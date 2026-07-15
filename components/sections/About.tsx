@@ -21,20 +21,25 @@ export const AboutSection: React.FC = () => {
           {/* Left: Copy */}
           <div>
             <FadeUp>
-              <div className="badge badge-accent mb-4">About CALDIM &amp; CALDIM-DAS</div>
+              <div className="badge badge-accent mb-4">About CALDIM</div>
               <h2 id="about-heading" className="text-section-title text-[var(--navy)] mb-6">
-                The CALDIM Group &amp;{" "}
-                <span className="gradient-text-navy">CALDIM-DAS Software Division</span>
+                Engineering Heritage,{" "}
+                <span className="gradient-text-navy">Software Innovation</span>
               </h2>
               <div className="section-divider mb-6" />
-              <p className="text-body-lg mb-4 font-600 text-slate-800">
-                <strong>CALDIM</strong> is a rapidly growing enterprise group with deep technical roots, renowned for precision execution across automotive, manufacturing, and industrial sectors.
+              <p className="text-body-lg mb-4">
+                CALDIM is an engineering company with deep industrial roots. Founded on a foundation of precision engineering and technical excellence, CALDIM has expanded its capabilities to include a dedicated Software Division focused on delivering enterprise-grade digital solutions.
               </p>
-              <p className="text-body mb-8 font-600 text-slate-700">
-                As CALDIM expanded globally, we established <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> as our dedicated, specialized <strong>Software &amp; AI Division</strong>. CALDIM-DAS applies our parent company&apos;s rigorous engineering discipline to architect cutting-edge enterprise software, cloud automation suites, and neural AI platforms for modern businesses worldwide.
-              </p>
+              <div className="p-5 rounded-2xl bg-blue-900/30 border-l-4 border-l-blue-400 border border-blue-500/30 shadow-lg mb-8">
+                <p className="text-slate-200 font-600 text-sm md:text-base leading-relaxed">
+                  <span className="text-blue-300 font-800 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-400/40 inline-block mb-1 shadow-sm">
+                    CALDIM-DAS (Digitalization & Automation Solutions)
+                  </span>{" "}
+                  operates at the intersection of industrial precision and modern cloud architecture. We engineer custom enterprise software, AI-powered tools, and automation systems built for scalability and performance.
+                </p>
+              </div>
               <Link href="/about" className="btn btn-navy inline-flex" id="about-learn-more">
-                Explore CALDIM-DAS Story
+                Learn About CALDIM
                 <ArrowRight size={18} />
               </Link>
             </FadeUp>

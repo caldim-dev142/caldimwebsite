@@ -35,14 +35,14 @@ export default function AboutPage() {
           <div className="container-wide text-center">
             <FadeUp>
               <div className="badge badge-navy font-600 mb-4 inline-flex items-center gap-2">
-                About CALDIM &amp; CALDIM-DAS
+                About CALDIM-DAS
               </div>
               <h1 className="text-4xl md:text-6xl font-900 text-[var(--navy)] tracking-tight mb-6 leading-tight">
-                The CALDIM Group &amp;<br />
-                <span className="gradient-text">CALDIM-DAS Software Division</span>
+                Engineering Heritage,<br />
+                <span className="gradient-text">Software Innovation</span>
               </h1>
-              <p className="text-slate-900 font-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200 inline-block">
-                <strong>CALDIM</strong> is a rapidly expanding industrial enterprise. <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> is our independent, high-growth Software Division focused on architecting enterprise SaaS, AI engines, and cloud automation suites.
+              <p className="text-slate-900 font-700 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm border border-slate-200 inline-block">
+                CALDIM-DAS is an engineering company with deep industrial roots. Our Software Division delivers enterprise-grade digital solutions built on the same precision and discipline as our engineering work.
               </p>
             </FadeUp>
           </div>
@@ -56,20 +56,26 @@ export default function AboutPage() {
               {/* Left Column: Solid White Card to protect text from watermark */}
               <FadeUp className="lg:col-span-7 flex flex-col justify-between bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-300 relative z-20">
                 <div>
-                  <div className="badge badge-accent mb-4 font-700 inline-block">Our Story &amp; Evolution</div>
+                  <div className="badge badge-accent mb-4 font-700 inline-block">Our Story</div>
                   <h2 className="text-3xl md:text-4xl font-900 text-[var(--navy)] mb-6 tracking-tight">
-                    From Industrial Growth to Software Excellence: The Birth of CALDIM-DAS
+                    Built by Engineers, for Engineers
                   </h2>
                   <div className="w-16 h-1 bg-blue-600 rounded-full mb-8" />
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">
-                    <strong>The Growth of CALDIM:</strong> CALDIM originated as a high-precision engineering firm serving top-tier automotive and manufacturing sectors. Through uncompromising quality standards and technical mastery, the CALDIM parent group has continually expanded its global footprint across industrial sectors.
+                    CALDIM began as a precision engineering firm serving the automotive and manufacturing industries. Our work demanded rigorous quality standards, deep technical expertise, and a commitment to getting things right — not just fast.
                   </p>
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">
-                    <strong>The Digitalization Challenge:</strong> As CALDIM and our enterprise partners grew, we recognized a critical operational gap — advanced physical machinery and high-speed facilities were still managed via siloed spreadsheets, manual approvals, and disconnected legacy software.
+                    As our industrial clients grew, we recognized a consistent pattern: advanced machinery and modern factories were still managed through disconnected spreadsheets, manual approvals, and siloed data. The gap between physical engineering excellence and digital operational capability was costing organizations time, money, and opportunities.
                   </p>
-                  <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed">
-                    <strong>The Launch of CALDIM-DAS:</strong> To solve this bottleneck, CALDIM established <strong>CALDIM-DAS (Digitalization &amp; Automation Solutions)</strong> as our dedicated, premier <strong>Software &amp; AI Division</strong>. CALDIM-DAS combines our parent group&apos;s rigorous engineering discipline with modern software architecture to deliver state-of-the-art enterprise platforms, neural AI analytics, and cloud automation workflows.
-                  </p>
+                  <div className="mt-6 p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-blue-50/90 border-l-4 border-l-blue-600 border border-blue-200 shadow-md relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <p className="text-slate-900 font-700 text-base md:text-lg leading-relaxed relative z-10">
+                      <span className="text-blue-700 font-900 bg-blue-100/90 px-2.5 py-0.5 rounded-lg border border-blue-300/70 inline-block mb-1 shadow-sm tracking-tight">
+                        CALDIM-DAS (Digitalization & Automation Solutions)
+                      </span>{" "}
+                      was created to close that gap — by applying the same precision discipline that drives our industrial work to high-end enterprise software development and digital transformation.
+                    </p>
+                  </div>
                 </div>
               </FadeUp>
 
