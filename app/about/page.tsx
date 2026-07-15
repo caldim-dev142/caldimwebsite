@@ -67,13 +67,12 @@ export default function AboutPage() {
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">
                     As our industrial clients grew, we recognized a consistent pattern: advanced machinery and modern factories were still managed through disconnected spreadsheets, manual approvals, and siloed data. The gap between physical engineering excellence and digital operational capability was costing organizations time, money, and opportunities.
                   </p>
-                  <div className="mt-6 p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-blue-50/90 border-l-4 border-l-blue-600 border border-blue-200 shadow-md relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-                    <p className="text-slate-900 font-700 text-base md:text-lg leading-relaxed relative z-10">
-                      <span className="text-blue-700 font-900 bg-blue-100/90 px-2.5 py-0.5 rounded-lg border border-blue-300/70 inline-block mb-1 shadow-sm tracking-tight">
+                  <div className="mt-8 border-l-[4px] border-blue-600 pl-6 py-1 my-6">
+                    <p className="text-xl md:text-2xl font-700 text-[var(--navy)] leading-relaxed tracking-tight">
+                      <span className="text-blue-600 font-900 border-b-2 border-blue-600/30 pb-0.5 inline-block">
                         CALDIM-DAS (Digitalization & Automation Solutions)
                       </span>{" "}
-                      was created to close that gap — by applying the same precision discipline that drives our industrial work to high-end enterprise software development and digital transformation.
+                      was created to close that gap — applying the same precision discipline that drives our industrial work to high-end enterprise software development and digital transformation.
                     </p>
                   </div>
                 </div>
