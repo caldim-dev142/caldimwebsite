@@ -78,14 +78,11 @@ function fillSudokuGrid(grid: number[][]): boolean {
 }
 
 function generateSudoku(): { puzzle: number[][]; solution: number[][] } {
-  // 1. Generate full correct solution grid
   const solution = Array(9).fill(null).map(() => Array(9).fill(0));
   fillSudokuGrid(solution);
 
-  // 2. Clone it for the puzzle
   const puzzle = solution.map(row => [...row]);
 
-  // 3. Remove 48 cells to construct a standard "Medium/Mid-level" Sudoku (leaving 33 clues)
   let cellsToRemove = 48;
   while (cellsToRemove > 0) {
     const r = Math.floor(Math.random() * 9);
@@ -117,7 +114,8 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
 
   const isChessInside = (r: number, c: number) => r >= 0 && r < 8 && c >= 0 && c < 8;
 
-  const getChessMoves = useCallback((r: number, c: number, currentBoard: ChessBoard): [number, number][] => {
+  // 1. Raw geometric moves
+  const getRawChessMoves = useCallback((r: number, c: number, currentBoard: ChessBoard): [number, number][] => {
     const piece = currentBoard[r][c];
     if (!piece) return [];
 
@@ -246,26 +244,66 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     return moves;
   }, []);
 
-  const checkChessGameOver = useCallback((currentBoard: ChessBoard, nextColor: PieceColor) => {
-    let kingExists = false;
+  // 2. Check detector
+  const isKingInCheck = useCallback((color: PieceColor, board: ChessBoard): boolean => {
+    let kingR = -1;
+    let kingC = -1;
     for (let r = 0; r < 8; r++) {
       for (let c = 0; c < 8; c++) {
-        const p = currentBoard[r][c];
-        if (p && p.type === "k" && p.color === nextColor) {
-          kingExists = true;
+        const p = board[r][c];
+        if (p && p.type === "k" && p.color === color) {
+          kingR = r;
+          kingC = c;
           break;
         }
       }
-      if (kingExists) break;
+      if (kingR !== -1) break;
     }
-    if (!kingExists) {
-      const winColor: PieceColor = nextColor === "w" ? "b" : "w";
-      setChessWinner(winColor);
-      setChessStatus(winColor === "w" ? "Victory! King captured." : "Defeat. CPU captured your King.");
-      return true;
+
+    if (kingR === -1) return false;
+
+    const oppColor: PieceColor = color === "w" ? "b" : "w";
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const p = board[r][c];
+        if (p && p.color === oppColor) {
+          const rawMoves = getRawChessMoves(r, c, board);
+          if (rawMoves.some(([tr, tc]) => tr === kingR && tc === kingC)) {
+            return true;
+          }
+        }
+      }
     }
     return false;
-  }, []);
+  }, [getRawChessMoves]);
+
+  // 3. Legal moves (raw moves filtered by checking if they keep own King safe)
+  const getChessMoves = useCallback((r: number, c: number, currentBoard: ChessBoard): [number, number][] => {
+    const piece = currentBoard[r][c];
+    if (!piece) return [];
+    const rawMoves = getRawChessMoves(r, c, currentBoard);
+
+    return rawMoves.filter(([tr, tc]) => {
+      const tempBoard = currentBoard.map(row => [...row]);
+      tempBoard[tr][tc] = tempBoard[r][c];
+      tempBoard[r][c] = null;
+      return !isKingInCheck(piece.color, tempBoard);
+    });
+  }, [getRawChessMoves, isKingInCheck]);
+
+  // 4. Verify if any legal moves exist
+  const hasLegalMoves = useCallback((color: PieceColor, currentBoard: ChessBoard): boolean => {
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const p = currentBoard[r][c];
+        if (p && p.color === color) {
+          const moves = getChessMoves(r, c, currentBoard);
+          if (moves.length > 0) return true;
+        }
+      }
+    }
+    return false;
+  }, [getChessMoves]);
 
   const executeChessMove = useCallback((fromR: number, fromC: number, toR: number, toC: number) => {
     setChessBoard((prev) => {
@@ -279,15 +317,33 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       newBoard[fromR][fromC] = null;
 
       const nextColor = chessTurn === "w" ? "b" : "w";
-      if (!checkChessGameOver(newBoard, nextColor)) {
+      const oppColor: PieceColor = nextColor === "w" ? "b" : "w";
+
+      const inCheck = isKingInCheck(nextColor, newBoard);
+      const hasMoves = hasLegalMoves(nextColor, newBoard);
+
+      if (!hasMoves) {
+        if (inCheck) {
+          setChessWinner(oppColor);
+          setChessStatus(oppColor === "w" ? "Checkmate! You win!" : "Checkmate! CPU wins.");
+        } else {
+          setChessWinner("draw");
+          setChessStatus("Stalemate! Game is a draw.");
+        }
+      } else {
         setChessTurn(nextColor);
-        setChessStatus(nextColor === "w" ? "Your turn. Make a move." : "CPU is playing...");
+        if (inCheck) {
+          setChessStatus(nextColor === "w" ? "Check! Save your King." : "Check! CPU's King is checked.");
+        } else {
+          setChessStatus(nextColor === "w" ? "Your turn. Make a move." : "CPU is playing...");
+        }
       }
+
       return newBoard;
     });
     setChessSelected(null);
     setChessValidMoves([]);
-  }, [chessTurn, checkChessGameOver]);
+  }, [chessTurn, isKingInCheck, hasLegalMoves]);
 
   const handleChessSquareClick = (r: number, c: number) => {
     if (chessTurn !== "w" || chessWinner || chessCpuThinking) return;
@@ -308,7 +364,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     }
   };
 
-  // Helper values for Minimax board evaluator
   const getPieceValue = (type: PieceType): number => {
     const values: Record<PieceType, number> = { p: 10, n: 30, b: 30, r: 50, q: 90, k: 9000 };
     return values[type];
@@ -323,12 +378,10 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
           const val = getPieceValue(p.type);
           if (p.color === "b") {
             score += val;
-            // Center positional control bonus for CPU
             if (r >= 3 && r <= 4 && c >= 3 && c <= 4) score += 2;
             if (p.type === "p") score += r;
           } else {
             score -= val;
-            // Center positional control bonus for Player
             if (r >= 3 && r <= 4 && c >= 3 && c <= 4) score -= 2;
             if (p.type === "p") score -= (7 - r);
           }
@@ -338,19 +391,16 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     return score;
   }, []);
 
-  // --- UPGRADED CHESS AI: 2-PLY LOOKAHEAD MINIMAX SEARCH ---
   const makeChessCpuMove = useCallback(() => {
     setChessCpuThinking(true);
     const cpuMoves: { from: [number, number]; to: [number, number]; score: number }[] = [];
 
-    // Find all legal moves for CPU (Black)
     for (let r = 0; r < 8; r++) {
       for (let c = 0; c < 8; c++) {
         const piece = chessBoard[r][c];
         if (piece && piece.color === "b") {
           const moves = getChessMoves(r, c, chessBoard);
           for (const [tr, tc] of moves) {
-            // 1. Simulate the CPU move
             const tempBoard = chessBoard.map(row => [...row]);
             const target = tempBoard[tr][tc];
             tempBoard[tr][tc] = { ...piece, hasMoved: true };
@@ -358,12 +408,10 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
 
             let cpuMoveScore = evaluateBoard(tempBoard);
 
-            // Prioritize capturing player's King
             if (target && target.type === "k" && target.color === "w") {
               cpuMoveScore += 100000;
             }
 
-            // 2. Look ahead: Simulate Player's (White) best response move
             let bestPlayerResponseScore = -Infinity;
             let hasPlayerMoves = false;
 
@@ -374,12 +422,10 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
                   const playerMoves = getChessMoves(pr, pc, tempBoard);
                   for (const [ptr, ptc] of playerMoves) {
                     hasPlayerMoves = true;
-                    // Simulate Player response
                     const postPlayerBoard = tempBoard.map(row => [...row]);
                     postPlayerBoard[ptr][ptc] = { ...playerPiece, hasMoved: true };
                     postPlayerBoard[pr][pc] = null;
 
-                    // Player wants to maximize their own advantage (making score negative)
                     const playerResponseScore = -evaluateBoard(postPlayerBoard);
                     if (playerResponseScore > bestPlayerResponseScore) {
                       bestPlayerResponseScore = playerResponseScore;
@@ -389,13 +435,11 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
               }
             }
 
-            // Net score for this CPU path: CPU score minus Player response strength
             let netScore = cpuMoveScore;
             if (hasPlayerMoves) {
               netScore -= bestPlayerResponseScore;
             }
 
-            // Add small random noise to prevent playing exactly identical games
             netScore += Math.random() * 2;
 
             cpuMoves.push({ from: [r, c], to: [tr, tc], score: netScore });
@@ -411,7 +455,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       return;
     }
 
-    // Sort descending and select best scoring move
     cpuMoves.sort((a, b) => b.score - a.score);
     const best = cpuMoves[0];
     executeChessMove(best.from[0], best.from[1], best.to[0], best.to[1]);
@@ -430,7 +473,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     setChessTurn("w");
     setChessSelected(null);
     setChessValidMoves([]);
-    setChessStatus("Game reset. Your turn.");
+    setChessStatus("Your turn. Play as White.");
     setChessWinner(null);
   };
 
@@ -443,7 +486,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   const [sudokuStatus, setSudokuStatus] = useState<string>("Fill the grid. Avoid duplicates.");
   const [sudokuWinner, setSudokuWinner] = useState(false);
 
-  // Initialize and load new random Sudoku game board
   const startNewSudokuGame = useCallback(() => {
     const { puzzle, solution } = generateSudoku();
     setSudokuPuzzleState(puzzle);
@@ -459,11 +501,9 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     startNewSudokuGame();
   }, [startNewSudokuGame]);
 
-  // Real-time conflict-checker
   const checkSudokuConflicts = (grid: number[][]) => {
     const conflictCells = new Set<string>();
     
-    // Check rows
     for (let r = 0; r < 9; r++) {
       const seen = new Map<number, number[]>();
       for (let c = 0; c < 9; c++) {
@@ -480,7 +520,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       }
     }
 
-    // Check columns
     for (let c = 0; c < 9; c++) {
       const seen = new Map<number, number[]>();
       for (let r = 0; r < 9; r++) {
@@ -497,7 +536,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       }
     }
 
-    // Check 3x3 subgrids
     for (let blockR = 0; blockR < 3; blockR++) {
       for (let blockC = 0; blockC < 3; blockC++) {
         const seen = new Map<number, [number, number][]>();
@@ -524,7 +562,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
 
   const handleSudokuCellClick = (r: number, c: number) => {
     if (sudokuWinner) return;
-    // Don't select if it's an initial pre-filled cell
     if (sudokuPuzzleState[r] && sudokuPuzzleState[r][c] !== 0) return;
     setSudokuSelected([r, c]);
   };
@@ -539,7 +576,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       const newConflicts = checkSudokuConflicts(newGrid);
       setSudokuConflicts(newConflicts);
 
-      // Check win condition
       let full = true;
       let matches = true;
       for (let rowIdx = 0; rowIdx < 9; rowIdx++) {
@@ -564,7 +600,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     });
   }, [sudokuWinner, sudokuPuzzleState, sudokuSolutionState]);
 
-  // Physical Keyboard Hooks for Sudoku
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (activeTab !== "sudoku" || !sudokuSelected) return;
@@ -583,10 +618,17 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     startNewSudokuGame();
   };
 
+  const isKingChecked = (r: number, c: number): boolean => {
+    const piece = chessBoard[r][c];
+    if (piece && piece.type === "k") {
+      return isKingInCheck(piece.color, chessBoard);
+    }
+    return false;
+  };
+
   return (
     <div className="absolute bottom-[75px] right-0 w-[290px] bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl p-4 flex flex-col gap-3 font-sans text-slate-200 select-none animate-in fade-in slide-in-from-bottom-5 duration-200">
       
-      {/* Header bar and Close action */}
       <div className="flex items-center justify-between border-b border-slate-800 pb-2">
         <div className="flex items-center gap-2">
           <Gamepad2 size={16} className="text-cyan-400 shrink-0" />
@@ -601,7 +643,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
         </button>
       </div>
 
-      {/* Tabs list switch */}
       <div className="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
         <button
           onClick={() => setActiveTab("chess")}
@@ -625,9 +666,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
         </button>
       </div>
 
-      {/* Main Tab Panels */}
       {activeTab === "chess" ? (
-        /* CHESS GAME PANEL */
         <div className="flex flex-col gap-3">
           <div className="relative border border-slate-800 rounded-lg overflow-hidden bg-slate-950 p-1">
             <div className="grid grid-cols-8 gap-0">
@@ -637,6 +676,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
                   const isSelected = chessSelected && chessSelected[0] === rIdx && chessSelected[1] === cIdx;
                   const isValid = chessValidMoves.some(([vr, vc]) => vr === rIdx && vc === cIdx);
                   const isCapture = isValid && chessBoard[rIdx][cIdx] !== null;
+                  const isChecked = isKingChecked(rIdx, cIdx);
 
                   return (
                     <div
@@ -644,7 +684,9 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
                       onClick={() => handleChessSquareClick(rIdx, cIdx)}
                       className={`aspect-square flex items-center justify-center relative cursor-pointer ${
                         isDark ? "bg-slate-800/90" : "bg-slate-300"
-                      } ${isSelected ? "ring-2 ring-amber-400 ring-inset" : ""}`}
+                      } ${isSelected ? "ring-2 ring-amber-400 ring-inset" : ""} ${
+                        isChecked ? "bg-red-500/50 border-2 border-red-500/80 animate-pulse" : ""
+                      }`}
                     >
                       {piece && (
                         <span
@@ -670,7 +712,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
             </div>
           </div>
 
-          {/* Chess controls bar */}
           <div className="flex flex-col gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800">
             <div className="flex items-center justify-between text-[10px]">
               <span className={`font-semibold tracking-wide flex items-center gap-1.5 ${
@@ -696,7 +737,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
           </div>
         </div>
       ) : (
-        /* SUDOKU GAME PANEL */
         <div className="flex flex-col gap-3">
           <div className="border border-slate-800 rounded-lg overflow-hidden bg-slate-950 p-1">
             <div className="grid grid-cols-9 gap-0">
@@ -706,7 +746,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
                   const isSelected = sudokuSelected && sudokuSelected[0] === rIdx && sudokuSelected[1] === cIdx;
                   const hasConflict = sudokuConflicts.has(`${rIdx}-${cIdx}`);
                   
-                  // Subgrid borders
                   const borderR = cIdx % 3 === 2 && cIdx !== 8 ? "border-r border-r-slate-500" : "border-r border-r-slate-800/40";
                   const borderB = rIdx % 3 === 2 && rIdx !== 8 ? "border-b border-b-slate-500" : "border-b border-b-slate-800/40";
 
@@ -730,7 +769,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
             </div>
           </div>
 
-          {/* Sudoku On-Screen Keypad */}
           <div className="grid grid-cols-5 gap-1">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
               <button
@@ -759,7 +797,6 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
             </button>
           </div>
 
-          {/* Sudoku Controls */}
           <div className="flex flex-col gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800">
             <div className="flex items-center justify-between text-[10px]">
               <span className={`font-semibold tracking-wide flex items-center gap-1.5 ${
