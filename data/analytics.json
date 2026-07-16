@@ -1,6 +1,6 @@
 {
   "pageViews": {
-    "/": 1,
+    "/": 2,
     "/about": 0,
     "/services": 0,
     "/products": 0,
@@ -20,6 +20,11 @@
       "timestamp": "2026-07-16T03:47:16.870Z",
       "action": "Page View",
       "details": "/admin/analytics"
+    },
+    {
+      "timestamp": "2026-07-16T04:05:33.419Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }

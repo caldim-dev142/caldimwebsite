@@ -284,6 +284,10 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     const rawMoves = getRawChessMoves(r, c, currentBoard);
 
     return rawMoves.filter(([tr, tc]) => {
+      // Direct King capture is illegal in standard chess rules
+      const target = currentBoard[tr][tc];
+      if (target && target.type === "k") return false;
+
       const tempBoard = currentBoard.map(row => [...row]);
       tempBoard[tr][tc] = tempBoard[r][c];
       tempBoard[r][c] = null;
