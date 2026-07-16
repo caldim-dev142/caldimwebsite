@@ -123,6 +123,13 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Load products list dynamically
   const [productsList, setProductsList] = useState<any[]>(() => {
     return (staticProducts as any[]).map(mapProductToDropdownItem);
@@ -220,6 +227,7 @@ export const Navbar: React.FC = () => {
             {/* Brand Logo - White/Blue theme */}
             <Link
               href="/"
+              onClick={handleLogoClick}
               className="flex items-center gap-3 font-display font-900 text-xl tracking-tight text-white shrink-0 group"
               aria-label="CALDIM home"
             >
