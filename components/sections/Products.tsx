@@ -61,7 +61,7 @@ export const ProductsSection: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start min-h-[600px]">
 
           {/* Left Column: Interactive List */}
-          <div className="lg:col-span-5 flex flex-col gap-2 relative">
+          <div className="lg:col-span-5 lg:h-[600px] lg:overflow-y-auto lg:pr-3 flex flex-col gap-2 relative custom-scrollbar">
             {/* Vertical timeline line */}
             <div className="absolute left-[22px] top-4 bottom-4 w-px bg-slate-800" />
 
