@@ -1000,11 +1000,11 @@
   },
   {
     "id": "calmisc",
-    "name": "CAL MISC",
+    "name": "CALMISC",
     "category": "Steel Estimation",
     "tagline": "Generate accurate steel bids in minutes.",
-    "description": "CAL MISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators. Slashes bid turnaround times by 90% while eliminating manual pricing errors.",
-    "contents": "CAL MISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
+    "description": "CALMISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns. Built specifically for structural steel fabricators and estimators. Slashes bid turnaround times by 90% while eliminating manual pricing errors.",
+    "contents": "CALMISC is built specifically for structural steel fabricators and estimators. It slashes bid turnaround times by 90% while eliminating manual pricing errors for stairs and railings.",
     "color": "#F43F5E",
     "iconName": "Box",
     "videoTagline": "Watch Real-Time Steel Estimation & Bidding Walkthrough",
@@ -1071,8 +1071,8 @@
       }
     ],
     "workflow": {
-      "headline": "CAL MISC — From Stairs to Print-Ready Bids",
-      "description": "CAL MISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns.",
+      "headline": "CALMISC — From Stairs to Print-Ready Bids",
+      "description": "CALMISC generates precise stair, railing, and guard-rail bids with real-time cost breakdowns.",
       "phases": [
         {
           "name": "Phase 1: Configure Stair Geometry",

@@ -113,7 +113,7 @@ const agents = [
   },
   {
     id: "calmisc",
-    title: "CAL MISC Estimation",
+    title: "CALMISC Estimation",
     subtitle: "ESTIMATION AGENT",
     action: "Start Estimating",
     color: "#F43F5E", // Rose

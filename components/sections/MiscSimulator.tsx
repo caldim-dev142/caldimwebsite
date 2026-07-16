@@ -105,7 +105,7 @@ export const MiscSimulator: React.FC = () => {
     <div className="p-6 md:p-8 bg-slate-50 rounded-b-3xl h-full">
       <div className="text-center mb-8 max-w-2xl mx-auto">
         <h2 className="text-2xl font-900 text-slate-900 mb-1">
-          See CAL MISC in Action
+          See CALMISC in Action
         </h2>
         <p className="text-xs text-slate-500 font-600">
           Click through to see the active drawing-to-bid estimation flow live.
