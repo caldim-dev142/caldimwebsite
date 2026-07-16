@@ -109,7 +109,7 @@ export const ProductsSection: React.FC = () => {
           </div>
 
           {/* Right Column: Dynamic Canvas Preview */}
-          <div className="lg:col-span-7 h-[500px] lg:h-[580px] relative lg:sticky lg:top-32">
+          <div className="lg:col-span-7 h-[520px] lg:h-[600px] relative lg:sticky lg:top-32">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProduct.id}
@@ -125,32 +125,32 @@ export const ProductsSection: React.FC = () => {
                 {/* Glowing top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, transparent, ${activeProduct.color}, transparent)` }} />
 
-                <div className="flex-1 p-10 md:p-10 flex flex-col relative z-10 justify-between">
+                <div className="flex-1 p-8 md:p-8 flex flex-col relative z-10 justify-between">
                   <div>
                     {/* Big Icon */}
-                    <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 relative" style={{ background: `${activeProduct.color}15`, border: `1px solid ${activeProduct.color}30` }}>
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 relative" style={{ background: `${activeProduct.color}15`, border: `1px solid ${activeProduct.color}30` }}>
                       <div className="absolute inset-0 blur-xl opacity-50" style={{ background: activeProduct.color }} />
-                      <ActiveIcon size={36} style={{ color: activeProduct.color }} className="relative z-10" />
+                      <ActiveIcon size={30} style={{ color: activeProduct.color }} className="relative z-10" />
                     </div>
 
-                    <h3 className="text-3xl font-900 text-white mb-4 tracking-tight">{activeProduct.name}</h3>
-                    <p className="text-slate-200 font-600 text-lg leading-relaxed max-w-md">
+                    <h3 className="text-2xl font-900 text-white mb-3 tracking-tight">{activeProduct.name}</h3>
+                    <p className="text-slate-200 font-600 text-[15px] leading-relaxed max-w-md">
                       {activeProduct.description}
                     </p>
                   </div>
 
                   {/* Product Overview Text Block */}
-                  <div className="mt-6 flex flex-col gap-3 text-slate-300">
+                  <div className="mt-4 flex flex-col gap-2.5 text-slate-300">
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeProduct.color }} />
                       <span className="text-[9px] font-mono tracking-widest uppercase text-slate-500">Overview</span>
                     </div>
-                    <p className="text-sm font-550 leading-relaxed text-slate-300">
+                    <p className="text-xs font-550 leading-relaxed text-slate-300">
                       {activeProduct.contents}
                     </p>
                   </div>
 
-                  <div className="mt-12 flex items-center gap-4">
+                  <div className="mt-6 flex items-center gap-4">
                     <Link href={`/products/${activeProduct.id}`} className="btn text-white hover:opacity-90 transition-opacity border-none font-bold" style={{ background: activeProduct.color }}>
                       Explore {activeProduct.name} <ArrowRight size={16} />
                     </Link>
