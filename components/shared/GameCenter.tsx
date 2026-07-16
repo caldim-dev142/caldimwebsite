@@ -310,44 +310,42 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   }, [getChessMoves]);
 
   const executeChessMove = useCallback((fromR: number, fromC: number, toR: number, toC: number) => {
-    setChessBoard((prev) => {
-      const newBoard = prev.map((row) => [...row]);
-      const p = newBoard[fromR][fromC];
-      if (p && p.type === "p" && (toR === 0 || toR === 7)) {
-        newBoard[toR][toC] = { type: "q", color: p.color, hasMoved: true };
-      } else {
-        newBoard[toR][toC] = p ? { ...p, hasMoved: true } : null;
-      }
-      newBoard[fromR][fromC] = null;
+    const newBoard = chessBoard.map((row) => [...row]);
+    const p = newBoard[fromR][fromC];
+    if (p && p.type === "p" && (toR === 0 || toR === 7)) {
+      newBoard[toR][toC] = { type: "q", color: p.color, hasMoved: true };
+    } else {
+      newBoard[toR][toC] = p ? { ...p, hasMoved: true } : null;
+    }
+    newBoard[fromR][fromC] = null;
 
-      const nextColor = chessTurn === "w" ? "b" : "w";
-      const oppColor: PieceColor = nextColor === "w" ? "b" : "w";
+    const nextColor = chessTurn === "w" ? "b" : "w";
+    const oppColor: PieceColor = nextColor === "w" ? "b" : "w";
 
-      const inCheck = isKingInCheck(nextColor, newBoard);
-      const hasMoves = hasLegalMoves(nextColor, newBoard);
+    const inCheck = isKingInCheck(nextColor, newBoard);
+    const hasMoves = hasLegalMoves(nextColor, newBoard);
 
-      if (!hasMoves) {
-        if (inCheck) {
-          setChessWinner(oppColor);
-          setChessStatus(oppColor === "w" ? "Checkmate! You win!" : "Checkmate! CPU wins.");
-        } else {
-          setChessWinner("draw");
-          setChessStatus("Stalemate! Game is a draw.");
-        }
-      } else {
-        setChessTurn(nextColor);
-        if (inCheck) {
-          setChessStatus(nextColor === "w" ? "Check! Save your King." : "Check! CPU's King is checked.");
-        } else {
-          setChessStatus(nextColor === "w" ? "Your turn. Make a move." : "CPU is playing...");
-        }
-      }
-
-      return newBoard;
-    });
+    setChessBoard(newBoard);
     setChessSelected(null);
     setChessValidMoves([]);
-  }, [chessTurn, isKingInCheck, hasLegalMoves]);
+
+    if (!hasMoves) {
+      if (inCheck) {
+        setChessWinner(oppColor);
+        setChessStatus(oppColor === "w" ? "Checkmate! You win!" : "Checkmate! CPU wins.");
+      } else {
+        setChessWinner("draw");
+        setChessStatus("Stalemate! Game is a draw.");
+      }
+    } else {
+      setChessTurn(nextColor);
+      if (inCheck) {
+        setChessStatus(nextColor === "w" ? "Check! Save your King." : "Check! CPU's King is checked.");
+      } else {
+        setChessStatus(nextColor === "w" ? "Your turn. Make a move." : "CPU is playing...");
+      }
+    }
+  }, [chessBoard, chessTurn, isKingInCheck, hasLegalMoves]);
 
   const handleChessSquareClick = (r: number, c: number) => {
     if (chessTurn !== "w" || chessWinner || chessCpuThinking) return;
@@ -573,36 +571,34 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   const setSudokuVal = useCallback((r: number, c: number, val: number) => {
     if ((sudokuPuzzleState[r] && sudokuPuzzleState[r][c] !== 0) || sudokuWinner) return;
 
-    setSudokuBoard((prev) => {
-      const newGrid = prev.map(row => [...row]);
-      newGrid[r][c] = val;
+    const newGrid = sudokuBoard.map(row => [...row]);
+    newGrid[r][c] = val;
 
-      const newConflicts = checkSudokuConflicts(newGrid);
-      setSudokuConflicts(newConflicts);
-
-      let full = true;
-      let matches = true;
-      for (let rowIdx = 0; rowIdx < 9; rowIdx++) {
-        for (let colIdx = 0; colIdx < 9; colIdx++) {
-          if (newGrid[rowIdx][colIdx] === 0) full = false;
-          if (sudokuSolutionState[rowIdx] && newGrid[rowIdx][colIdx] !== sudokuSolutionState[rowIdx][colIdx]) {
-            matches = false;
-          }
+    const newConflicts = checkSudokuConflicts(newGrid);
+    
+    let full = true;
+    let matches = true;
+    for (let rowIdx = 0; rowIdx < 9; rowIdx++) {
+      for (let colIdx = 0; colIdx < 9; colIdx++) {
+        if (newGrid[rowIdx][colIdx] === 0) full = false;
+        if (sudokuSolutionState[rowIdx] && newGrid[rowIdx][colIdx] !== sudokuSolutionState[rowIdx][colIdx]) {
+          matches = false;
         }
       }
+    }
 
-      if (full && matches && newConflicts.size === 0) {
-        setSudokuWinner(true);
-        setSudokuStatus("Victory! Puzzle completed.");
-      } else if (newConflicts.size > 0) {
-        setSudokuStatus("Conflict detected! Double check entries.");
-      } else {
-        setSudokuStatus("Keep going! Fill all cells correctly.");
-      }
+    setSudokuBoard(newGrid);
+    setSudokuConflicts(newConflicts);
 
-      return newGrid;
-    });
-  }, [sudokuWinner, sudokuPuzzleState, sudokuSolutionState]);
+    if (full && matches && newConflicts.size === 0) {
+      setSudokuWinner(true);
+      setSudokuStatus("Victory! Puzzle completed.");
+    } else if (newConflicts.size > 0) {
+      setSudokuStatus("Conflict detected! Double check entries.");
+    } else {
+      setSudokuStatus("Keep going! Fill all cells correctly.");
+    }
+  }, [sudokuBoard, sudokuPuzzleState, sudokuSolutionState, sudokuWinner]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
