@@ -99,9 +99,9 @@ const HeroDashboard: React.FC = () => {
                 {/* Metric cards row */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { label: "Active Projects", value: "24", delta: "+3 this week", color: "var(--accent-light)" },
-                    { label: "System Uptime", value: "99.9%", delta: "SLA Guaranteed", color: "#10B981" },
-                    { label: "API Requests", value: "1.2M", delta: "/day average", color: "#F59E0B" },
+                    { label: "Agent Autonomy", value: "94.2%", delta: "Autonomous Fleet", color: "var(--accent-light)" },
+                    { label: "Inference Speed", value: "185ms", delta: "Gemini-Flash Core", color: "#10B981" },
+                    { label: "Orchestrated Tasks", value: "3.4M", delta: "Completed today", color: "#F59E0B" },
                   ].map((metric) => (
                     <div
                       key={metric.label}
@@ -123,7 +123,7 @@ const HeroDashboard: React.FC = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-white/80 text-xs font-700 flex items-center gap-1.5">
                       <BarChart3 size={13} className="text-[var(--accent-light)]" />
-                      System Activity Stream
+                      AI Token Inference Velocity
                     </span>
                     <span className="text-[10px] font-700 text-[#10B981] bg-[#10B981]/20 px-2 py-0.5 rounded-full flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
@@ -165,14 +165,14 @@ const HeroDashboard: React.FC = () => {
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
                 >
                   <div className="text-white/70 text-[11px] font-700 mb-2 flex items-center justify-between">
-                    <span>Recent System Events</span>
+                    <span>Recent Agentic Operations</span>
                     <span className="text-white/40 font-mono text-[9px]">UTC 14:28:09</span>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     {[
-                      { status: "AUTO-APPROVED", msg: "Procurement workflow triggered (#9281)", color: "#10B981" },
-                      { status: "SYNCED", msg: "Data pipeline completed (1.2M rows)", color: "var(--accent-light)" },
-                      { status: "DEPLOYED", msg: "v2.4.1 pushed to production cluster", color: "#F59E0B" },
+                      { status: "AGENT CALBUY", msg: "Negotiated 12% saving with steel supplier", color: "#10B981" },
+                      { status: "AGENT CALRIMS", msg: "Scanned 1,240 resumes & invited 3 leads to screening", color: "var(--accent-light)" },
+                      { status: "AGENT CALTIMS", msg: "Flagged shift anomaly & updated payroll profile", color: "#F59E0B" },
                     ].map((log) => (
                       <div key={log.msg} className="flex items-center gap-2 text-[11px]">
                         <span
@@ -530,8 +530,8 @@ const HeroDashboard: React.FC = () => {
             <Shield size={14} className="text-green-400" />
           </div>
           <div>
-            <div className="text-white text-xs font-600">Enterprise Security</div>
-            <div className="text-green-400 text-[11px]">ISO 27001 Ready</div>
+            <div className="text-white text-xs font-600">94.2% Autonomy</div>
+            <div className="text-green-400 text-[11px]">Agentic Workflow Fleet</div>
           </div>
         </div>
       </motion.div>
@@ -553,8 +553,8 @@ const HeroDashboard: React.FC = () => {
             <Zap size={14} className="text-[var(--accent-light)]" />
           </div>
           <div>
-            <div className="text-white text-xs font-600">AI-Powered</div>
-            <div className="text-[var(--accent-light)] text-[11px]">Intelligent automation</div>
+            <div className="text-white text-xs font-600">Gemini-Flash Core</div>
+            <div className="text-[var(--accent-light)] text-[11px]">Sub-185ms Inference</div>
           </div>
         </div>
       </motion.div>
