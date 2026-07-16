@@ -46,31 +46,58 @@ const chessPieceSymbols: Record<PieceColor, Record<PieceType, string>> = {
   b: { p: "♟", r: "♜", n: "♞", b: "♝", q: "♛", k: "♚" },
 };
 
-// --- Types & Constants for SUDOKU ---
-const sudokuPuzzle = [
-  [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 9, 5, 0, 0, 0],
-  [0, 9, 8, 0, 0, 0, 0, 6, 0],
-  [8, 0, 0, 0, 6, 0, 0, 0, 3],
-  [4, 0, 0, 8, 0, 3, 0, 0, 1],
-  [7, 0, 0, 0, 2, 0, 0, 0, 6],
-  [0, 6, 0, 0, 0, 0, 2, 8, 0],
-  [0, 0, 0, 4, 1, 9, 0, 0, 5],
-  [0, 0, 0, 0, 8, 0, 0, 7, 9],
-];
+// --- Programmatic Sudoku Generator Functions ---
+function isValidSudokuPlace(grid: number[][], r: number, c: number, val: number): boolean {
+  for (let i = 0; i < 9; i++) {
+    if (grid[r][i] === val) return false;
+    if (grid[i][c] === val) return false;
+    const boxR = Math.floor(r / 3) * 3 + Math.floor(i / 3);
+    const boxC = Math.floor(c / 3) * 3 + (i % 3);
+    if (grid[boxR][boxC] === val) return false;
+  }
+  return true;
+}
 
-// Complete solution for victory checking
-const sudokuSolution = [
-  [5, 3, 4, 6, 7, 8, 9, 1, 2],
-  [6, 7, 2, 1, 9, 5, 3, 4, 8],
-  [1, 9, 8, 3, 4, 2, 5, 6, 7],
-  [8, 5, 9, 7, 6, 1, 4, 2, 3],
-  [4, 2, 6, 8, 5, 3, 7, 9, 1],
-  [7, 1, 3, 9, 2, 4, 8, 5, 6],
-  [9, 6, 1, 5, 3, 7, 2, 8, 4],
-  [2, 8, 7, 4, 1, 9, 6, 3, 5],
-  [3, 4, 5, 2, 8, 6, 1, 7, 9],
-];
+function fillSudokuGrid(grid: number[][]): boolean {
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      if (grid[r][c] === 0) {
+        const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9].sort(() => Math.random() - 0.5);
+        for (const val of nums) {
+          if (isValidSudokuPlace(grid, r, c, val)) {
+            grid[r][c] = val;
+            if (fillSudokuGrid(grid)) return true;
+            grid[r][c] = 0;
+          }
+        }
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function generateSudoku(): { puzzle: number[][]; solution: number[][] } {
+  // 1. Generate full correct solution grid
+  const solution = Array(9).fill(null).map(() => Array(9).fill(0));
+  fillSudokuGrid(solution);
+
+  // 2. Clone it for the puzzle
+  const puzzle = solution.map(row => [...row]);
+
+  // 3. Remove 48 cells to construct a standard "Medium/Mid-level" Sudoku (leaving 33 clues)
+  let cellsToRemove = 48;
+  while (cellsToRemove > 0) {
+    const r = Math.floor(Math.random() * 9);
+    const c = Math.floor(Math.random() * 9);
+    if (puzzle[r][c] !== 0) {
+      puzzle[r][c] = 0;
+      cellsToRemove--;
+    }
+  }
+
+  return { puzzle, solution };
+}
 
 interface GameCenterProps {
   onClose: () => void;
@@ -281,44 +308,115 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     }
   };
 
+  // Helper values for Minimax board evaluator
+  const getPieceValue = (type: PieceType): number => {
+    const values: Record<PieceType, number> = { p: 10, n: 30, b: 30, r: 50, q: 90, k: 9000 };
+    return values[type];
+  };
+
+  const evaluateBoard = useCallback((board: ChessBoard): number => {
+    let score = 0;
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const p = board[r][c];
+        if (p) {
+          const val = getPieceValue(p.type);
+          if (p.color === "b") {
+            score += val;
+            // Center positional control bonus for CPU
+            if (r >= 3 && r <= 4 && c >= 3 && c <= 4) score += 2;
+            if (p.type === "p") score += r;
+          } else {
+            score -= val;
+            // Center positional control bonus for Player
+            if (r >= 3 && r <= 4 && c >= 3 && c <= 4) score -= 2;
+            if (p.type === "p") score -= (7 - r);
+          }
+        }
+      }
+    }
+    return score;
+  }, []);
+
+  // --- UPGRADED CHESS AI: 2-PLY LOOKAHEAD MINIMAX SEARCH ---
   const makeChessCpuMove = useCallback(() => {
     setChessCpuThinking(true);
-    const allMoves: { from: [number, number]; to: [number, number]; score: number }[] = [];
+    const cpuMoves: { from: [number, number]; to: [number, number]; score: number }[] = [];
 
+    // Find all legal moves for CPU (Black)
     for (let r = 0; r < 8; r++) {
       for (let c = 0; c < 8; c++) {
         const piece = chessBoard[r][c];
         if (piece && piece.color === "b") {
           const moves = getChessMoves(r, c, chessBoard);
           for (const [tr, tc] of moves) {
-            let score = 0;
-            const target = chessBoard[tr][tc];
-            if (target) {
-              const values: Record<PieceType, number> = { p: 10, n: 30, b: 30, r: 50, q: 90, k: 10000 };
-              score += values[target.type] * 10;
-            }
-            if (piece.type === "p") score += tr;
-            if (tr >= 3 && tr <= 4 && tc >= 3 && tc <= 4) score += 2;
-            score += Math.random() * 5;
+            // 1. Simulate the CPU move
+            const tempBoard = chessBoard.map(row => [...row]);
+            const target = tempBoard[tr][tc];
+            tempBoard[tr][tc] = { ...piece, hasMoved: true };
+            tempBoard[r][c] = null;
 
-            allMoves.push({ from: [r, c], to: [tr, tc], score });
+            let cpuMoveScore = evaluateBoard(tempBoard);
+
+            // Prioritize capturing player's King
+            if (target && target.type === "k" && target.color === "w") {
+              cpuMoveScore += 100000;
+            }
+
+            // 2. Look ahead: Simulate Player's (White) best response move
+            let bestPlayerResponseScore = -Infinity;
+            let hasPlayerMoves = false;
+
+            for (let pr = 0; pr < 8; pr++) {
+              for (let pc = 0; pc < 8; pc++) {
+                const playerPiece = tempBoard[pr][pc];
+                if (playerPiece && playerPiece.color === "w") {
+                  const playerMoves = getChessMoves(pr, pc, tempBoard);
+                  for (const [ptr, ptc] of playerMoves) {
+                    hasPlayerMoves = true;
+                    // Simulate Player response
+                    const postPlayerBoard = tempBoard.map(row => [...row]);
+                    postPlayerBoard[ptr][ptc] = { ...playerPiece, hasMoved: true };
+                    postPlayerBoard[pr][pc] = null;
+
+                    // Player wants to maximize their own advantage (making score negative)
+                    const playerResponseScore = -evaluateBoard(postPlayerBoard);
+                    if (playerResponseScore > bestPlayerResponseScore) {
+                      bestPlayerResponseScore = playerResponseScore;
+                    }
+                  }
+                }
+              }
+            }
+
+            // Net score for this CPU path: CPU score minus Player response strength
+            let netScore = cpuMoveScore;
+            if (hasPlayerMoves) {
+              netScore -= bestPlayerResponseScore;
+            }
+
+            // Add small random noise to prevent playing exactly identical games
+            netScore += Math.random() * 2;
+
+            cpuMoves.push({ from: [r, c], to: [tr, tc], score: netScore });
           }
         }
       }
     }
 
-    if (allMoves.length === 0) {
+    if (cpuMoves.length === 0) {
       setChessWinner("w");
       setChessStatus("Victory! CPU has no moves.");
       setChessCpuThinking(false);
       return;
     }
 
-    allMoves.sort((a, b) => b.score - a.score);
-    const best = allMoves[0];
+    // Sort descending and select best scoring move
+    cpuMoves.sort((a, b) => b.score - a.score);
+    const best = cpuMoves[0];
     executeChessMove(best.from[0], best.from[1], best.to[0], best.to[1]);
     setChessCpuThinking(false);
-  }, [chessBoard, getChessMoves, executeChessMove]);
+  }, [chessBoard, getChessMoves, executeChessMove, evaluateBoard]);
 
   useEffect(() => {
     if (activeTab === "chess" && chessTurn === "b" && !chessWinner) {
@@ -337,11 +435,29 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   };
 
   // --- SUDOKU STATE & LOGIC ---
-  const [sudokuBoard, setSudokuBoard] = useState<number[][]>(sudokuPuzzle.map(r => [...r]));
+  const [sudokuPuzzleState, setSudokuPuzzleState] = useState<number[][]>([]);
+  const [sudokuSolutionState, setSudokuSolutionState] = useState<number[][]>([]);
+  const [sudokuBoard, setSudokuBoard] = useState<number[][]>([]);
   const [sudokuSelected, setSudokuSelected] = useState<[number, number] | null>(null);
   const [sudokuConflicts, setSudokuConflicts] = useState<Set<string>>(new Set());
   const [sudokuStatus, setSudokuStatus] = useState<string>("Fill the grid. Avoid duplicates.");
   const [sudokuWinner, setSudokuWinner] = useState(false);
+
+  // Initialize and load new random Sudoku game board
+  const startNewSudokuGame = useCallback(() => {
+    const { puzzle, solution } = generateSudoku();
+    setSudokuPuzzleState(puzzle);
+    setSudokuSolutionState(solution);
+    setSudokuBoard(puzzle.map(row => [...row]));
+    setSudokuSelected(null);
+    setSudokuConflicts(new Set());
+    setSudokuStatus("Fill the grid. Avoid duplicates.");
+    setSudokuWinner(false);
+  }, []);
+
+  useEffect(() => {
+    startNewSudokuGame();
+  }, [startNewSudokuGame]);
 
   // Real-time conflict-checker
   const checkSudokuConflicts = (grid: number[][]) => {
@@ -409,12 +525,12 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   const handleSudokuCellClick = (r: number, c: number) => {
     if (sudokuWinner) return;
     // Don't select if it's an initial pre-filled cell
-    if (sudokuPuzzle[r][c] !== 0) return;
+    if (sudokuPuzzleState[r] && sudokuPuzzleState[r][c] !== 0) return;
     setSudokuSelected([r, c]);
   };
 
   const setSudokuVal = useCallback((r: number, c: number, val: number) => {
-    if (sudokuPuzzle[r][c] !== 0 || sudokuWinner) return;
+    if ((sudokuPuzzleState[r] && sudokuPuzzleState[r][c] !== 0) || sudokuWinner) return;
 
     setSudokuBoard((prev) => {
       const newGrid = prev.map(row => [...row]);
@@ -423,13 +539,15 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
       const newConflicts = checkSudokuConflicts(newGrid);
       setSudokuConflicts(newConflicts);
 
-      // Check win condition (full grid with no conflicts matching solution)
+      // Check win condition
       let full = true;
       let matches = true;
       for (let rowIdx = 0; rowIdx < 9; rowIdx++) {
         for (let colIdx = 0; colIdx < 9; colIdx++) {
           if (newGrid[rowIdx][colIdx] === 0) full = false;
-          if (newGrid[rowIdx][colIdx] !== sudokuSolution[rowIdx][colIdx]) matches = false;
+          if (sudokuSolutionState[rowIdx] && newGrid[rowIdx][colIdx] !== sudokuSolutionState[rowIdx][colIdx]) {
+            matches = false;
+          }
         }
       }
 
@@ -444,7 +562,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
 
       return newGrid;
     });
-  }, [sudokuWinner]);
+  }, [sudokuWinner, sudokuPuzzleState, sudokuSolutionState]);
 
   // Physical Keyboard Hooks for Sudoku
   useEffect(() => {
@@ -462,11 +580,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
   }, [activeTab, sudokuSelected, setSudokuVal]);
 
   const resetSudoku = () => {
-    setSudokuBoard(sudokuPuzzle.map(r => [...r]));
-    setSudokuSelected(null);
-    setSudokuConflicts(new Set());
-    setSudokuStatus("Fill the grid. Avoid duplicates.");
-    setSudokuWinner(false);
+    startNewSudokuGame();
   };
 
   return (
@@ -497,7 +611,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
               : "text-slate-400 hover:text-slate-200"
           }`}
         >
-          ♔ Chess
+          ♔ Chess (Mid AI)
         </button>
         <button
           onClick={() => setActiveTab("sudoku")}
@@ -507,7 +621,7 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
               : "text-slate-400 hover:text-slate-200"
           }`}
         >
-          🔢 Sudoku
+          🔢 Sudoku (Mid)
         </button>
       </div>
 
@@ -588,11 +702,11 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
             <div className="grid grid-cols-9 gap-0">
               {sudokuBoard.map((row, rIdx) =>
                 row.map((val, cIdx) => {
-                  const isPreset = sudokuPuzzle[rIdx][cIdx] !== 0;
+                  const isPreset = sudokuPuzzleState[rIdx] && sudokuPuzzleState[rIdx][cIdx] !== 0;
                   const isSelected = sudokuSelected && sudokuSelected[0] === rIdx && sudokuSelected[1] === cIdx;
                   const hasConflict = sudokuConflicts.has(`${rIdx}-${cIdx}`);
                   
-                  // Subgrid thicker borders calculation
+                  // Subgrid borders
                   const borderR = cIdx % 3 === 2 && cIdx !== 8 ? "border-r border-r-slate-500" : "border-r border-r-slate-800/40";
                   const borderB = rIdx % 3 === 2 && rIdx !== 8 ? "border-b border-b-slate-500" : "border-b border-b-slate-800/40";
 
@@ -672,3 +786,5 @@ export const GameCenter: React.FC<GameCenterProps> = ({ onClose }) => {
     </div>
   );
 };
+
+export default GameCenter;
