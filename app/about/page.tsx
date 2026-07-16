@@ -58,7 +58,7 @@ export default function AboutPage() {
                 <div>
                   <div className="badge badge-accent mb-4 font-700 inline-block">Our Story</div>
                   <h2 className="text-3xl md:text-4xl font-900 text-[var(--navy)] mb-6 tracking-tight">
-                    Built by Engineers, for Engineers
+                    Software Engineered for the Modern Enterprise
                   </h2>
                   <div className="w-16 h-1 bg-blue-600 rounded-full mb-8" />
                   <p className="text-slate-900 font-600 text-base md:text-lg leading-relaxed mb-5">

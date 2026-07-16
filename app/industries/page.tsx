@@ -222,7 +222,7 @@ export default function IndustriesPage() {
                 Physical-to-Digital Highway
               </h1>
               <p className="text-slate-600 font-medium text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
-                We don't use cards or tabbed boxes here. Scroll down our panoramic **Architecture Highway** to inspect how CALDIM transforms the physical operations of each major industry layer by layer.
+                We don't use cards or tabbed boxes here. Scroll down our panoramic Architecture Highway to inspect how CALDIM transforms the physical operations of each major industry layer by layer.
               </p>
             </FadeUp>
           </div>

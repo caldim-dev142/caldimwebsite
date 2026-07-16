@@ -1,7 +1,7 @@
 [
   {
     "id": "caltims",
-    "name": "CAL-TIMS",
+    "name": "CALTIMS",
     "category": "HR & Payroll Engine",
     "tagline": "Sync timesheets to payroll instantly.",
     "description": "Our core timesheet and payroll automation engine. CalTIMS bridges the gap between daily work logs and month-end payroll by calculating leaves, task allocations, and tax deductions automatically without manual intervention.",
