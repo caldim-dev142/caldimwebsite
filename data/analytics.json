@@ -1,12 +1,12 @@
 {
   "pageViews": {
-    "/": 4,
-    "/about": 0,
+    "/": 6,
+    "/about": 2,
     "/services": 0,
     "/products": 1,
     "/contact": 0,
     "/admin/analytics": 1,
-    "/privacy": 2
+    "/privacy": 4
   },
   "events": {
     "consultation_booked": 0
@@ -51,6 +51,36 @@
       "timestamp": "2026-07-16T08:20:45.155Z",
       "action": "Page View",
       "details": "/privacy"
+    },
+    {
+      "timestamp": "2026-07-16T08:27:59.777Z",
+      "action": "Page View",
+      "details": "/privacy"
+    },
+    {
+      "timestamp": "2026-07-16T08:28:13.359Z",
+      "action": "Page View",
+      "details": "/privacy"
+    },
+    {
+      "timestamp": "2026-07-16T08:28:16.684Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-16T08:28:21.950Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-16T08:28:27.939Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-16T08:28:38.079Z",
+      "action": "Page View",
+      "details": "/"
     }
   ]
 }

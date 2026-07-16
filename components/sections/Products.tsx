@@ -109,7 +109,7 @@ export const ProductsSection: React.FC = () => {
           </div>
 
           {/* Right Column: Dynamic Canvas Preview */}
-          <div className="lg:col-span-7 h-[500px] lg:h-full relative lg:sticky lg:top-32">
+          <div className="lg:col-span-7 h-[500px] lg:h-[580px] relative lg:sticky lg:top-32">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProduct.id}
