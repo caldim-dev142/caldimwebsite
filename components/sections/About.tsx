@@ -31,7 +31,7 @@ export const AboutSection: React.FC = () => {
                 CALDIM is an engineering company with deep industrial roots. Founded on a foundation of precision engineering and technical excellence, CALDIM has expanded its capabilities to include a dedicated Software Division focused on delivering enterprise-grade digital solutions.
               </p>
               <div className="mt-6 border-l-[4px] border-blue-400 pl-6 py-1 mb-8">
-                <p className="text-lg md:text-xl font-700 text-white leading-relaxed tracking-tight">
+                <p className="text-lg md:text-xl font-700 text-[var(--navy)] leading-relaxed tracking-tight">
                   <span className="text-blue-400 font-900 border-b-2 border-blue-400/30 pb-0.5 inline-block">
                     CALDIM-DAS (Digitalization & Automation Solutions)
                   </span>{" "}
