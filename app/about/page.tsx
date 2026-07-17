@@ -82,7 +82,7 @@ export default function AboutPage() {
               <FadeUp delay={0.2} className="lg:col-span-5 flex flex-col justify-between gap-6 relative z-20">
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { label: "Founded", value: "2016s" },
+                    { label: "Founded", value: "2016" },
                     { label: "Software Division", value: "2025" },
                     { label: "Products", value: "10+" },
                     { label: "Industries", value: "5+" },

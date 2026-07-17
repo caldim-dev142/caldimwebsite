@@ -1,14 +1,14 @@
 {
   "pageViews": {
-    "/": 3,
-    "/about": 2,
+    "/": 10,
+    "/about": 4,
     "/services": 0,
     "/products": 0,
-    "/contact": 0,
-    "/industries": 1
+    "/contact": 2,
+    "/industries": 2
   },
   "events": {
-    "consultation_booked": 0
+    "consultation_booked": 1
   },
   "logs": [
     {
@@ -38,6 +38,71 @@
     },
     {
       "timestamp": "2026-07-16T10:13:08.784Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-16T10:23:23.756Z",
+      "action": "Page View",
+      "details": "/industries"
+    },
+    {
+      "timestamp": "2026-07-16T11:01:19.107Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-16T11:10:34.702Z",
+      "action": "Event Trigger",
+      "details": "consultation_booked"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:00.837Z",
+      "action": "Page View",
+      "details": "/contact"
+    },
+    {
+      "timestamp": "2026-07-16T12:19:01.313Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-16T12:45:15.401Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-16T13:08:34.848Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-17T04:46:54.630Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-17T04:52:18.171Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-17T04:52:25.965Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-17T04:52:33.882Z",
+      "action": "Page View",
+      "details": "/about"
+    },
+    {
+      "timestamp": "2026-07-17T04:53:18.094Z",
+      "action": "Page View",
+      "details": "/"
+    },
+    {
+      "timestamp": "2026-07-17T04:58:23.913Z",
       "action": "Page View",
       "details": "/about"
     }

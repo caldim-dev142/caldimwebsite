@@ -51,7 +51,7 @@ export const CTASection: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="btn btn-primary btn-lg" id="cta-consultation-btn">
-              Book a Consultation
+              Schedule a Demo
               <ArrowRight size={18} />
             </Link>
             <Link

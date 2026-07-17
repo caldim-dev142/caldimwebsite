@@ -665,7 +665,7 @@ export const HeroSection: React.FC = () => {
               className="flex flex-wrap gap-4"
             >
               <Link href="/contact" className="btn btn-primary btn-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/10 transition-all duration-200" id="hero-cta-primary">
-                Book a Consultation
+                Schedule a Demo
                 <ArrowRight size={18} />
               </Link>
               <Link
@@ -686,8 +686,8 @@ export const HeroSection: React.FC = () => {
               className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-6"
             >
               {[
-                { value: "1+", label: "Years Engineering" },
-                { value: "15+", label: "Projects Delivered" },
+                { value: "1+", label: "Years" },
+                { value: "15+", label: "Products" },
                 { value: "10+", label: "Enterprise Products" },
               ].map(({ value, label }) => (
                 <div key={label}>

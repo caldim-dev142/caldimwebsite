@@ -7,9 +7,9 @@ import { ArrowRight, Factory, Cog, Award, Users } from "lucide-react";
 import { FadeUp, Counter } from "../animations/Animations";
 
 const highlights = [
-  { icon: Factory, value: 1, suffix: "+", label: "Years of Engineering" },
+  { icon: Factory, value: 1, suffix: "+", label: "Years" },
   { icon: Users, value: 5, suffix: "+", label: "Clients Served" },
-  { icon: Award, value: 15, suffix: "+", label: "Projects Delivered" },
+  { icon: Award, value: 15, suffix: "+", label: "Products" },
   { icon: Cog, value: 10, suffix: "+", label: "Enterprise Products" },
 ];
 
@@ -23,12 +23,12 @@ export const AboutSection: React.FC = () => {
             <FadeUp>
               <div className="badge badge-accent mb-4">About CALDIM</div>
               <h2 id="about-heading" className="text-section-title text-[var(--navy)] mb-6">
-                Engineering Heritage,{" "}
+                Engineering Excellence Meets{" "}
                 <span className="gradient-text-navy">Software Innovation</span>
               </h2>
               <div className="section-divider mb-6" />
               <p className="text-body-lg mb-4">
-                CALDIM is an engineering company with deep industrial roots. Founded on a foundation of precision engineering and technical excellence, CALDIM has expanded its capabilities to include a dedicated Software Division focused on delivering enterprise-grade digital solutions.
+                CALDIM is an engineering company built on a strong foundation of precision, innovation, and technical excellence. With deep industrial expertise, CALDIM has expanded its capabilities through a dedicated Software Division, delivering enterprise-grade digital solutions for businesses across industries.
               </p>
               <div className="mt-6 border-l-[4px] border-blue-400 pl-6 py-1 mb-8">
                 <p className="text-lg md:text-xl font-700 text-[var(--navy)] leading-relaxed tracking-tight">
